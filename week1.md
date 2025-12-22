@@ -157,20 +157,12 @@ This strategy enables safe remote administration while preserving isolation, mak
 ---
 
 ## 7. CLI-Based System Specification Verification
-
-All verification commands were executed on the **SERVER system**, not the workstation.
+Standard Linux command-line tools were used to verify the system requirements.
+The SERVER system, not the workstation, was used to run all of the tasks listed below.
 
 ---
 
 ### I. Headless Server and CLI-Only Environment Verification
-
-```bash
-
-
-## II. Kernel and Architecture
-Standard Linux command-line tools were used to verify the system requirements.
-The SERVER system, not the workstation, was used to run all of the tasks listed below.
-I.	 Headless Server and CLI-Only Environment Verification
 Further command-line tests were carried out to verify that the server is functioning as a headless system without a graphical user interface. These checks confirm that no display environment is active and that the system is operating in a multi-user, non-graphical target.
 Command(Server): 
 echo $DISPLAY
@@ -181,7 +173,8 @@ systemctl get-default
 There is no active graphical display session, as confirmed by the echo $DISPLAY command, which produced no result. The system boots into a non-graphical, command-line-only operating mode, as confirmed by the return of multi-user.target from the systemctl get-default command. This verifies that the server is functioning as a real headless Linux system, providing safe, resource-efficient remote administration over SSH and conforming to professional server deployment guidelines.
 
 
-II.	Kernel and Architecture
+
+## II. Kernel and Architecture
 Command (SERVER): uname -a
 
  
@@ -190,14 +183,14 @@ Command (SERVER): uname -a
 The Linux kernel version, system architecture, and operating system information of the server were confirmed using the uname -a command. This attests to the server's 64-bit Linux kernel, which is appropriate for safe and effective server operation.
 
 
-III.	Memory Information
+### III.	Memory Information
 Command (Server): free -h
 
  
  
 Memory utilization was shown in a human-readable format using the free -h command. This establishes a baseline for upcoming performance monitoring and optimization by verifying the server's swap configuration, total system memory, and memory use.
 
-IV.	Disk Usage
+### IV.	Disk Usage
 Command(Server): df -h
  
 
@@ -205,28 +198,28 @@ Command(Server): df -h
 
 
 
-V.	Network Interfaces and IP Addressing
+### V.	Network Interfaces and IP Addressing
 Command(Server): ip addr
  
 
 The server's given IP addresses for each network interface were shown using the ip addr command. The output verifies that VirtualBox networking has given the primary network interface (enp0s3) a private IPv4 address and that it is operational. This confirms that the server can perform safe remote administration using SSH and is properly linked to the virtual network.
 
-VI.	Distribution and Version Confirmation
+## VI.	Distribution and Version Confirmation
 Command(Server): lsb_release -a
  
 
-VII.	System Identification(Hostname Verification)
+## VII.	System Identification(Hostname Verification)
 Command(Server): hostname
  
 
 The hostname of the system was found using the hostname command. In order to assist uniquely identify the system for remote administration, monitoring, and log analysis, the output verifies that the server is named usha. In multi-system situations, assigning and confirming a hostname is crucial to preventing confusion while using SSH to remotely manage servers.
 
-VIII.	Routing Table and Default Network Path Verification
+## VIII.	Routing Table and Default Network Path Verification
 Command(Server): ip route
  
 The ip route command specifies how network traffic is forwarded and shows the system's routing table. The output verifies that the server communicates within the 192.168.56.0/24 private network using the enp0s3 network interface. This confirms that the server has an active connection to the virtual network used for SSH-based remote administration, a legitimate network route, and an appropriately assigned source IP address. In order to preserve network isolation, which is necessary for secure system management and subsequent firewall configuration, this routing configuration guarantees dependable internal connectivity between the workstation and the headless server.
 
-8.	Evidence and Documentation Strategy
+### 8.	Evidence and Documentation Strategy
 Every piece of evidence gathered during Week 1:
 •	demonstrates command-line expertise
 •	Verifies that the system was installed correctly

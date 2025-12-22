@@ -496,6 +496,7 @@ During Week 3, the following proof was gathered:
 -	CPU and memory utilisation data
 -	Disk usage and I/O statistics
 -	Screenshots of CLI command execution
+  
 In order to ensure CLI-only administration and adherence to the coursework requirement, each piece of evidence was obtained using an SSH session started on the workstation (workstation terminal) while connected to the server. Consistent findings were obtained by repeatedly executing all monitoring commands under the same idle system settings. Timestamps and visible shell prompts usha@usha (username@hostname) are included in screenshots to guarantee outcomes are repeatable and auditable.
 
 

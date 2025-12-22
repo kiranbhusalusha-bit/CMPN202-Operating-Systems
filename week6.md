@@ -54,8 +54,8 @@ When taken as a whole, these findings provide the server with a stable baseline 
 These figures serve as the benchmark for subsequent comparisons.
 
 ## 4.	Application Load Testing
-Controlled stress testing was done to mimic real-world workloads.
-CPU Stress Test
+## Controlled stress testing was done to mimic real-world workloads
+## CPU Stress Test
 
 Command(Server):
 
@@ -71,7 +71,7 @@ stress-ng --cpu 2 --timeout 60s
 The command stress-ng gave an error since the parameter of the time out was not specified properly. The value assigned to -timeout has to be numerical and to add an additional -timeout flag was put in which made the tool to read it as non-numeric value. This mistake reminds about the fact that when conducting performance testing, close attention should be paid to the syntax of a command. Once the problem with the syntax had been identified it was formalized that the command syntax was fixed so that correct CPU stress testing could be performed in future runs.
 
 
-Memory Stress test
+## Memory Stress test
 Command(Server):
 
 stress-ng --vm 1 --vm-bytes 512M --timeout 60s
@@ -80,7 +80,7 @@ stress-ng --vm 1 --vm-bytes 512M --timeout 60s
  
 One virtual memory stressor (vm 1) was started with the allocation of 512 MB of RAM. The duration of the stress test was 60 seconds. The system was able to handle the workload error free (failed: 0). None of the unreliable metrics were reported (metrics unreliable: 0). The test was successfully finished, thus proving that the server has the ability to withstand moderate memory load and still be stable. This finding shows that the memory management in the system is effective when it is loaded. The server was also stable and responsive throughout the stress period, which is appropriate to be optimised in further performance and security testing.
 
-Disk I/O Test
+## Disk I/O Test
 Command(Server):
 
 sudo apt install sysstat -y
@@ -91,6 +91,7 @@ iostat -dx 2 5
 The performance of disk input/output was analysed and potential storage bottlenecks were determined using iostat -dx 2 5 command. This control is used to report long disk statistics at frequent intervals, so that the disk behaviour at varying levels of activity can be observed. It is indicated in the output that the main disk (sda) has limited and moderate read/write access, average wait times are low, and the disk utilisation is below the percentages. The I/O activity of most intervals is near-zero, which shows that the system storage is not being subjected to constant load. The loop device (loop0) has little activity which is expected. In general, these findings prove that disk I/O is not a test performance bottleneck. The low utilisation and low wait times indicate effective disk performance, and this will give a stable baseline which can be used to analyse the system behaviour with higher workload and after optimisation
 
 ## 5.	Network Performance Analysis
+
 SSH responsiveness and data transfer efficiency were assessed by measuring network latency and throughput.
 
 Latency Testing
@@ -103,7 +104,7 @@ ping -c 10 192.168.56.4
 Network latency and reliability of transmitting packets between the workstation and the headless server through the Host-Only VirtualBox were measured using the ping command. To measure the round trip response time and connectivity stability, ten ICMP echo requests were posted to the server. The findings indicate that there are no losses of packets and this indicates that there is a stable network communication. The round-trip times are very low (less than milliseconds on average) which implies low latency and high-performing internal network. This proves that there are no delays that are introduced by network connection when performing SSH-based remote administration or performance testing. Generally, the output indicates that it provides a consistent, low-latency virtual network that can be used to construct controlled performance testing and security testing.
 	
 
-Network Throughput Testing
+## Network Throughput Testing
 Command:
 
 sudo apt install iperf3 -y
@@ -114,7 +115,7 @@ iperf3 -s
 The iperf3 was installed to measure network throughput between the workstation and the headless server. The output helps in confirming that the server already had iperf3 installed and bang up to date. To start the server in the default port 5201 in listening mode, run the following command iperf3 -s. It is the message of the server listening at port 5201 which proves that the server is ready to receive the performance test connection by the workstation. This will be necessary in the controlled network throughput testing, so that data transfer rate and network performance can be measured accurately in the isolated VirtualBox host-only network.
 
 
-From Workstation
+## From Workstation
 Command: 
 
 iperf3 -c 192.168.56.4

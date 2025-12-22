@@ -147,7 +147,7 @@ Two optimisation measures were implemented:
 
 systemctl list-unit-files --type=service --state=enabled
 sudo systemctl disable apport.service
-
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c1b1739b472bbe4f471932e9a3c38e09741ae2e5/images/week6/Screenshot%202025-12-22%20124117.png)
 
 ## Optimisation 2: Reduce Swappiness:
 

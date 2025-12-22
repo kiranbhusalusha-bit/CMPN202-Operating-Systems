@@ -9,6 +9,9 @@ The configuration, security, and performance of a Linux operating system run sol
 
 Week 1's goals are to outline the system architecture, explain operating system selections, specify networking and workstation choices, and use CLI-based system inspection commands to confirm the server environment. This creates a strong technical basis for performance testing, security hardening, and optimization in the future.By creating a secure, headless server environment and enforcing exclusive command-line-based administration, this phase directly supports:
 
+- **LO3** – Security assessment and protection mechanisms  
+- **LO4** – Command-line proficiency for system configuration and inspection  
+
 ---
 
 ## 2. System Architecture Overview

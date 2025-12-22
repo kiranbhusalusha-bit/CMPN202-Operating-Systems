@@ -1110,7 +1110,6 @@ A thorough assessment of Linux operating system performance under various worklo
 
 
 
-
 ## Week 7 - Security Audit and System Evaluation
 
 ## 1.	Introduction

@@ -165,7 +165,9 @@ The SERVER system, not the workstation, was used to run all of the tasks listed 
 ### I. Headless Server and CLI-Only Environment Verification
 Further command-line tests were carried out to verify that the server is functioning as a headless system without a graphical user interface. These checks confirm that no display environment is active and that the system is operating in a multi-user, non-graphical target.
 Command(Server): 
+
 echo $DISPLAY
+
 systemctl get-default
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/echo%20%24DISPLAY.png)
  

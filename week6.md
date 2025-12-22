@@ -56,9 +56,12 @@ These figures serve as the benchmark for subsequent comparisons.
 ## 4.	Application Load Testing
 Controlled stress testing was done to mimic real-world workloads.
 CPU Stress Test
+
 Command(Server):
 
+
 sudo apt install stress-ng -y
+
 stress-ng --cpu 2 --timeout 60s
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/sudo%20apt%20install%20stress-ng%20-y1.png)

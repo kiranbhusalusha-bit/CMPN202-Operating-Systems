@@ -223,14 +223,14 @@ The ip route command specifies how network traffic is forwarded and shows the sy
 
 ### 8.	Evidence and Documentation Strategy
 Every piece of evidence gathered during Week 1:
-•	demonstrates command-line expertise
-•	Verifies that the system was installed correctly
-•	creates a baseline setup for the system.
+--	demonstrates command-line expertise
+--	Verifies that the system was installed correctly
+--	creates a baseline setup for the system.
 
 Screenshot Include:
-•	Execution of commands
-•	Visibility of output
-•	Prompt for the server terminal
+--	Execution of commands
+--	Visibility of output
+--	Prompt for the server terminal
 
 Transparency is guaranteed by this methodical evidence approach, which also facilitates future performance and security assessments. Timestamps and visible command prompts are included in every screenshot to guarantee auditability and repeatability of outcomes. Unless otherwise noted, every command included in this section was run on a fresh Ubuntu Server 22.04 LTS installation with the default system settings. This guarantees that the outcomes can be repeated in similar settings. To enable independent verification of results, command outputs, timestamps, and visible shell prompts (username@hostname) are given.
 

@@ -828,7 +828,7 @@ Screenshot
 
 ## 5.	Security Baseline Verification Script (Server)
 ## I.	Create Script
-            Command (Server via SSH): nano security-baseline.sh
+        Command (Server via SSH): nano security-baseline.sh
 
 ## II.	Script Content
 #!/usr/bin/env bash

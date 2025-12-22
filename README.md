@@ -317,17 +317,17 @@ Frequent patching reduces vulnerabilities brought on by out-of-date software.
 
 ## v.	User Privilege Management
 
-•	Create a non-root administrative user
-•	Apply the principle of least privilege
-•	Restrict sudo access to required commands only
-•	Disable or remove unnecessary user accounts
+-	Create a non-root administrative user
+-	Apply the principle of least privilege
+-	Restrict sudo access to required commands only
+-	Disable or remove unnecessary user accounts
 This restricts system compromise and stops privilege escalation.
 
 ## vi.	Network Security
 
-•	Restrict network access using firewall rules
-•	Limit exposed services
-•	Monitor network activity for suspicious behaviour
+-	Restrict network access using firewall rules
+-	Limit exposed services
+-	Monitor network activity for suspicious behaviour
 Controlled and auditable server access is ensured by network security measures.
 
 ## 4.	Threat Model and Mitigation Strategies
@@ -337,42 +337,42 @@ Threat modeling defines suitable mitigation measures and pinpoints actual hazard
 ## Threat 1: Brute-Force SSH Attacks
 Description: To obtain unauthorized SSH access, attackers may try multiple login attempts.
 Potential Impact:
-•	Unauthorised server access
-•	Data compromise
-•	Service disruption
+-	Unauthorised server access
+-	Data compromise
+-	Service disruption
 Mitigation Strategy:
-•	Disable password authentication
-•	Use SSH key-based authentication
-•	Deploy intrusion prevention mechanisms
-•	Restrict SSH access using firewall rules
+-	Disable password authentication
+-	Use SSH key-based authentication
+-	Deploy intrusion prevention mechanisms
+-	Restrict SSH access using firewall rules
 ## Threat2: Privilege Escalation (Compromised User Account)
 Description: Elevated system rights may be sought for by a compromised user account.
 Potential Impact:
-•	Full system compromise
-•	Modification of security configurations
+-	Full system compromise
+-	Modification of security configurations
 Mitigation Strategy:
-•	Use non-root administrative accounts
-•	Restrict sudo permissions
-•	Enforce mandatory access control
-•	Regularly audit user privileges
+-	Use non-root administrative accounts
+-	Restrict sudo permissions
+-	Enforce mandatory access control
+-	Regularly audit user privileges
 ## Threat3: Misconfigured or Unnecessary Services
 Description: Misconfigured or superfluous services could leave the system vulnerable to abuse.
 Potential Impact:
-•	Increased attack surface
-•	Data leakage or denial of service
+-	Increased attack surface
+-	Data leakage or denial of service
 Mitigation Strategy:
-•	Minimal service installation
-•	Firewall default-deny policy
-•	Regular service auditing
-•	System hardening practices
+-	Minimal service installation
+-	Firewall default-deny policy
+-	Regular service auditing
+-	System hardening practices
 
 ## 5.	Evidence Collection and Documentation Plan
 Description: Evidence gathered in upcoming weeks will consist of:
-•	Command outputs
-•	Configuration files
-•	Performance logs
-•	Screenshots of monitoring activities
-•	Tables and graphs illustrating performance trends
+-	Command outputs
+-	Configuration files
+-	Performance logs
+-	Screenshots of monitoring activities
+-	Tables and graphs illustrating performance trends
 To promote openness, reproducibility, and evaluation, every piece of evidence will be properly labeled
  and incorporated into the GitHub journal. To guarantee that results can be replicated and independently confirmed, all evidence will be timestamped and recorded using standard command syntax.
 
@@ -395,10 +395,10 @@ By gathering baseline observations of system behavior under typical operating co
 
 Linux manages running programs as processes, each with a unique process identifier (PID), priority, and resource allocation. The kernel scheduler is responsible for allocating CPU time among active processes to ensure fairness and efficiency.
 Processes may be:
-•	Running
-•	Sleeping
-•	Stopped
-•	Zombie (terminated but not yet cleaned up)
+-	Running
+-	Sleeping
+-	Stopped
+-	Zombie (terminated but not yet cleaned up)
 It is essential to comprehend these stages to identify misbehaving programs and diagnose performance problems.
 
 ## 3.	CLI-Based Process Observation
@@ -491,10 +491,10 @@ While concurrency increases throughput, it can also cause issues like resource c
 ## 9.	Evidence and Documentation
 
 During Week 3, the following proof was gathered:
-•	Process listings and monitoring outputs
-•	CPU and memory utilisation data
-•	Disk usage and I/O statistics
-•	Screenshots of CLI command execution
+-	Process listings and monitoring outputs
+-	CPU and memory utilisation data
+-	Disk usage and I/O statistics
+-	Screenshots of CLI command execution
 In order to ensure CLI-only administration and adherence to the coursework requirement, each piece of evidence was obtained using an SSH session started on the workstation (workstation terminal) while connected to the server. Consistent findings were obtained by repeatedly executing all monitoring commands under the same idle system settings. Timestamps and visible shell prompts usha@usha (username@hostname) are included in screenshots to guarantee outcomes are repeatable and auditable.
 
 
@@ -571,11 +571,11 @@ Command(Server): sudo nano /etc/ssh/sshd_config
 ![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20nano%20etc%20ssh%20sshd_config.png)
 
 The following security settings were applied:
-•	Disable root login:
+-	Disable root login:
 PermitRootLogin no
-•	Disable password authentication:
+-	Disable password authentication:
 PasswordAuthentication no
-•	Ensure public key authentication is enabled:
+-	Ensure public key authentication is enabled:
 PubkeyAuthentication yes
 
 
@@ -717,12 +717,12 @@ When taken as a whole, this data supports the proper implementation of firewall 
 
 ## 9.	Evidence and Documentation
 In Week 4, the following proof was gathered:
-•	Screenshots of successful SSH access (workstation → server)
-•	SSH key creation and installation results
-•	Documentation for sshd_config before and after changes
-•	Evidence of UFW ruleset and firewall status
-•	Commands for managing users (adduser, usermod, id, groups)
-•	Executing commands remotely from a workstation via SSH
+-	Screenshots of successful SSH access (workstation → server)
+-	SSH key creation and installation results
+-	Documentation for sshd_config before and after changes
+-	Evidence of UFW ruleset and firewall status
+-	Commands for managing users (adduser, usermod, id, groups)
+-	Executing commands remotely from a workstation via SSH
 
 To guarantee clarity and auditability, every screenshot displays the output and the command prompt usha@usha(username@hostname).
 
@@ -939,12 +939,12 @@ chmod +x monitor-server.sh
 
 ## 7.	Evidence Summary
 Evidence collected during Week 5 includes:
-•	Automatic security update configuration
-•	fail2ban SSH intrusion prevention
-•	Security baseline verification script execution
-•	Remote monitoring script output
-•	All evidence captured via SSH with visible CLI prompts
-•	AppArmor enforcement status
+-	Automatic security update configuration
+-	fail2ban SSH intrusion prevention
+-	Security baseline verification script execution
+-	Remote monitoring script output
+-	All evidence captured via SSH with visible CLI prompts
+-	AppArmor enforcement status
 
 ## 8.	Conclusion
 The headless Linux server's security and monitoring features were greatly improved in week five. Intrusion protection, automated patch management, and mandatory access control were all successfully put into place. The system was ready for security auditing and performance evaluation in later coursework rounds thanks to automation scripts that made repeatable verification and remote performance monitoring possible.
@@ -986,10 +986,10 @@ ip addr
 
 
              Baseline Observations
-•	Low processing demand is indicated by CPU load averages near 0.00.
-•	With the maximum RAM available, memory use is minimal.
-•	With little I/O activity, disk consumption stays constant.
-•	There is little network traffic, indicating that the system is idle.
+-	Low processing demand is indicated by CPU load averages near 0.00.
+-	With the maximum RAM available, memory use is minimal.
+-	With little I/O activity, disk consumption stays constant.
+-	There is little network traffic, indicating that the system is idle.
 
 These figures serve as the benchmark for subsequent comparisons.
 
@@ -1066,18 +1066,18 @@ sudo sysctl vm.swappiness=10
 
 ## 8.	Optimisation Results and Analysis
 Post-optimisation testing showed:
-•	Reduced memory pressure during stress
-•	Faster recovery to idle state
-•	Improved SSH responsiveness
-•	Lower disk I/O spikes under load
+-	Reduced memory pressure during stress
+-	Faster recovery to idle state
+-	Improved SSH responsiveness
+-	Lower disk I/O spikes under load
 
 Measurable performance improvement while upholding security rules is confirmed by quantitative comparison.
 
 ## 9.	Performance Visualisations
 The following visualisations were created using collected data:
-•	CPU load comparison chart (baseline vs load vs optimised)
-•	Memory utilisation bar graph
-•	Network latency comparison chart
+-	CPU load comparison chart (baseline vs load vs optimised)
+-	Memory utilisation bar graph
+-	Network latency comparison chart
 
 
 
@@ -1086,19 +1086,19 @@ The following visualisations were created using collected data:
 
 ## 10.	Trade-off Analysis (LO5)
 Trade-offs were introduced by performance optimization:
-•	Reduced swappiness increases RAM dependency but enhances responsiveness.
-•	Although it requires explanation, disabling services increases performance.
-•	Under assault scenarios, security mechanisms (firewall, fail2ban) slightly increase CPU utilization.
+-	Reduced swappiness increases RAM dependency but enhances responsiveness.
+-	Although it requires explanation, disabling services increases performance.
+-	Under assault scenarios, security mechanisms (firewall, fail2ban) slightly increase CPU utilization.
 
 These compromises show how operating systems strike a balance between dependability, security, and performance as a cohesive whole.
 
 ## 11.	Evidence and Documentation
 Evidence collected during Week 6 includes:
-•	Baseline and load testing screenshots
-•	Network latency and throughput outputs
-•	Performance data tables
-•	Optimisation command outputs
-•	Before-and-after performance comparisons
+-	Baseline and load testing screenshots
+-	Network latency and throughput outputs
+-	Performance data tables
+-	Optimisation command outputs
+-	Before-and-after performance comparisons
 All evidence was captured via SSH with visible username@hostname prompts.
 
 ## 12.	Conclusion
@@ -1114,21 +1114,21 @@ A thorough assessment of Linux operating system performance under various worklo
 Conducting a thorough security audit and final system review of the headless Linux server set up throughout this training is the goal of Week 7. Using industry-standard auditing tools, this phase evaluates the system's overall security posture and verifies the efficacy of all previously deployed security controls (Weeks 4 and 5).
 
 The audit focuses on:
-•	Vulnerability identification
-•	Network exposure assessment
-•	Verification of access control mechanisms
-•	Review of running services
-•	Residual risk evaluation
+-	Vulnerability identification
+-	Network exposure assessment
+-	Verification of access control mechanisms
+-	Review of running services
+-	Residual risk evaluation
 
 In complete accordance with the module's technological and ethical limitations, all auditing operations were carried out inside the segregated VirtualBox host-only network.
 
 ## 2.	Security Audit Methodology Overview
 The structured audit methodology employed was as follows:
-•	System-wide security scanning using Lynis
-•	Network security assessment using nmap
-•	Access control verification (SSH, firewall, AppArmor)
-•	Service inventory and justification
-•	Configuration review and residual risk assessment
+-	System-wide security scanning using Lynis
+-	Network security assessment using nmap
+-	Access control verification (SSH, firewall, AppArmor)
+-	Service inventory and justification
+-	Configuration review and residual risk assessment
 Strict adherence to the SSH-only administration criterion was maintained by executing all commands remotely via SSH from the workstation.
 
 ## 3.	Infrastructure Security Assessment with Lynis
@@ -1149,19 +1149,19 @@ Command(Server via SSH): sudo lynis audit system
 
 	
 The audit generated a comprehensive report that identified:
-•	Security warnings
-•	Hardening suggestions
-•	Compliance checks
-•	Overall system hardening index
+-	Security warnings
+-	Hardening suggestions
+-	Compliance checks
+-	Overall system hardening index
 
 ## III.	Lynis Score and Findings
 A good security posture is indicated by the Lynis audit, which produced a hardening index above 80.
 Among the important verified controls were:
-•	SSH hardening (root login disabled, key-based authentication)
-•	UFW-based firewall enforcement
-•	Secure file permissions
-•	AppArmor enabled and enforcing profiles
-•	Automatic security updates enabled
+-	SSH hardening (root login disabled, key-based authentication)
+-	UFW-based firewall enforcement
+-	Secure file permissions
+-	AppArmor enabled and enforcing profiles
+-	Automatic security updates enabled
 
 
 	Screenshot
@@ -1172,13 +1172,13 @@ Among the important verified controls were:
 
 After the Lynis audit, the hardening recommendations and warnings found were examined and, if necessary, addressed. Previous security settings in Weeks 4 and 5 has addressed a number of recommendations.
 Examples of corrective measures consist of:
-•	Lynis advises turning off SSH root login. 
+-	Lynis advises turning off SSH root login. 
 Fix: In sshd_config, root login was turned off (PermitRootLogin no). 
 Command for verification: sshd -T | grep permitrootlogin 
-•	Lynis's suggestion: Make sure SSH authentication is robust. 
+-	Lynis's suggestion: Make sure SSH authentication is robust. 
 Remediation: Key-based authentication was implemented and password authentication was turned off. 
 SSHd -T | grep passwordauthentication is the verification command
-•	Lynis suggests that firewall enforcement be implemented. 
+-	Lynis suggests that firewall enforcement be implemented. 
 Remediation: Restricted SSH access was enabled on the UFW default-deny firewall. 
 Command for verification: sudo ufw status verbose 
 
@@ -1198,9 +1198,9 @@ Command(Workstation): nmap -sS 192.168.56.4
 
 ## II.	Nmap Scan Results Analysis
 The scan confirmed:
-•	Only port 22 (SSH) is open
-•	All other ports are filtered or closed
-•	Firewall rules are correctly enforced
+-	Only port 22 (SSH) is open
+-	All other ports are filtered or closed
+-	Firewall rules are correctly enforced
 
 	This proves that the default-deny firewall policy put in place in Week 4 was successful in minimizing network exposure.
 
@@ -1221,9 +1221,9 @@ Screenshot
 
 	Verified Settings:
 
-•	PasswordAuthentication no
-•	PermitRootLogin no
-•	PubkeyAuthentication yes
+-	PasswordAuthentication no
+-	PermitRootLogin no
+-	PubkeyAuthentication yes
 
 	Strong SSH hardening against credential-based and brute-force assaults is confirmed by this.
 
@@ -1235,9 +1235,9 @@ Command(Server via SSH): sudo aa-status
 	Screenshot
 
 	AppArmor profiles were confirmed to be:
-•	Loaded
-•	Actively restricting application behaviour
-•	Enforced
+-	Loaded
+-	Actively restricting application behaviour
+-	Enforced
 
 	This restricts lateral mobility inside the system and guarantees the containment of compromised processes.
 
@@ -1286,15 +1286,15 @@ Insider misuse	Least-privilege user management
 Misconfiguration drift	Automated security baseline scripts
 
 These risks are manageable and acceptable, in line with server administration procedures used in the real world. Minor performance overheads are introduced by a number of security procedures, which were assessed and deemed necessary trade-offs:
-• Firewall (UFW):
+- Firewall (UFW):
   Trade-off: Slight packet filtering overhead.
   Justification: Significantly reduces attack surface and unauthorized access.
 
-• fail2ban:
+- fail2ban:
   Trade-off: Increased CPU usage during repeated authentication failures.
   Justification: Prevents brute-force attacks and service compromise.
 
-• AppArmor:
+- AppArmor:
   Trade-off: Potential restriction of application behaviour.
   Justification: Limits impact of compromised processes and enforces containment.
 
@@ -1302,13 +1302,13 @@ These trade-offs demonstrate how security, performance, and system reliability m
 
 10.	Evidence and Documentation
 Evidence collected during Week 7 includes:
-•	Lynis audit outputs and hardening score
-•	Nmap network scan results
-•	SSH configuration verification
-•	AppArmor enforcement status
-•	Service inventory outputs
-•	Screenshots showing username@hostname prompts
-•	Re-execution of the automated security-baseline.sh script post-audit to confirm no configuration drift
+-	Lynis audit outputs and hardening score
+-	Nmap network scan results
+-	SSH configuration verification
+-	AppArmor enforcement statu
+-	Service inventory outputs
+-	Screenshots showing username@hostname prompts
+-	Re-execution of the automated security-baseline.sh script post-audit to confirm no configuration drift
 All evidence is clearly labelled and integrated into the GitHub Pages journal.
 
 ## 11.	Conclusion

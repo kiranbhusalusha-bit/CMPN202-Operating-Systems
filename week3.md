@@ -1,4 +1,5 @@
-## Week 3 – Process Management, Resource Utilisation and System Behaviour
+
+## Week 3- Process Management, Resource Utilisation and System Behaviour
 
 ## 1.	Introduction
 
@@ -11,10 +12,10 @@ By gathering baseline observations of system behavior under typical operating co
 
 Linux manages running programs as processes, each with a unique process identifier (PID), priority, and resource allocation. The kernel scheduler is responsible for allocating CPU time among active processes to ensure fairness and efficiency.
 Processes may be:
-•	Running
-•	Sleeping
-•	Stopped
-•	Zombie (terminated but not yet cleaned up)
+-	Running
+-	Sleeping
+-	Stopped
+-	Zombie (terminated but not yet cleaned up)
 It is essential to comprehend these stages to identify misbehaving programs and diagnose performance problems.
 
 ## 3.	CLI-Based Process Observation
@@ -107,10 +108,11 @@ While concurrency increases throughput, it can also cause issues like resource c
 ## 9.	Evidence and Documentation
 
 During Week 3, the following proof was gathered:
-•	Process listings and monitoring outputs
-•	CPU and memory utilisation data
-•	Disk usage and I/O statistics
-•	Screenshots of CLI command execution
+-	Process listings and monitoring outputs
+-	CPU and memory utilisation data
+-	Disk usage and I/O statistics
+-	Screenshots of CLI command execution
+  
 In order to ensure CLI-only administration and adherence to the coursework requirement, each piece of evidence was obtained using an SSH session started on the workstation (workstation terminal) while connected to the server. Consistent findings were obtained by repeatedly executing all monitoring commands under the same idle system settings. Timestamps and visible shell prompts usha@usha (username@hostname) are included in screenshots to guarantee outcomes are repeatable and auditable.
 
 

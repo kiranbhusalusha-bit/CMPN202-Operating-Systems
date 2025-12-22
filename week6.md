@@ -57,6 +57,7 @@ These figures serve as the benchmark for subsequent comparisons.
 Controlled stress testing was done to mimic real-world workloads.
 CPU Stress Test
 Command(Server):
+
 sudo apt install stress-ng -y
 stress-ng --cpu 2 --timeout 60s
 
@@ -68,7 +69,9 @@ The command stress-ng gave an error since the parameter of the time out was not 
 
 
 Memory Stress test
-Command(Server): stress-ng --vm 1 --vm-bytes 512M --timeout 60s
+Command(Server):
+
+stress-ng --vm 1 --vm-bytes 512M --timeout 60s
 
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/stress-ng%20--vm%201%20--vm-bytes%20512M%20--timeout%2060s.png)
  
@@ -76,6 +79,7 @@ One virtual memory stressor (vm 1) was started with the allocation of 512 MB of 
 
 Disk I/O Test
 Command(Server):
+
 sudo apt install sysstat -y
 iostat -dx 2 5
 
@@ -87,7 +91,9 @@ The performance of disk input/output was analysed and potential storage bottlene
 SSH responsiveness and data transfer efficiency were assessed by measuring network latency and throughput.
 
 Latency Testing
-Command(Workstation): ping -c 10 192.168.56.4
+Command(Workstation):
+
+ping -c 10 192.168.56.4
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/ping%20-c%2010%20192.168.56.4.png)
 
@@ -95,7 +101,8 @@ Network latency and reliability of transmitting packets between the workstation 
 	
 
 Network Throughput Testing
-Command: 
+Command:
+
 sudo apt install iperf3 -y
 iperf3 -s
 
@@ -105,7 +112,9 @@ The iperf3 was installed to measure network throughput between the workstation a
 
 
 From Workstation
-Command: iperf3 -c 192.168.56.4
+Command: 
+
+iperf3 -c 192.168.56.4
  
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/iperf3%20-c%20192.168.56.4.png)
 
@@ -131,11 +140,13 @@ The observed performance metrics are summarized in the following table.
 ## 7.	Optimisation Techniques Applied
 Two optimisation measures were implemented:
 ## Optimisation 1: Disable Unnecessary Services:
+
 systemctl list-unit-files --type=service --state=enabled
 sudo systemctl disable apport.service
 
 
 ## Optimisation 2: Reduce Swappiness:
+
 cat /proc/sys/vm/swappiness
 sudo sysctl vm.swappiness=10
 

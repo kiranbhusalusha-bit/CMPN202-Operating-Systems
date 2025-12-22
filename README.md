@@ -223,14 +223,14 @@ The ip route command specifies how network traffic is forwarded and shows the sy
 
 ### 8.	Evidence and Documentation Strategy
 Every piece of evidence gathered during Week 1:
---	demonstrates command-line expertise
---	Verifies that the system was installed correctly
---	creates a baseline setup for the system.
+-	demonstrates command-line expertise
+-	Verifies that the system was installed correctly
+-	creates a baseline setup for the system.
 
 Screenshot Include:
---	Execution of commands
---	Visibility of output
---	Prompt for the server terminal
+-	Execution of commands
+-	Visibility of output
+-	Prompt for the server terminal
 
 Transparency is guaranteed by this methodical evidence approach, which also facilitates future performance and security assessments. Timestamps and visible command prompts are included in every screenshot to guarantee auditability and repeatability of outcomes. Unless otherwise noted, every command included in this section was run on a fresh Ubuntu Server 22.04 LTS installation with the default system settings. This guarantees that the outcomes can be repeated in similar settings. To enable independent verification of results, command outputs, timestamps, and visible shell prompts (username@hostname) are given.
 
@@ -253,10 +253,10 @@ To assess how the operating system performs under various workloads and configur
 As required by the coursework, all performance testing and monitoring will be done remotely via SSH from the workstation. To uphold the coursework administrative constraint (no direct server console management), all monitoring will be done from the workstation via SSH. This method is similar to server administration in the real world, when local server access is infrequent.
 
 The following will be involved in remote monitoring:
---	Secure SSH access to the server
---	Command-line monitoring tools
---	Repeated measurements over time
---	 Logging of outputs for later analysis
+-	Secure SSH access to the server
+-	Command-line monitoring tools
+-	Repeated measurements over time
+-	 Logging of outputs for later analysis
 This process guarantees correctness, reproducibility, and little disruption to server operations. To guarantee lightweight and non-intrusive performance monitoring on the headless server, command-line monitoring tools will be employed. SSH will be used to remotely run tools like uptime, top, ps aux, free -h, df -h, iostat, and ip addr. These tools were picked because they are readily available by default, use few resources, and are appropriate for expert remote server management. In order to guarantee repeatability, every monitoring command will be carried out using the same SSH technique, under uniform circumstances (idle baseline vs. controlled workload), and outputs will be recorded with timestamps so that outcomes can be replicated and fairly compared over several weeks. All of the monitoring tools and commands mentioned here are scheduled for subsequent implementation and evidence collecting in Weeks 3–6; no commands are run during this phase. In order to verify remote access capability, a simple SSH connection was made between the workstation and the server. At this point, no configuration or monitoring commands were run.
 
 
@@ -264,25 +264,26 @@ This process guarantees correctness, reproducibility, and little disruption to s
 A four-phase methodology is used in the performance testing strategy.
 
 ## Baseline Measurement
---	Record system performance under idle conditions
---	Capture initial CPU, memory, disk, and network metrics
---	 Establish reference values for comparison 
+-	Record system performance under idle conditions
+-	Capture initial CPU, memory, disk, and network metrics
+-	 Establish reference values for comparison 
 In order to appropriately attribute any subsequent performance changes to workload introduction or configuration changes rather than background activity, baseline measurements will be taken when the system is idle.
 
 ## Load Testing
---	Introduce controlled workloads
---	Observe system behaviour under increased demand
---	Identify resource utilisation patterns
+-	Introduce controlled workloads
+-	Observe system behaviour under increased demand
+-	Identify resource utilisation patterns
 
 ## Bottleneck Identification
 
---	Analyse which system resources become constrained first.
---	Evaluate CPU, memory, disk, or network limitations
---	Identify inefficiencies or configuration weaknesses
-Optimisation Validation
---	Apply configuration changes in later weeks
---	Re-test system performance
---	Compare results quantitatively with baseline measurements
+- Analyse which system resources become constrained first.
+-	Evaluate CPU, memory, disk, or network limitations
+-	Identify inefficiencies or configuration weaknesses
+-	
+## Optimisation Validation
+-  Apply configuration changes in later weeks
+-  Re-test system performance
+-  Compare results quantitatively with baseline measurements
 Meaningful performance evaluation is made possible by this methodical methodology, which also supports optimization choices supported by quantifiable data. Metrics including CPU load averages, memory availability, disk utilization, and I/O activity recorded before and after optimization will be quantitatively compared to validate performance gains. To ensure consistency, every test will be run several times and averaged when necessary, using the same monitoring window and tools. This will allow performance variations to be ascribed to workload or configuration changes rather than chance. By allowing for the quantitative assessment of operating system performance under controlled circumstances, this structured methodology directly supports Learning Outcome LO5.
 
 ## 3.	Security Configuration Checklist (Planned Controls)
@@ -290,29 +291,29 @@ A defense-in-depth approach, which applies several levels of security measures t
 
 The security controls that will be put into place and verified in the next weeks are listed in the checklist that follows.
 ## i.	SSH Hardening
---	Disable password-based authentication
---	Enforce SSH key-based authentication
---	Disable direct root login
---	Restrict SSH access to authorised users only
+-	Disable password-based authentication
+-   Enforce SSH key-based authentication
+-	Disable direct root login
+-	Restrict SSH access to authorised users only
 These precautions restrict the possibility of unauthorized access and brute-force attacks.
 ## ii.	Firewall Configuration
---	Enable firewall using ufw
---	Allow only required inbound ports (SSH)
---	Block all other inbound traffic by default
---	Enable logging of blocked connection attempts
+-	Enable firewall using ufw
+-	Allow only required inbound ports (SSH)
+-	Block all other inbound traffic by default
+-	Enable logging of blocked connection attempts
 Firewall rules reduce the server's exposed attack surface and impose stringent network access control.
 
 ## iii.	Mandatory Access Control
 
---	Enable and enforce AppArmor profiles
---	Restrict application access to system resources
---	Limit the impact of compromised processes
+-	Enable and enforce AppArmor profiles
+-	Restrict application access to system resources
+-	Limit the impact of compromised processes
 Mandatory access control lessens the harm that misconfigured or abused services can cause.
 
 ## iv.	Automatic Updates and Patch Management
---	Enable automatic security updates
---	Apply critical patches promptly
---	Monitor update logs for failures
+-	Enable automatic security updates
+-	Apply critical patches promptly
+-	Monitor update logs for failures
 Frequent patching reduces vulnerabilities brought on by out-of-date software.
 
 ## v.	User Privilege Management

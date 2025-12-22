@@ -56,7 +56,7 @@ The system architecture consists of:
 - A virtual network enabling SSH communication  
 
 
-::contentReference[oaicite:0]{index=0}
+https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/4a74bf4bfaac52b3487d8db92fc9653d28e85e3d/images/week1/systemarchiteture.png
 
 
 ---

@@ -1,5 +1,3 @@
-
-
 ## Week 2- Security Baseline Design and Performance Testing Methodology
 ## 1.	Introduction
 The second week's goal is to create a performance testing methodology and an organized security baseline for the Linux server system before making any configuration modifications. As it guarantees that controls are justified, risks are recognised, and outcomes can be measured methodically, planning security and performance evaluation in advance is an essential professional practice.
@@ -18,6 +16,7 @@ The following will be involved in remote monitoring:
 -	Command-line monitoring tools
 -	Repeated measurements over time
 -	 Logging of outputs for later analysis
+  
 This process guarantees correctness, reproducibility, and little disruption to server operations. To guarantee lightweight and non-intrusive performance monitoring on the headless server, command-line monitoring tools will be employed. SSH will be used to remotely run tools like uptime, top, ps aux, free -h, df -h, iostat, and ip addr. These tools were picked because they are readily available by default, use few resources, and are appropriate for expert remote server management. In order to guarantee repeatability, every monitoring command will be carried out using the same SSH technique, under uniform circumstances (idle baseline vs. controlled workload), and outputs will be recorded with timestamps so that outcomes can be replicated and fairly compared over several weeks. All of the monitoring tools and commands mentioned here are scheduled for subsequent implementation and evidence collecting in Weeks 3–6; no commands are run during this phase. In order to verify remote access capability, a simple SSH connection was made between the workstation and the server. At this point, no configuration or monitoring commands were run.
 
 
@@ -40,7 +39,7 @@ In order to appropriately attribute any subsequent performance changes to worklo
 - Analyse which system resources become constrained first.
 -	Evaluate CPU, memory, disk, or network limitations
 -	Identify inefficiencies or configuration weaknesses
--	
+  
 ## Optimisation Validation
 -  Apply configuration changes in later weeks
 -  Re-test system performance
@@ -135,6 +134,7 @@ Description: Evidence gathered in upcoming weeks will consist of:
 -	Performance logs
 -	Screenshots of monitoring activities
 -	Tables and graphs illustrating performance trends
+-	
 To promote openness, reproducibility, and evaluation, every piece of evidence will be properly labeled
  and incorporated into the GitHub journal. To guarantee that results can be replicated and independently confirmed, all evidence will be timestamped and recorded using standard command syntax.
 

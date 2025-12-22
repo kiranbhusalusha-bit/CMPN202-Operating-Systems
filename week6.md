@@ -24,11 +24,17 @@ Reproducibility and meaningful performance comparison are guaranteed by this met
 Prior to applying any stress, baseline measurements set reference values.
 
 Commands Executed (Server via SSH):
+
 uptime
+
 free -h
+
 df -h
+
 top
+
 iostat
+
 ip addr
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/uptime7.png)

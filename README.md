@@ -795,6 +795,7 @@ This output verifies that the server's unattended-upgrades service is turned on 
 
 ## 4.	Intrusion Detection and Prevention (fail2ban)
 To defend the SSH service against brute-force attacks, fail2ban was implemented.
+
 ## I.	Install fail2ban
 Command (Server via SSH): sudo apt install fail2ban -y
  

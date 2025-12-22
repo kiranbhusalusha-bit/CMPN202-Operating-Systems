@@ -283,6 +283,7 @@ In order to appropriately attribute any subsequent performance changes to worklo
 -  Apply configuration changes in later weeks
 -  Re-test system performance
 -  Compare results quantitatively with baseline measurements
+  
 Meaningful performance evaluation is made possible by this methodical methodology, which also supports optimization choices supported by quantifiable data. Metrics including CPU load averages, memory availability, disk utilization, and I/O activity recorded before and after optimization will be quantitatively compared to validate performance gains. To ensure consistency, every test will be run several times and averaged when necessary, using the same monitoring window and tools. This will allow performance variations to be ascribed to workload or configuration changes rather than chance. By allowing for the quantitative assessment of operating system performance under controlled circumstances, this structured methodology directly supports Learning Outcome LO5.
 
 ## 3.	Security Configuration Checklist (Planned Controls)
@@ -373,7 +374,7 @@ Description: Evidence gathered in upcoming weeks will consist of:
 -	Performance logs
 -	Screenshots of monitoring activities
 -	Tables and graphs illustrating performance trends
--	
+  
 To promote openness, reproducibility, and evaluation, every piece of evidence will be properly labeled
  and incorporated into the GitHub journal. To guarantee that results can be replicated and independently confirmed, all evidence will be timestamped and recorded using standard command syntax.
 

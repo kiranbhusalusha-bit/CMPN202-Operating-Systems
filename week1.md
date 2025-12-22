@@ -1,3 +1,4 @@
+# CMPN202-Operating-Systems
 ## Week 1 – System Planning, Architecture and Initial Configuration
 
 ---
@@ -6,9 +7,7 @@
 
 The configuration, security, and performance of a Linux operating system run solely via the command-line interface (CLI) are assessed in this coursework. A large amount of the world's electricity is consumed by modern data centers, and effective operating system settings are essential to cutting down on wasteful resource use. Without graphical user interfaces, headless Linux servers reduce CPU, memory, and energy usage while enhancing security and performance effectiveness.
 
-Week 1's goals are to outline the system architecture, explain operating system selections, specify networking and workstation choices, and use CLI-based system inspection commands to confirm the server environment. This creates a strong technical basis for performance testing, security hardening, and optimization in the future.
-
-By creating a secure, headless server environment and enforcing exclusive command-line-based administration, this phase directly supports:
+Week 1's goals are to outline the system architecture, explain operating system selections, specify networking and workstation choices, and use CLI-based system inspection commands to confirm the server environment. This creates a strong technical basis for performance testing, security hardening, and optimization in the future.By creating a secure, headless server environment and enforcing exclusive command-line-based administration, this phase directly supports:
 
 - **LO3** – Security assessment and protection mechanisms  
 - **LO4** – Command-line proficiency for system configuration and inspection  
@@ -165,12 +164,10 @@ The SERVER system, not the workstation, was used to run all of the tasks listed 
 ### I. Headless Server and CLI-Only Environment Verification
 Further command-line tests were carried out to verify that the server is functioning as a headless system without a graphical user interface. These checks confirm that no display environment is active and that the system is operating in a multi-user, non-graphical target.
 Command(Server): 
-
 echo $DISPLAY
 systemctl get-default
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/echo%20%24DISPLAY.png)
- 
+ ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/echo%20%24DISPLAY.png)
 
 There is no active graphical display session, as confirmed by the echo $DISPLAY command, which produced no result. The system boots into a non-graphical, command-line-only operating mode, as confirmed by the return of multi-user.target from the systemctl get-default command. This verifies that the server is functioning as a real headless Linux system, providing safe, resource-efficient remote administration over SSH and conforming to professional server deployment guidelines.
 
@@ -179,7 +176,7 @@ There is no active graphical display session, as confirmed by the echo $DISPLAY 
 ## II. Kernel and Architecture
 Command (SERVER): uname -a
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/4b8f503f344d75517afd3310bf6141479e661c30/images/week1/uname.png)
+ ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/4b8f503f344d75517afd3310bf6141479e661c30/images/week1/uname.png)
 
 
 The Linux kernel version, system architecture, and operating system information of the server were confirmed using the uname -a command. This attests to the server's 64-bit Linux kernel, which is appropriate for safe and effective server operation.
@@ -188,14 +185,13 @@ The Linux kernel version, system architecture, and operating system information 
 ### III.	Memory Information
 Command (Server): free -h
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/free.png)
-  
+ ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/free.png)
+ 
 Memory utilization was shown in a human-readable format using the free -h command. This establishes a baseline for upcoming performance monitoring and optimization by verifying the server's swap configuration, total system memory, and memory use.
 
 ### IV.	Disk Usage
 Command(Server): df -h
-
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/df.png)
+ ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/df.png)
 
 Disk space utilization was shown in a human-readable way using the df -h tool. The output verifies the server filesystem's total storage capacity, used space, and available space. In later stages of performance testing and optimization, this creates a baseline for tracking disk consumption and spotting possible storage limitations.
 
@@ -204,43 +200,37 @@ Disk space utilization was shown in a human-readable way using the df -h tool. T
 ### V.	Network Interfaces and IP Addressing
 Command(Server): ip addr
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/ip%20addr.png)
+ ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/ip%20addr.png)
 
 The server's given IP addresses for each network interface were shown using the ip addr command. The output verifies that VirtualBox networking has given the primary network interface (enp0s3) a private IPv4 address and that it is operational. This confirms that the server can perform safe remote administration using SSH and is properly linked to the virtual network.
 
 ## VI.	Distribution and Version Confirmation
 Command(Server): lsb_release -a
-
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/lsb_release-a.png) 
-
+ 
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/lsb_release-a.png)
 ## VII.	System Identification(Hostname Verification)
 Command(Server): hostname
-
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/hostname.png) 
+ ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/hostname.png)
 
 The hostname of the system was found using the hostname command. In order to assist uniquely identify the system for remote administration, monitoring, and log analysis, the output verifies that the server is named usha. In multi-system situations, assigning and confirming a hostname is crucial to preventing confusion while using SSH to remotely manage servers.
 
 ## VIII.	Routing Table and Default Network Path Verification
 Command(Server): ip route
-
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/ip%20route.png) 
-
+ ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/ip%20route.png)
 The ip route command specifies how network traffic is forwarded and shows the system's routing table. The output verifies that the server communicates within the 192.168.56.0/24 private network using the enp0s3 network interface. This confirms that the server has an active connection to the virtual network used for SSH-based remote administration, a legitimate network route, and an appropriately assigned source IP address. In order to preserve network isolation, which is necessary for secure system management and subsequent firewall configuration, this routing configuration guarantees dependable internal connectivity between the workstation and the headless server.
 
 ### 8.	Evidence and Documentation Strategy
 Every piece of evidence gathered during Week 1:
-•	demonstrates command-line expertise
-•	Verifies that the system was installed correctly
-•	creates a baseline setup for the system.
+-	demonstrates command-line expertise
+-	Verifies that the system was installed correctly
+-	creates a baseline setup for the system.
 
 Screenshot Include:
-•	Execution of commands
-•	Visibility of output
-•	Prompt for the server terminal
+-	Execution of commands
+-	Visibility of output
+-	Prompt for the server terminal
 
 Transparency is guaranteed by this methodical evidence approach, which also facilitates future performance and security assessments. Timestamps and visible command prompts are included in every screenshot to guarantee auditability and repeatability of outcomes. Unless otherwise noted, every command included in this section was run on a fresh Ubuntu Server 22.04 LTS installation with the default system settings. This guarantees that the outcomes can be repeated in similar settings. To enable independent verification of results, command outputs, timestamps, and visible shell prompts (username@hostname) are given.
 
-
 ## 9.	Conclusion
-A safe, effective, and expertly designed Linux server environment is established in the first week. A solid basis has been established for the implementation of sophisticated security measures, performance monitoring, and optimization in the next weeks thanks to meticulous planning, well-reasoned technical choices, and CLI-based system verification. By reducing needless resource use, the deployment of a headless server design also supports sustainability goals. By creating a safe, inspectable server baseline, this foundational design and verification phase supports Learning Outcomes LO3 and LO4. It also gets ready for LO5 by allowing subsequent assessment of security-performance trade-offs using measured data.
-
+A safe, effective, and expertly designed Linux server environment is established in the first week. A solid basis has been established for the implementation of sophisticated security measures, performance monitoring, and optimization in the next weeks thanks to meticulous planning, well-reasoned technical choices, and CLI-based system verification. By reducing needless resource use, the deployment of a headless server design also supports sustainability goals. By creating a safe, inspectable server baseline, this foundational design and verification phase supports Learning Outcomes LO3 and LO4. It also gets ready for LO5 by allowing subsequent assessment of security-performance trade-offs using measured data

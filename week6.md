@@ -22,6 +22,7 @@ Reproducibility and meaningful performance comparison are guaranteed by this met
 
 ## 3.	Baseline Performance Testing (Idle State)
 Prior to applying any stress, baseline measurements set reference values.
+
 Commands Executed (Server via SSH):
 uptime
 free -h
@@ -29,6 +30,7 @@ df -h
 top
 iostat
 ip addr
+
   	  
 When combined, the results from uptime, free -h, df -h, iostat, ip addr, and top offer a thorough picture of the server's performance condition during baseline testing. The uptime command confirms that the system is running with little CPU stress by displaying extremely low load averages. Memory data from free -h show effective memory management during idle situations with low RAM utilization and no swap consumption. There is no noticeable read or write demand on storage devices, as seen by the low disk utilization and I/O activity seen with df -h and iostat. With over 99% idle time and only critical system processes operating, the 'top' command further verifies that the CPU is mostly idle. This shows that no superfluous background services are using up system resources. Network readiness for remote administration and performance testing is confirmed by network information from ip addr, which confirms that the primary network interface is operational and appropriately allocated a private IP address.
 

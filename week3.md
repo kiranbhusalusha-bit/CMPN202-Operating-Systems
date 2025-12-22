@@ -16,6 +16,7 @@ Processes may be:
 -	Sleeping
 -	Stopped
 -	Zombie (terminated but not yet cleaned up)
+  
 It is essential to comprehend these stages to identify misbehaving programs and diagnose performance problems.
 
 ## 3.	CLI-Based Process Observation

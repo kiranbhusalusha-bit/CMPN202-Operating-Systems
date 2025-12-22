@@ -556,7 +556,6 @@ Command (Workstation): ssh usha@192.168.56.4
 SSH key-based authentication was used to successfully validate passwordless SSH access from the workstation to the headless server. The server's confidence in the workstation's public key is confirmed by the lack of a password question. As part of SSH hardening, this shows secure remote administration and verifies that password-based SSH authentication is ready to be disabled.
 
 
-
 ## 4.	SSH Hardening (Disable Password Authentication and Root Login)
 
 In order to prevent direct privileged access and lower the possibility of credential assaults, SSH was hardened.
@@ -734,7 +733,6 @@ To guarantee clarity and auditability, every screenshot displays the output and 
 ## 10.	Conclusion
 
 The fundamental security measures needed for secure remote management of a headless Linux server were put into place in week four. SSH key-based authentication was set up, root login and password authentication were turned off, and firewall rules were implemented using a default-deny architecture that only allowed SSH access from authorized workstations. Least privilege was supported by the creation of a non-root administrative user. In addition to lowering the system's attack surface, these measures offer a safe foundation for performance testing, automation scripts, and enhanced security monitoring in subsequent weeks.
-
 
 
 

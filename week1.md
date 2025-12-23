@@ -1,5 +1,4 @@
-# CMPN202-Operating-Systems
-## Week 1 – System Planning, Architecture and Initial Configuration
+# Week 1 – System Planning, Architecture and Initial Configuration
 
 ---
 
@@ -218,7 +217,7 @@ Command(Server): ip route
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/ip%20route.png)
 The ip route command specifies how network traffic is forwarded and shows the system's routing table. The output verifies that the server communicates within the 192.168.56.0/24 private network using the enp0s3 network interface. This confirms that the server has an active connection to the virtual network used for SSH-based remote administration, a legitimate network route, and an appropriately assigned source IP address. In order to preserve network isolation, which is necessary for secure system management and subsequent firewall configuration, this routing configuration guarantees dependable internal connectivity between the workstation and the headless server.
 
-### 8.	Evidence and Documentation Strategy
+## 8.	Evidence and Documentation Strategy
 Every piece of evidence gathered during Week 1:
 -	demonstrates command-line expertise
 -	Verifies that the system was installed correctly

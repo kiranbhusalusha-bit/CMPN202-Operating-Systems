@@ -1,4 +1,4 @@
-## Week 5 – Advanced Security Controls and Monitoring Infrastructure
+# Week 5 – Advanced Security Controls and Monitoring Infrastructure
 
 ## 1.	Introduction
 The fifth week is devoted to setting up a monitoring and verification infrastructure on the Linux server and putting enhanced security policies into place. This phase fortifies the system with mandatory access control, intrusion detection, automatic patching, and custom verification scripts, building upon the fundamental security measures put in place in Week 4 (SSH hardening, firewall setup, and user privilege management).
@@ -8,7 +8,7 @@ In careful adherence to the administrative constraints of the coursework, all se
 ## 2.	Mandatory Access Control (AppArmor)
 AppArmor was utilized as the Mandatory Access Control mechanism as Ubuntu Server employs it by default. Even in the event that a service is compromised, AppArmor restricts what processes can access by enforcing per-application security profiles.
 
-## I.	Verify AppArmor Status
+### I.	Verify AppArmor Status
 Command(server via SSH):
 
  sudo aa-status
@@ -25,7 +25,7 @@ To confirm that AppArmor is activated and actively enforcing security regulation
 ## 3.	Automatic Security Updates (Unattended Upgrades)
 To guarantee that known vulnerabilities were patched on time, automatic security updates were set up.
 
-## I.	Install Unattended Upgrades
+### I.	Install Unattended Upgrades
 Command(Server via SSH):
 
 sudo apt update
@@ -40,7 +40,7 @@ To check for available security updates from the Ubuntu repository and refresh t
 
 After that, the unattended-upgrades package was set up to allow important security updates to be installed automatically. The output guarantees that security patches are applied automatically without human interaction by confirming that unattended-upgrades are already installed and configured on the system. This immediately contributes to Learning Outcome LO3 by lowering the window of exposure to known vulnerabilities and supporting secure server maintenance best practices.
 
-## II.	Enable Automatic Security Updates
+### II.	Enable Automatic Security Updates
 Command(Server):
 sudo dpkg-reconfigure --priority=low unattended-upgrades
 
@@ -49,7 +49,7 @@ sudo dpkg-reconfigure --priority=low unattended-upgrades
 This prompt shows up when the unattended-upgrades package is being configured. When you choose "Yes," the system can download and install critical security updates automatically without your help. This reduces the window of exposure to known vulnerabilities and ensures the server remains up to date with critical patches, which is a best practice for maintaining a secure Linux server in a production-like environment.
 
 
-## III.	Verify Configuration
+### III.	Verify Configuration
 Command (Server):
 cat /etc/apt/apt.conf.d/20auto-upgrades
  
@@ -57,7 +57,7 @@ cat /etc/apt/apt.conf.d/20auto-upgrades
 
 This configuration file verifies that the server is set up for automatic security updates. While APT::Periodic::Unattended-Upgrade "1"; permits the automatic installation of security updates, APT::Periodic::Update-Package-Lists "1"; guarantees that package lists are updated every day. This supports secure system administration best practices by lowering the amount of manual maintenance required and keeping the system safe from recently found vulnerabilities.
 
-## IV.	Verify Service Running
+### IV.	Verify Service Running
 Command (Server):
 systemctl status unattended-upgrades --no-pager
 
@@ -68,14 +68,14 @@ This output verifies that the server's unattended-upgrades service is turned on 
 
 ## 4.	Intrusion Detection and Prevention (fail2ban)
 To defend the SSH service against brute-force attacks, fail2ban was implemented.
-## I.	Install fail2ban
+### I.	Install fail2ban
 Command (Server via SSH): sudo apt install fail2ban -y
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20apt%20install%20fail2ban%20-y.png)
 
 This screenshot displays an attempt to install fail2ban, an intrusion detection and prevention program that guards against brute-force attacks on services like SSH. The installation experienced brief network resolution issues when attempting to reach Ubuntu repositories, despite the package manager's successful identification of the necessary dependencies. Despite this, the command execution shows how to utilize package management tools correctly and records a configuration issue that was encountered. These issues are common in real-world system administration and are resolved in later stages if network access is reliable.
 
-## II.	Enable SSH Protection
+### II.	Enable SSH Protection
 Command (Server): sudo nano /etc/fail2ban/jail.d/sshd.local
 
 The SSH jail was enabled with the following configuration:
@@ -105,7 +105,7 @@ The setup presented allows the fail2ban SSH jail, which detects intrusions and a
 Combined, the settings go a long way in minimizing the threat of brute-force SSH attacks due to the repetition of failed login attempts and automatic response, without the involvement of the administrator. The setup is balanced in that it provides security and availability by applying strong security measures and enabling genuine users to re-establish contact after a brief period of ban in case of necessity.
 This implementation helps achieve the Learning Outcome LO3 by implementing an industry-standard intrusion prevention mechanism and works towards the Learning Outcome LO5 by showing an informed securityperformance trade-off: very little CPU overhead is added at the cost of high protection against unauthorized access.
 
-## III.	Verify fail2ban Status
+### III.	Verify fail2ban Status
 Command(Server):
 
 sudo systemctl enable --now fail2ban
@@ -123,10 +123,10 @@ sudo fail2ban-client get sshd maxretr
 
 ## 5.	Security Baseline Verification Script (Server)
 
-## I.	Create Script
+### I.	Create Script
 Command (Server via SSH): nano security-baseline.sh
 
-## II.	Script Content
+### II.	Script Content
 
 #!/usr/bin/env bash
 #security-baseline.sh
@@ -175,7 +175,7 @@ echo
 
 echo "=== Verification Complete ==="
 
-## III.	Execute Script
+### III.	Execute Script
 Command (Server):
 chmod +x security-baseline.sh
 ./security-baseline.sh
@@ -186,10 +186,10 @@ chmod +x security-baseline.sh
 ## 6.	Remote Monitoring Script (Workstation)
 To gather performance measurements from the server via SSH, a remote monitoring script was written on the workstation.
 
-## I.	Create Script
+### I.	Create Script
 Command(Workstation): nano monitor-server.sh
 
-## II.	Script Content
+### II.	Script Content
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -227,7 +227,7 @@ echo "=== Monitoring Complete ==="
 
 
 
-## III.	Execute Script
+### III.	Execute Script
 Command (Workstation):
 chmod +x monitor-server.sh
 ./monitor-server.sh

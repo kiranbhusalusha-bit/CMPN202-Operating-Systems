@@ -153,8 +153,8 @@ The SERVER system, not the workstation, was used to run all of the tasks listed 
 ### I. Headless Server and CLI-Only Environment Verification
 Further command-line tests were carried out to verify that the server is functioning as a headless system without a graphical user interface. These checks confirm that no display environment is active and that the system is operating in a multi-user, non-graphical target.
 Command(Server): 
-echo $DISPLAY
-systemctl get-default
+`echo $DISPLAY`
+`systemctl get-default`
 
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/echo%20%24DISPLAY.png)
 
@@ -163,7 +163,7 @@ There is no active graphical display session, as confirmed by the echo $DISPLAY 
 
 
 ### II. Kernel and Architecture
-Command (SERVER): uname -a
+Command (SERVER): `uname -a`
 
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/4b8f503f344d75517afd3310bf6141479e661c30/images/week1/uname.png)
 
@@ -172,14 +172,14 @@ The Linux kernel version, system architecture, and operating system information 
 
 
 ### III.	Memory Information
-Command (Server): free -h
+Command (Server): `free -h`
 
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/free.png)
  
 Memory utilization was shown in a human-readable format using the free -h command. This establishes a baseline for upcoming performance monitoring and optimization by verifying the server's swap configuration, total system memory, and memory use.
 
 ### IV.	Disk Usage
-Command(Server): df -h
+Command(Server): `df -h`
 
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/df.png)
 
@@ -188,27 +188,27 @@ Disk space utilization was shown in a human-readable way using the df -h tool. T
 
 
 ### V.	Network Interfaces and IP Addressing
-Command(Server): ip addr
+Command(Server): `ip addr`
 
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/ip%20addr.png)
 
 The server's given IP addresses for each network interface were shown using the ip addr command. The output verifies that VirtualBox networking has given the primary network interface (enp0s3) a private IPv4 address and that it is operational. This confirms that the server can perform safe remote administration using SSH and is properly linked to the virtual network.
 
 ### VI.	Distribution and Version Confirmation
-Command(Server): lsb_release -a
+Command(Server): `lsb_release -a`
  
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/lsb_release-a.png)
 
 
 ### VII.	System Identification(Hostname Verification)
-Command(Server): hostname
+Command(Server): `hostname`
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/hostname.png)
 
 The hostname of the system was found using the hostname command. In order to assist uniquely identify the system for remote administration, monitoring, and log analysis, the output verifies that the server is named usha. In multi-system situations, assigning and confirming a hostname is crucial to preventing confusion while using SSH to remotely manage servers.
 
 
 ### VIII.	Routing Table and Default Network Path Verification
-Command(Server): ip route
+Command(Server): `ip route`
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/ip%20route.png)
  
 The ip route command specifies how network traffic is forwarded and shows the system's routing table. The output verifies that the server communicates within the 192.168.56.0/24 private network using the enp0s3 network interface. This confirms that the server has an active connection to the virtual network used for SSH-based remote administration, a legitimate network route, and an appropriately assigned source IP address. In order to preserve network isolation, which is necessary for secure system management and subsequent firewall configuration, this routing configuration guarantees dependable internal connectivity between the workstation and the headless server.

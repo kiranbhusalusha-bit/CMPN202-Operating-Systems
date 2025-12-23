@@ -11,6 +11,7 @@ By gathering baseline observations of system behavior under typical operating co
 ## 2.	Process Management in Linux
 
 Linux manages running programs as processes, each with a unique process identifier (PID), priority, and resource allocation. The kernel scheduler is responsible for allocating CPU time among active processes to ensure fairness and efficiency.
+
 Processes may be:
 -	Running
 -	Sleeping
@@ -25,11 +26,13 @@ Standard Linux command-line tools run remotely on the server via SSH were used t
 
 ## I.	Remote Administration Evidence (Workstation → Server): ssh usha@192.168.56.4 "ps aux " 
 To confirm that process monitoring was performed remotely in accordance with the coursework administrative constraint, process observation commands were executed from the workstation using SSH to run commands on the server. This confirms that all monitoring was performed without direct server console access or graphical tools.
+
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/ssh%20usha%40192.168.56.4%20ps%20aux.png)
  
 
 ## II.	Viewing Active Processes
 Command(Server): ps aux
+
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/ps%20aux.png)
  
 
@@ -55,7 +58,6 @@ Command (SERVER): uptime
 The system's running time, active user count, and load averages were shown using the uptime command. With two users registered in and load averages of 0.00, the report demonstrates that the server has been operating for a brief period of time and that there is no discernible CPU demand. The average number of processes waiting for CPU execution for the previous one, five, and fifteen minutes is represented by load averages. The constantly low results verify that there is no scheduling demand and the server is running in idle mode. Before implementing controlled workloads in subsequent performance testing stages, this output offers a reliable baseline for analyzing system behavior.
 
 
-
 ## 5.	Memory Management Observation
 
 Linux uses memory aggressively for caching to improve performance. Monitoring memory usage helps distinguish between genuine memory pressure and normal cache utilisation.
@@ -77,7 +79,6 @@ Command (SERVER): df -h
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/df-h.png)
 
- 
 
 Disk space consumption is shown in a human-readable style with the df -h tool. The response indicates that there are no urgent storage limitations and that the root filesystem is utilizing a modest percentage of the available storage. Prior to performance testing, this creates a baseline for disk utilization.
 

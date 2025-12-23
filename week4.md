@@ -106,7 +106,9 @@ The output verifies that the firewall package (UFW) is current and already insta
 
 ## II.	Apply Default Firewall Policy
 Command (Server):
+
 sudo ufw default deny incoming
+
 sudo ufw default allow outgoing
 
 ![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20ufw%20default%20deny%20incoming.png)

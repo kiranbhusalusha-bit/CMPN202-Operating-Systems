@@ -73,7 +73,9 @@ PubkeyAuthentication yes
 
 ## III.	Restart SSH Service to Apply Changes
 Command (Server): 
+
 sudo systemctl restart ssh
+
 sudo systemctl status ssh --no-pager
 
 ![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20systemctl%20restart%20ssh.png)
@@ -85,7 +87,8 @@ Restarting and validating the SSH service successfully shows expert system admin
 
 ## IV.	SSH Security Verification (Password Disabled)
 While key access is functional, password login should be denied (or not given) from the workstation.
-Command (Workstation): ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no usha@192.168.56.4
+Command (Workstation):
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no usha@192.168.56.4
 
 ![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/ssh%20-o%20PreferredAuthentications%3Dpassword%20-o%20PubkeyAuthentication%3Dno%20usha%40192.168.56.4.png) 
 
@@ -97,7 +100,9 @@ By preventing pointless incoming traffic, a firewall lowers the attack surface. 
 
 ## I.	Install and Enable UFW (Server via SSH)
 Command (Server):
+
 sudo apt update
+
 sudo apt install ufw -y
 
 ![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20apt%20update.png)
@@ -158,6 +163,7 @@ This script creates a firewall rule that only permits SSH connections from the a
 
 ## II.	Add User to Sudo Group
 Command (Server):
+
 sudo usermod -aG sudo adminuser
 
 groups adminuser
@@ -188,11 +194,17 @@ To confirm that the firewall is operational and implementing the defined securit
 ## 8.	Remote Administration Evidence (Commands Executed via SSH)
 The following commands were run remotely from the workstation to show CLI expertise and adherence to SSH-only administration:
 Command:
+
 ssh usha@192.168.56.4 "uname -a"
+
 ssh usha@192.168.56.4 "free -h"
+
 ssh usha@192.168.56.4 "df -h"
+
 ssh usha@192.168.56.4 "ip addr"
+
 ssh usha@192.168.56.4 "systemctl status ssh --no-pager"
+
 ssh usha@192.168.56.4 "sudo ufw status verbose"
 
 ![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/ssh%20usha%40192.168.56.4%20uname%20-a.png)

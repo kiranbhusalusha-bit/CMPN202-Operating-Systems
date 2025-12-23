@@ -162,7 +162,7 @@ There is no active graphical display session, as confirmed by the echo $DISPLAY 
 
 
 
-## II. Kernel and Architecture
+### II. Kernel and Architecture
 Command (SERVER): uname -a
 
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/4b8f503f344d75517afd3310bf6141479e661c30/images/week1/uname.png)
@@ -180,6 +180,7 @@ Memory utilization was shown in a human-readable format using the free -h comman
 
 ### IV.	Disk Usage
 Command(Server): df -h
+
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/df.png)
 
 Disk space utilization was shown in a human-readable way using the df -h tool. The output verifies the server filesystem's total storage capacity, used space, and available space. In later stages of performance testing and optimization, this creates a baseline for tracking disk consumption and spotting possible storage limitations.
@@ -209,7 +210,10 @@ The hostname of the system was found using the hostname command. In order to ass
 ## VIII.	Routing Table and Default Network Path Verification
 Command(Server): ip route
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/ip%20route.png)
+ 
 The ip route command specifies how network traffic is forwarded and shows the system's routing table. The output verifies that the server communicates within the 192.168.56.0/24 private network using the enp0s3 network interface. This confirms that the server has an active connection to the virtual network used for SSH-based remote administration, a legitimate network route, and an appropriately assigned source IP address. In order to preserve network isolation, which is necessary for secure system management and subsequent firewall configuration, this routing configuration guarantees dependable internal connectivity between the workstation and the headless server.
+
+---
 
 ## 8.	Evidence and Documentation Strategy
 Every piece of evidence gathered during Week 1:
@@ -224,5 +228,8 @@ Screenshot Include:
 
 Transparency is guaranteed by this methodical evidence approach, which also facilitates future performance and security assessments. Timestamps and visible command prompts are included in every screenshot to guarantee auditability and repeatability of outcomes. Unless otherwise noted, every command included in this section was run on a fresh Ubuntu Server 22.04 LTS installation with the default system settings. This guarantees that the outcomes can be repeated in similar settings. To enable independent verification of results, command outputs, timestamps, and visible shell prompts (username@hostname) are given.
 
+---
 ## 9.	Conclusion
 A safe, effective, and expertly designed Linux server environment is established in the first week. A solid basis has been established for the implementation of sophisticated security measures, performance monitoring, and optimization in the next weeks thanks to meticulous planning, well-reasoned technical choices, and CLI-based system verification. By reducing needless resource use, the deployment of a headless server design also supports sustainability goals. By creating a safe, inspectable server baseline, this foundational design and verification phase supports Learning Outcomes LO3 and LO4. It also gets ready for LO5 by allowing subsequent assessment of security-performance trade-offs using measured data.
+
+---

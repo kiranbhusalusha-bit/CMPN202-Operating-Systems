@@ -1,6 +1,6 @@
 # Week 3- Process Management, Resource Utilisation and System Behaviour
 
---
+---
 
 ## 1.	Introduction
 
@@ -8,7 +8,7 @@ Week 3's goal is to use command-line tools to analyse system behavior and invest
 
 By gathering baseline observations of system behavior under typical operating conditions, this week immediately expands upon the performance testing approach created in Week 2. In accordance with professional system management procedures, all analysis is carried out via secure remote access utilizing the command-line interface (CLI). This week directly supports Learning Outcome LO4 (command-line competency for system monitoring) and Learning Outcome LO5 (understanding operating system behavior and performance trade-offs) by analyzing real-time process behavior, CPU scheduling, memory consumption, and disk I/O using CLI-based tools.
 
---
+---
 
 ## 2.	Process Management in Linux
 
@@ -35,7 +35,7 @@ To confirm that process monitoring was performed remotely in accordance with the
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/ssh%20usha%40192.168.56.4%20ps%20aux.png)
  
 
-## II.	Viewing Active Processes
+### II.	Viewing Active Processes
 Command(Server): ps aux
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/ps%20aux.png)
@@ -44,7 +44,7 @@ Command(Server): ps aux
 To get a comprehensive list of all active processes, the server's command-line interface was used to run the ps aux command. The owning user, process ID (PID), CPU and memory consumption, process state, and the command that initiated the process are all included in this report.Core system services like systemd, sshd, and kernel worker threads (kworker) are visible in the output, indicating that the system is operating normally. According to the curriculum requirement for remote administration, the existence of sshd processes verifies that the server is being accessed remotely using SSH.The server is now running under idle or low-load conditions, as evidenced by the comparatively low CPU and memory use numbers. As a result, this output creates a baseline perspective of process activity and resource usage that will be compared in subsequent rounds of performance testing and optimization.
 
 
-## III.	Real-Time Process Monitoring
+### III.	Real-Time Process Monitoring
 Command(Server): top
  
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/top.png)
@@ -139,5 +139,4 @@ In order to ensure CLI-only administration and adherence to the coursework requi
 Using command-line tools, Week 3 offers useful insights into Linux process management and system performance behavior. A baseline understanding of system behavior is developed through the observation of ongoing programs, CPU load, memory consumption, and disk activity. Trade-off Reflection (LO5): While snapshot tools like ps and uptime are lighter but offer less continuous insight, real-time monitoring tools like top offer instantaneous observation of CPU and memory activity but may somewhat raise system overhead. In order to balance accuracy with little performance impact, a combination of both approaches was selected for this baseline stage.
 By allowing for the intelligent interpretation of system metrics, this knowledge facilitates subsequent performance testing, optimization, and security analysis. By enabling the evaluation of security and performance trade-offs using quantitative data rather than conjecture, this baseline analysis supports LO5 and permits meaningful performance comparison in subsequent weeks.
 
----
 ---

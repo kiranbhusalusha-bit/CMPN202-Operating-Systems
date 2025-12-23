@@ -43,7 +43,7 @@ This prompt shows up when the unattended-upgrades package is being configured. W
 
 
 ## III.	Verify Configuration
-Command (Server)
+Command (Server):
 cat /etc/apt/apt.conf.d/20auto-upgrades
  
 

@@ -56,6 +56,7 @@ The security controls that will be put into place and verified in the next weeks
 -   Enforce SSH key-based authentication
 -	Disable direct root login
 -	Restrict SSH access to authorised users only
+  
 These precautions restrict the possibility of unauthorized access and brute-force attacks.
 
 ## ii.	Firewall Configuration
@@ -63,6 +64,7 @@ These precautions restrict the possibility of unauthorized access and brute-forc
 -	Allow only required inbound ports (SSH)
 -	Block all other inbound traffic by default
 -	Enable logging of blocked connection attempts
+  
 Firewall rules reduce the server's exposed attack surface and impose stringent network access control.
 
 ## iii.	Mandatory Access Control
@@ -70,12 +72,14 @@ Firewall rules reduce the server's exposed attack surface and impose stringent n
 -	Enable and enforce AppArmor profiles
 -	Restrict application access to system resources
 -	Limit the impact of compromised processes
+  
 Mandatory access control lessens the harm that misconfigured or abused services can cause.
 
 ## iv.	Automatic Updates and Patch Management
 -	Enable automatic security updates
 -	Apply critical patches promptly
 -	Monitor update logs for failures
+  
 Frequent patching reduces vulnerabilities brought on by out-of-date software.
 
 ## v.	User Privilege Management
@@ -84,6 +88,7 @@ Frequent patching reduces vulnerabilities brought on by out-of-date software.
 -	Apply the principle of least privilege
 -	Restrict sudo access to required commands only
 -	Disable or remove unnecessary user accounts
+  
 This restricts system compromise and stops privilege escalation.
 
 ## vi.	Network Security
@@ -91,6 +96,7 @@ This restricts system compromise and stops privilege escalation.
 -	Restrict network access using firewall rules
 -	Limit exposed services
 -	Monitor network activity for suspicious behaviour
+  
 Controlled and auditable server access is ensured by network security measures.
 
 ## 4.	Threat Model and Mitigation Strategies
@@ -108,6 +114,7 @@ Mitigation Strategy:
 -	Use SSH key-based authentication
 -	Deploy intrusion prevention mechanisms
 -	Restrict SSH access using firewall rules
+  
 ## Threat2: Privilege Escalation (Compromised User Account)
 Description: Elevated system rights may be sought for by a compromised user account.
 Potential Impact:
@@ -118,11 +125,13 @@ Mitigation Strategy:
 -	Restrict sudo permissions
 -	Enforce mandatory access control
 -	Regularly audit user privileges
+  
 ## Threat3: Misconfigured or Unnecessary Services
 Description: Misconfigured or superfluous services could leave the system vulnerable to abuse.
 Potential Impact:
 -	Increased attack surface
 -	Data leakage or denial of service
+  
 Mitigation Strategy:
 -	Minimal service installation
 -	Firewall default-deny policy
@@ -136,9 +145,8 @@ Description: Evidence gathered in upcoming weeks will consist of:
 -	Performance logs
 -	Screenshots of monitoring activities
 -	Tables and graphs illustrating performance trends
-  
-To promote openness, reproducibility, and evaluation, every piece of evidence will be properly labeled
- and incorporated into the GitHub journal. To guarantee that results can be replicated and independently confirmed, all evidence will be timestamped and recorded using standard command syntax.
+
+To promote openness, reproducibility, and evaluation, every piece of evidence will be properly labeled and incorporated into the GitHub journal. To guarantee that results can be replicated and independently confirmed, all evidence will be timestamped and recorded using standard command syntax.
 
 
 ## 6.	Conclusion

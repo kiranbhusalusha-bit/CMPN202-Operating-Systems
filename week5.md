@@ -10,7 +10,9 @@ AppArmor was utilized as the Mandatory Access Control mechanism as Ubuntu Server
 
 ## I.	Verify AppArmor Status
 Command(server via SSH):
+
  sudo aa-status
+ 
  sudo aa-status --verbose 
   
 
@@ -22,7 +24,9 @@ To guarantee that known vulnerabilities were patched on time, automatic security
 
 ## I.	Install Unattended Upgrades
 Command(Server via SSH):
+
 sudo apt update
+
 sudo apt install unattended-upgrades -y
  
 

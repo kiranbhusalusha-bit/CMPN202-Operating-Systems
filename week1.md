@@ -30,7 +30,6 @@ The dual-system architecture used in this coursework consists of:
 
 All server configuration and management are performed remotely from the workstation, reflecting professional system administration practices.
 
----
 
 ### Architectural Justification
 
@@ -43,7 +42,6 @@ Operating servers without a graphical user interface:
 
 This architecture enforces the module’s primary learning objectives of **secure remote administration** and **strong CLI proficiency**.
 
----
 
 ## 3. System Architecture Diagram
 
@@ -64,7 +62,6 @@ The system architecture consists of:
 
 **Ubuntu Server 22.04 LTS**
 
----
 
 ### Comparison with Alternatives
 
@@ -74,7 +71,6 @@ The system architecture consists of:
 | Debian | Extremely stable, lightweight | Older software packages |
 | CentOS / Rocky Linux | Enterprise-focused | Less beginner-friendly |
 
----
 
 ### Justification
 
@@ -95,7 +91,6 @@ This makes it a secure, efficient, and sustainable platform for professional ser
 
 The workstation system is a Linux desktop environment used exclusively for remote server administration via SSH.
 
----
 
 ### Justification
 
@@ -114,7 +109,6 @@ This configuration demonstrates professional system administration practices and
 
 VirtualBox networking is used to deploy the server as a virtual machine.
 
----
 
 ### Network Design
 
@@ -128,7 +122,6 @@ This design supports:
 - Network isolation
 - Future firewall and security testing
 
----
 
 ### VirtualBox Network Setting (Host-Only Adapter)
 
@@ -142,7 +135,6 @@ The Host-Only Adapter ensures complete network isolation while allowing secure S
 
 Although NAT networking can provide outbound internet access for updates, the Host-Only Adapter was selected to maintain strict isolation and support controlled performance and security evaluation.
 
----
 
 ### IP Addressing
 
@@ -157,7 +149,6 @@ This strategy enables safe remote administration while preserving isolation, mak
 Standard Linux command-line tools were used to verify the system requirements.
 The SERVER system, not the workstation, was used to run all of the tasks listed below.
 
----
 
 ### I. Headless Server and CLI-Only Environment Verification
 Further command-line tests were carried out to verify that the server is functioning as a headless system without a graphical user interface. These checks confirm that no display environment is active and that the system is operating in a multi-user, non-graphical target.
@@ -206,11 +197,14 @@ The server's given IP addresses for each network interface were shown using the 
 Command(Server): lsb_release -a
  
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/lsb_release-a.png)
+
+
 ## VII.	System Identification(Hostname Verification)
 Command(Server): hostname
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/hostname.png)
 
 The hostname of the system was found using the hostname command. In order to assist uniquely identify the system for remote administration, monitoring, and log analysis, the output verifies that the server is named usha. In multi-system situations, assigning and confirming a hostname is crucial to preventing confusion while using SSH to remotely manage servers.
+
 
 ## VIII.	Routing Table and Default Network Path Verification
 Command(Server): ip route

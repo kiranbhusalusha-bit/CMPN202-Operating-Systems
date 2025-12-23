@@ -194,20 +194,20 @@ Command(Server): ip addr
 
 The server's given IP addresses for each network interface were shown using the ip addr command. The output verifies that VirtualBox networking has given the primary network interface (enp0s3) a private IPv4 address and that it is operational. This confirms that the server can perform safe remote administration using SSH and is properly linked to the virtual network.
 
-## VI.	Distribution and Version Confirmation
+### VI.	Distribution and Version Confirmation
 Command(Server): lsb_release -a
  
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/lsb_release-a.png)
 
 
-## VII.	System Identification(Hostname Verification)
+### VII.	System Identification(Hostname Verification)
 Command(Server): hostname
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/hostname.png)
 
 The hostname of the system was found using the hostname command. In order to assist uniquely identify the system for remote administration, monitoring, and log analysis, the output verifies that the server is named usha. In multi-system situations, assigning and confirming a hostname is crucial to preventing confusion while using SSH to remotely manage servers.
 
 
-## VIII.	Routing Table and Default Network Path Verification
+### VIII.	Routing Table and Default Network Path Verification
 Command(Server): ip route
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/ip%20route.png)
  

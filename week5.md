@@ -92,7 +92,18 @@ bantime = 10m
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20nano%20etc%20fail2ban%20jail.d%20sshd.local.png)
 
-	
+The setup presented allows the fail2ban SSH jail, which detects intrusions and automatically blocks brute force attacks directed to the SSH service.	
+-  enabled = true
+  Enables tracking of the SSH service. Fail2ban is an incessant scanner    of SSH authentication records in order to identify any suspicious        activity.
+-  maxretry = 3
+  Stops three attempts of authentication. An IP address, with more than    this number of unsuccessful attempts to log in is regarded as            malicious.
+-  findtime = 10m
+  Nominates a 10 minutes monitoring period where failed attempts to log    in are recorded. This helps in the discouragement of slow brute-force    attacks that proliferate over time.
+-  bantime = 10m
+  Blocks offensive IP addresses automatically for ten minutes into the     firewall. This prevents the attacker from making any subsequent SSS      access connections during the ban time window
+
+Combined, the settings go a long way in minimizing the threat of brute-force SSH attacks due to the repetition of failed login attempts and automatic response, without the involvement of the administrator. The setup is balanced in that it provides security and availability by applying strong security measures and enabling genuine users to re-establish contact after a brief period of ban in case of necessity.
+This implementation helps achieve the Learning Outcome LO3 by implementing an industry-standard intrusion prevention mechanism and works towards the Learning Outcome LO5 by showing an informed securityperformance trade-off: very little CPU overhead is added at the cost of high protection against unauthorized access.
 
 ## III.	Verify fail2ban Status
 Command(Server):

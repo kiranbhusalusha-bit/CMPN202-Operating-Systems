@@ -131,9 +131,13 @@ This firewall rule specifically limits SSH (TCP port 22) access to the authorize
 
 ## V.	Enable Firewall and Show Ruleset
 Command (Server):
+
 sudo ufw enable
+
 sudo ufw status verbose
+
 sudo ufw status numbered
+
 
 ![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20ufw%20enable.png) 
 

@@ -42,6 +42,7 @@ Operating servers without a graphical user interface:
 
 This architecture enforces the module’s primary learning objectives of **secure remote administration** and **strong CLI proficiency**.
 
+---
 
 ## 3. System Architecture Diagram
 

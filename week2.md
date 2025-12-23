@@ -1,9 +1,13 @@
 # Week 2- Security Baseline Design and Performance Testing Methodology
+
+---
+
 ## 1.	Introduction
 The second week's goal is to create a performance testing methodology and an organized security baseline for the Linux server system before making any configuration modifications. As it guarantees that controls are justified, risks are recognised, and outcomes can be measured methodically, planning security and performance evaluation in advance is an essential professional practice.
 
 Instead of implementation, this week's focus is on design and rationale. The foundation for successful security hardening, auditing, and optimisation in later curriculum phases is laid by defining security policies, identifying plausible threats, and describing a remote performance testing methodology. By creating justifiable security rules and threat mitigations and by assessing security and performance factors before implementation, this step directly supports Learning Outcomes LO3 and LO5.
 
+---
 
 ## 2.	Performance Testing Plan and Remote Monitoring Methodology
 To assess how the operating system performs under various workloads and configurations, performance testing is necessary. Performance changes can be accurately monitored and compared before and after optimization with the help of a systematic testing plan.
@@ -45,6 +49,8 @@ In order to appropriately attribute any subsequent performance changes to worklo
 -  Compare results quantitatively with baseline measurements
   
 Meaningful performance evaluation is made possible by this methodical methodology, which also supports optimization choices supported by quantifiable data. Metrics including CPU load averages, memory availability, disk utilization, and I/O activity recorded before and after optimization will be quantitatively compared to validate performance gains. To ensure consistency, every test will be run several times and averaged when necessary, using the same monitoring window and tools. This will allow performance variations to be ascribed to workload or configuration changes rather than chance. By allowing for the quantitative assessment of operating system performance under controlled circumstances, this structured methodology directly supports Learning Outcome LO5.
+
+---
 
 ## 3.	Security Configuration Checklist (Planned Controls)
 A defense-in-depth approach, which applies several levels of security measures to lessen the possibility and impact of assaults, is used to create a thorough security baseline.
@@ -99,6 +105,8 @@ This restricts system compromise and stops privilege escalation.
   
 Controlled and auditable server access is ensured by network security measures.
 
+---
+
 ## 4.	Threat Model and Mitigation Strategies
 
 Threat modeling defines suitable mitigation measures and pinpoints actual hazards to the system. This guarantees that security controls are not enforced randomly, but rather are targeted and justified.
@@ -138,6 +146,8 @@ Mitigation Strategy:
 -	Regular service auditing
 -	System hardening practices
 
+---
+
 ## 5.	Evidence Collection and Documentation Plan
 Description: Evidence gathered in upcoming weeks will consist of:
 -	Command outputs
@@ -148,6 +158,9 @@ Description: Evidence gathered in upcoming weeks will consist of:
 
 To promote openness, reproducibility, and evaluation, every piece of evidence will be properly labeled and incorporated into the GitHub journal. To guarantee that results can be replicated and independently confirmed, all evidence will be timestamped and recorded using standard command syntax.
 
+---
 
 ## 6.	Conclusion
 A strong foundation for safe and performance-conscious system management is established in week two. The coursework guarantees that subsequent implementation, auditing, and optimization activities are justified, quantifiable, and in line with industry best practices by creating an organized performance testing methodology, defining a thorough security configuration checklist, and creating a detailed threat model with mitigation strategies. This week directly supports LO5 by preparing quantifiable performance measurement and identifying security-performance trade-offs prior to deployment, as well as LO3 by outlining justifiable security measures and threat mitigations.
+
+---

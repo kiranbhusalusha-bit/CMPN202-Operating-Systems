@@ -66,6 +66,7 @@ This screenshot displays an attempt to install fail2ban, an intrusion detection 
 
 ## II.	Enable SSH Protection
 Command (Server): sudo nano /etc/fail2ban/jail.d/sshd.local
+
 The SSH jail was enabled with the following configuration:
 
 [sshd]

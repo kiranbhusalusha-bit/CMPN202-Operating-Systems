@@ -153,7 +153,9 @@ This script creates a firewall rule that only permits SSH connections from the a
 ## II.	Add User to Sudo Group
 Command (Server):
 sudo usermod -aG sudo adminuser
+
 groups adminuser
+
 id adminuser
 
 ![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20usermod%20-aG%20sudo%20adminuser.png)

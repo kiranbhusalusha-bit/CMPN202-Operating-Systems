@@ -116,7 +116,7 @@ Screenshot
 -	PermitRootLogin no
 -	PubkeyAuthentication yes
 
-	Strong SSH hardening against credential-based and brute-force assaults is confirmed by this.
+Strong SSH hardening against credential-based and brute-force assaults is confirmed by this.
 
 
 ## 6.	Access Control Verification (AppArmor)
@@ -144,40 +144,51 @@ Command (Server via SSH): systemctl list-units --type=service --state=running
 
 
 ### II.	Service Justification
-Service	Purpose	Justification
-ssh	Remote administration	Mandatory for SSH-only management
-system-journald	Logging	Required for auditing and troubleshooting
-cron	Scheduled tasks	Required for updates and scripts
-ufw	Firewall	Enforces network security policy
-fail2ban	Intrusion prevention	Protects against brute-force attacks
+
+| Service          | Purpose                 | Justification                                      |
+|------------------|-------------------------|----------------------------------------------------|
+| ssh              | Remote administration   | Mandatory for SSH-only management                  |
+| system-journald  | Logging                 | Required for auditing and troubleshooting          |
+| cron             | Scheduled tasks         | Required for updates and maintenance scripts       |
+| ufw              | Firewall                | Enforces default-deny network security policy      |
+| fail2ban         | Intrusion prevention    | Protects against brute-force authentication attacks|
+
 
 	The attack surface is decreased by the minimal, essential, and justifiable nature of all operating services.
 
+---
 
 ## 8.	System Configuration Review
 
 ### I.	Security Controls Summary
 
-Control	Status
-SSH key-based authentication	Implemented
-Password Authentication	Disable
-Root login	Disable
-Firewall(UFW)	Enable
-Access control(AppArmor)	Enforced
-Automatic updates	Enable
-Intrusion detection(fail2ban)	Active
-Security auditing(Lynis)	Completed
+| Control                         | Status      |
+|--------------------------------|-------------|
+| SSH key-based authentication   | Implemented |
+| Password Authentication        | Disabled    |
+| Root login                     | Disabled    |
+| Firewall (UFW)                 | Enabled     |
+| Access control (AppArmor)      | Enforced    |
+| Automatic updates              | Enabled     |
+| Intrusion detection (fail2ban) | Active      |
+| Security auditing (Lynis)      | Completed   |
+
 
 	This attests to complete adherence to all security regulations.
 
+---
 
 ## 9.	Remaining Risk Assessment
+
 Even with robust security measures, there are still certain lingering risks:
-Risk	Mitigation
-Zero-day vulnerabilities	Regular updates and monitoring
-SSH key compromise	Key rotation and restricted access
-Insider misuse	Least-privilege user management
-Misconfiguration drift	Automated security baseline scripts
+
+| Risk                  | Mitigation                                   |
+|-----------------------|----------------------------------------------|
+| Zero-day vulnerabilities | Regular updates and monitoring             |
+| SSH key compromise     | Key rotation and restricted access           |
+| Insider misuse         | Least-privilege user management              |
+| Misconfiguration drift | Automated security baseline scripts          |
+
 
 These risks are manageable and acceptable, in line with server administration procedures used in the real world. Minor performance overheads are introduced by a number of security procedures, which were assessed and deemed necessary trade-offs:
 - Firewall (UFW):
@@ -194,8 +205,12 @@ These risks are manageable and acceptable, in line with server administration pr
 
 These trade-offs demonstrate how security, performance, and system reliability must be balanced in real-world operating system administration.
 
-*** 10.	Evidence and Documentation ***
+---
+
+## 10.	Evidence and Documentation
+	
 Evidence collected during Week 7 includes:
+
 -	Lynis audit outputs and hardening score
 -	Nmap network scan results
 -	SSH configuration verification
@@ -205,11 +220,11 @@ Evidence collected during Week 7 includes:
 -	Re-execution of the automated security-baseline.sh script post-audit to confirm no configuration drift
 All evidence is clearly labelled and integrated into the GitHub Pages journal.
 
+---
+
 ## 11.	Conclusion
 A thorough security audit and system review round up the coursework in week seven. The findings verify that the headless Linux server is expertly hardened using industry-standard techniques and procedures, securely configured, and minimally exposed.
 
 The audit shows excellent command-line proficiency, verifies the efficacy of all previous security safeguards, and offers crucial insight into practical security trade-offs. The system is ready for professional deployment scenarios, performance analysis, and secure operation. This final audit demonstrates not only the successful implementation of security controls but also the ability to evaluate, verify, and justify operating system design decisions using measurable evidence and professional auditing practices.
 
-
-
-
+---

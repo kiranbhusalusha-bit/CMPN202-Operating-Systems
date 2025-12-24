@@ -1,5 +1,4 @@
-
-## Week 6 - Performance Evaluation and Analysis
+# Week 6 - Performance Evaluation and Analysis
 
 ## 1.	Introduction
 In-depth performance testing and an analysis of the Linux operating system's behavior under various workloads are the main objectives of week six. This phase assesses CPU, memory, disk, and network performance under both idle and stressed settings, building on the performance testing methodology developed in Week 2 and the secure system configuration put into place in Weeks 4 and 5.
@@ -8,12 +7,16 @@ In order to strictly stick to the coursework administration constraint, all perf
 
 ## 2.	Performance Testing Approach
 A structured four-stage process was used for performance evaluation:
+
 ## I.	Baseline Measurement
 Evaluate the system's performance when it is idle and has no extra work.
+
 ## II.	Application Load Testing
 To put particular system resources under stress, introduce regulated workloads.
+
 ## III.	Bottleneck Identification
 Examine which resources are limited when there is a load.
+
 ## IV.	Optimisation and Re-testing
 Implement configuration changes and compare outcomes quantitatively.
 
@@ -25,17 +28,17 @@ Prior to applying any stress, baseline measurements set reference values.
 
 Commands Executed (Server via SSH):
 
-uptime
+`uptime`
 
-free -h
+`free -h
 
-df -h
+`df -h`
 
-top
+`top`
 
-iostat
+`iostat`
 
-ip addr
+`ip addr`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/uptime7.png)
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/uptime.png )
@@ -60,9 +63,9 @@ These figures serve as the benchmark for subsequent comparisons.
 Command(Server):
 
 
-sudo apt install stress-ng -y
+`sudo apt install stress-ng -y`
 
-stress-ng --cpu 2 --timeout 60s
+`stress-ng --cpu 2 --timeout 60s`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/sudo%20apt%20install%20stress-ng%20-y1.png)
 
@@ -74,7 +77,7 @@ The command stress-ng gave an error since the parameter of the time out was not 
 ## Memory Stress test
 Command(Server):
 
-stress-ng --vm 1 --vm-bytes 512M --timeout 60s
+`stress-ng --vm 1 --vm-bytes 512M --timeout 60s`
 
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/stress-ng%20--vm%201%20--vm-bytes%20512M%20--timeout%2060s.png)
  
@@ -83,8 +86,8 @@ One virtual memory stressor (vm 1) was started with the allocation of 512 MB of 
 ## Disk I/O Test
 Command(Server):
 
-sudo apt install sysstat -y
-iostat -dx 2 5
+`sudo apt install sysstat -y`
+`iostat -dx 2 5`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/sudo%20apt%20install%20sysstat%20-y.png)
 
@@ -97,7 +100,7 @@ SSH responsiveness and data transfer efficiency were assessed by measuring netwo
 Latency Testing
 Command(Workstation):
 
-ping -c 10 192.168.56.4
+`ping -c 10 192.168.56.4`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/ping%20-c%2010%20192.168.56.4.png)
 
@@ -107,8 +110,8 @@ Network latency and reliability of transmitting packets between the workstation 
 ## Network Throughput Testing
 Command:
 
-sudo apt install iperf3 -y
-iperf3 -s
+`sudo apt install iperf3 -y`
+`iperf3 -s`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/sudo%20apt%20install%20iperf3%20-y.png)
  
@@ -118,7 +121,7 @@ The iperf3 was installed to measure network throughput between the workstation a
 ## From Workstation
 Command: 
 
-iperf3 -c 192.168.56.4
+`iperf3 -c 192.168.56.4`
  
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/iperf3%20-c%20192.168.56.4.png)
 
@@ -152,7 +155,7 @@ sudo systemctl disable apport.service
 ## Optimisation 2: Reduce Swappiness:
 
 cat /proc/sys/vm/swappiness
-sudo sysctl vm.swappiness=10
+`sudo sysctl vm.swappiness=10`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/cat%20procsysvmswappiness.png)
 

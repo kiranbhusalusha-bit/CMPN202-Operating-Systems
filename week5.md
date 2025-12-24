@@ -184,9 +184,15 @@ Command (Server):
 `chmod +x security-baseline.sh
 ./security-baseline.sh`
 
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20security-baseline.sh.png)
 
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20security-baseline.sh1.png)
 
+This is a script that is run on the headless server, through the command-line interface, and does not require any graphical environment. It methodically checks the security position of the system by gathering the facts of the actual implemented controls such as SSH hardening, firewall enforcement, mandatory access control, automated patching, intrusion prevention, and privilege management.
 
+The script verifies the status of the active SSH configuration and service, the firewall (UFW) is on and has the defined rules, that the AppArmor profiles were loaded and enforced, that the unattended security updates are set and the status of the active Fail2Ban SSH jail. It also contains sudo group members to prove controlled administrative access.
+
+This output offers a repeatable and auditable security baseline, such that all mechanisms of security that are brought in during Weeks 4-5 are active and appropriately enforced. This strategy reflects professional, CLI-only system administration practices (LO4) and facilitates structured security assessment and remediation (LO3), as well as, permits informed security-performance trade-off analysis in subsequent coursework stages (LO5).
 
 ---
 
@@ -239,7 +245,9 @@ Command (Workstation):
 chmod +x monitor-server.sh
 ./monitor-server.sh
 
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20monitor-server.sh.png)
 
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20monitor-server.sh1.png)
 
 Remote Monitoring Script (monitor-server.sh) -Explanation.
 This script is executed on the workstation, and it gathers key performance metrics of the headless server via SSH, which does not violate the SSH-only factor of administration. It logs uptime/load averages, a snapshot of CPU/process, the memory consumption, disk consumption, the network interfaces status, and the active listening services. The output offers a consistent baseline of performance analysis in Week 6 and illustrates professional remote monitoring practice with the help of CLI tools (LO4) and assists in future trade-off analysis (LO5).

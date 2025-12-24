@@ -117,7 +117,7 @@ This step is the design evaluation and analysis of the environment and system ch
 
 These are some of the technical trade-offs that were taken into account when planning the initial systems:
 
-### Trade-off: does Headless Server or Graphical Server give us the best alternative?
+### Trade-off 1: does Headless Server or Graphical Server give us the best alternative?
 - **Security**: By eliminating a GUI, the attack surface is minimized (graphical services and dependencies are eliminated).
 - **Performance**: Liberates CPU cycles and memory that would otherwise have been expended by display managers.
 - **Usability Cost**: Makes it more dependent on CLI proficiency and distance communication expertise.
@@ -129,7 +129,7 @@ This is a trade-off between Host-Only and NAT.
 - **Testing Limitation**: Package updates should be configured temporarily with NAT.
 - **Rationale**: Convenience was put behind security and controlled experimentation.
 
-### Trade-off:Ubuntu Server vs Debian 
+### Trade-off 3:Ubuntu Server vs Debian 
 
 The trade-off lies in the variety of products within the marketplace.Headless Ubuntu Server vs Debian Trade-off: Trade-off is the diversity in the products in the market.
 - **Stability vs Currency**:Debian has the greatest stability, but outdated packages.

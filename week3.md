@@ -1,4 +1,4 @@
-# Week 3- Process Management, Resource Utilisation and System Behaviour
+# Week 3 – Application Selection and Planned Process Behaviour
 
 ---
 
@@ -6,7 +6,8 @@
 
 Week 3's goal is to use command-line tools to analyse system behavior and investigate how the Linux operating system handles programs and system resources. Prior to conducting performance testing or optimization, it is crucial to comprehend process management, CPU scheduling, memory utilization, and system load.
 
-By gathering baseline observations of system behavior under typical operating conditions, this week immediately expands upon the performance testing approach created in Week 2. In accordance with professional system management procedures, all analysis is carried out via secure remote access utilizing the command-line interface (CLI). This week directly supports Learning Outcome LO4 (command-line competency for system monitoring) and Learning Outcome LO5 (understanding operating system behavior and performance trade-offs) by analyzing real-time process behavior, CPU scheduling, memory consumption, and disk I/O using CLI-based tools.
+By gathering baseline observations of system behavior under typical operating conditions, this week immediately expands upon the performance testing approach created in Week 2. In accordance with professional system management procedures, all analysis is carried out via secure remote access utilizing the command-line interface (CLI). This week directly supports Learning Outcome LO4 (command-line competency for system monitoring) and Learning Outcome LO5 (understanding operating system behavior and performance trade-offs) by analyzing real-time process behavior, CPU scheduling, memory consumption, and disk I/O using CLI-based tools.This week focuses on understanding how selected application workloads are expected to interact with operating system processes and resources, providing preparatory insight rather than full performance benchmarking.
+
 
 ---
 
@@ -22,11 +23,23 @@ Processes may be:
   
 It is essential to comprehend these stages to identify misbehaving programs and diagnose performance problems.
 
+## 2.1 Selected Applications and Workload Types
+
+The following applications were selected to represent distinct workload types for later performance evaluation. They are not executed under load in this phase.
+
+| Application | Workload Type | Primary Resources Stressed | Justification |
+|------------|---------------|----------------------------|---------------|
+| stress-ng | CPU-intensive | CPU | Generates controlled CPU load to analyse scheduler behaviour and CPU utilisation under stress. |
+| stress-ng | Memory-intensive | RAM | Simulates high memory allocation and pressure to observe memory usage, swapping behaviour, and memory limits. |
+| fio | Disk I/O-intensive | Disk I/O | Produces sequential and random read/write workloads to evaluate filesystem and disk throughput performance. |
+| iperf3 | Network-intensive | Network | Measures network throughput and latency to analyse virtual network performance and packet handling. |
+| nginx | Server application | CPU, Network | Represents a real-world server workload handling concurrent network requests and service response times. |
+
 ---
 
 ## 3.	CLI-Based Process Observation
 
-Standard Linux command-line tools run remotely on the server via SSH were used to monitor system processes and resource utilisation. There was no usage of graphical tools or a direct server terminal, guaranteeing adherence to the coursework administrative constraint.
+Standard Linux command-line tools were used via SSH to observe baseline process behaviour under idle conditions only, without introducing artificial workloads or performance stress. There was no usage of graphical tools or a direct server terminal, guaranteeing adherence to the coursework administrative constraint.
 
 ### I.	Remote Administration Evidence (Workstation → Server)
 Command: `ssh usha@192.168.56.4 "ps aux " `
@@ -98,7 +111,8 @@ Command (SERVER): `iostat`
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/iostat.png)
  
 
-Note: Before gathering this evidence, sudo apt install sysstat -y was used to install iostat, which is supplied by the sysstat package. Because iostat is not included by default in a simple Ubuntu Server headless installation, this installation was necessary.
+Note: The iostat tool, provided by the sysstat package, is identified here as a suitable disk I/O monitoring utility. Installation and execution will be formally performed and evidenced during the performance evaluation phase.
+Because iostat is not included by default in a simple Ubuntu Server headless installation, this installation was necessary.
 The server's disk input/output activity was examined using the iostat command. The system is under minimum disk and processor demand, as evidenced by the extremely low read and write operations and CPU idle time above 99%. This verifies consistent baseline storage performance before any optimization or stress testing.
 
 ---
@@ -111,7 +125,8 @@ Command (SERVER): `ps -o pid, ni , cmd`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/ps%20-o%20pid%2C%20ni%20%2C%20cmd.png)
 
-Process identifiers and their matching nice values were shown on the server using the ps -o pid,ni,cmd command. The report indicates that the default scheduling priority of 0 is being used by the active processes. This shows that there are no manually changed process priorities and the system is running under typical load levels. This ensures that following performance testing results are not impacted by manual scheduling bias by confirming that no artificial prioritization has been used at this point.
+Process identifiers and their matching nice values were shown on the server using the ps -o pid,ni,cmd command. The report indicates that the default scheduling priority of 0 is being used by the active processes. This shows that there are no manually changed process priorities and the system is running under typical load levels. This ensures that following performance testing results are not impacted by manual scheduling bias by confirming that no artificial prioritization has been used at this point.Confirming default scheduling priorities at this stage ensures that later performance measurements are not influenced by unintended manual prioritisation.
+
 
 ---
 
@@ -138,6 +153,7 @@ In order to ensure CLI-only administration and adherence to the coursework requi
 ## 10.	Conclusion
 
 Using command-line tools, Week 3 offers useful insights into Linux process management and system performance behavior. A baseline understanding of system behavior is developed through the observation of ongoing programs, CPU load, memory consumption, and disk activity. Trade-off Reflection (LO5): While snapshot tools like ps and uptime are lighter but offer less continuous insight, real-time monitoring tools like top offer instantaneous observation of CPU and memory activity but may somewhat raise system overhead. In order to balance accuracy with little performance impact, a combination of both approaches was selected for this baseline stage.
-By allowing for the intelligent interpretation of system metrics, this knowledge facilitates subsequent performance testing, optimization, and security analysis. By enabling the evaluation of security and performance trade-offs using quantitative data rather than conjecture, this baseline analysis supports LO5 and permits meaningful performance comparison in subsequent weeks.
+By allowing for the intelligent interpretation of system metrics, this knowledge facilitates subsequent performance testing, optimization, and security analysis. By enabling the evaluation of security and performance trade-offs using quantitative data rather than conjecture, this baseline analysis supports LO5 and permits meaningful performance comparison in subsequent weeks.Trade-off Reflection (LO5): Snapshot tools such as ps and uptime provide low-overhead visibility into system state but lack temporal depth, whereas real-time tools like top offer continuous insight at the cost of minor monitoring overhead. Selecting an appropriate balance between these tools is essential to minimise observer effect while maintaining analytical accuracy.
+
 
 ---

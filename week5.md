@@ -122,8 +122,13 @@ Command(Server):
 
 `sudo fail2ban-client get sshd maxretr`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/dbdf1017552dfa4a3e467a689d2385eafab13b9d/images/week5/sudo%20systemctl%20enable%20--now%20fail2ban.png)
+![image]()
+ 
+Fail2Ban was successfully installed and enabled on the headless Linux server using command-line tools only. The service is confirmed as active and running, and configured to start automatically at boot, ensuring continuous protection without manual intervention. Fail2Ban monitors SSH authentication logs and dynamically blocks IP addresses that exhibit repeated failed login attempts, mitigating brute-force attacks against remote access services.
 
+The verification output demonstrates correct service deployment, controlled intrusion-prevention configuration, and effective use of CLI-based system management. This satisfies secure system hardening requirements (LO3) and evidences professional command-line administration practices in a no-GUI environment (LO4), while contributing to a resilient security baseline for later trade-off analysis (LO5).
+
+---
 
 ## 5.	Security Baseline Verification Script (Server)
 

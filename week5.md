@@ -1,9 +1,12 @@
 # Week 5 – Advanced Security Controls and Monitoring Infrastructure
+---
 
 ## 1.	Introduction
 The fifth week is devoted to setting up a monitoring and verification infrastructure on the Linux server and putting enhanced security policies into place. This phase fortifies the system with mandatory access control, intrusion detection, automatic patching, and custom verification scripts, building upon the fundamental security measures put in place in Week 4 (SSH hardening, firewall setup, and user privilege management).
 
 In careful adherence to the administrative constraints of the coursework, all setup actions were carried out remotely over SSH from the workstation. This week's objectives are to secure the system as well as to professionally and consistently test, monitor, and automate security validation.
+
+---
 
 ## 2.	Mandatory Access Control (AppArmor)
 AppArmor was utilized as the Mandatory Access Control mechanism as Ubuntu Server employs it by default. Even in the event that a service is compromised, AppArmor restricts what processes can access by enforcing per-application security profiles.
@@ -11,9 +14,9 @@ AppArmor was utilized as the Mandatory Access Control mechanism as Ubuntu Server
 ### I.	Verify AppArmor Status
 Command(server via SSH):
 
- sudo aa-status
+ `sudo aa-status`
  
- sudo aa-status --verbose 
+ `sudo aa-status --verbose` 
   
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20aa-status.png)
 
@@ -21,6 +24,7 @@ Command(server via SSH):
 
 To confirm that AppArmor is activated and actively enforcing security regulations on the server, the aa-status and aa-status --verbose tools were utilized. The output verifies that AppArmor is operating in enforce mode and that an active profile is protecting the rsyslogd service. Enforce mode stops processes from carrying out unauthorized operations by ensuring that specified access control rules are applied in real time. This shows that obligatory access control is set up appropriately, enhancing system security and bolstering the defense-in-depth tenets.
 
+---
 
 ## 3.	Automatic Security Updates (Unattended Upgrades)
 To guarantee that known vulnerabilities were patched on time, automatic security updates were set up.
@@ -28,9 +32,9 @@ To guarantee that known vulnerabilities were patched on time, automatic security
 ### I.	Install Unattended Upgrades
 Command(Server via SSH):
 
-sudo apt update
+`sudo apt update`
 
-sudo apt install unattended-upgrades -y
+`sudo apt install unattended-upgrades -y`
  
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20apt%20install%20unattended-upgrades%20-y1.png)
 
@@ -42,16 +46,15 @@ After that, the unattended-upgrades package was set up to allow important securi
 
 ### II.	Enable Automatic Security Updates
 Command(Server):
-sudo dpkg-reconfigure --priority=low unattended-upgrades
+` dpkg-reconfigure --priority=low unattended-upgrades`
 
  ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20dpkg-reconfigure.png)
 
 This prompt shows up when the unattended-upgrades package is being configured. When you choose "Yes," the system can download and install critical security updates automatically without your help. This reduces the window of exposure to known vulnerabilities and ensures the server remains up to date with critical patches, which is a best practice for maintaining a secure Linux server in a production-like environment.
 
-
 ### III.	Verify Configuration
 Command (Server):
-cat /etc/apt/apt.conf.d/20auto-upgrades
+`cat /etc/apt/apt.conf.d/20auto-upgrades`
  
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/cat%20etc%20apt%20apt.conf.d%2020auto-upgrades.png)
 
@@ -59,24 +62,25 @@ This configuration file verifies that the server is set up for automatic securit
 
 ### IV.	Verify Service Running
 Command (Server):
-systemctl status unattended-upgrades --no-pager
+`systemctl status unattended-upgrades --no-pager`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/systemctl%20status%20unattended-upgrades%20--no-pager.png)
 
 This output verifies that the server's unattended-upgrades service is turned on and operating. The service status shows that automatic security updates are properly set up to operate automatically in the background without human interaction. This approach lowers exposure to known vulnerabilities and ensures safe, low-maintenance system operation in compliance with best practices by guaranteeing the timely installation of critical fixes.
 
+---
 
 ## 4.	Intrusion Detection and Prevention (fail2ban)
 To defend the SSH service against brute-force attacks, fail2ban was implemented.
 ### I.	Install fail2ban
-Command (Server via SSH): sudo apt install fail2ban -y
+Command (Server via SSH): `sudo apt install fail2ban -y`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20apt%20install%20fail2ban%20-y.png)
 
 This screenshot displays an attempt to install fail2ban, an intrusion detection and prevention program that guards against brute-force attacks on services like SSH. The installation experienced brief network resolution issues when attempting to reach Ubuntu repositories, despite the package manager's successful identification of the necessary dependencies. Despite this, the command execution shows how to utilize package management tools correctly and records a configuration issue that was encountered. These issues are common in real-world system administration and are resolved in later stages if network access is reliable.
 
 ### II.	Enable SSH Protection
-Command (Server): sudo nano /etc/fail2ban/jail.d/sshd.local
+Command (Server): `sudo nano /etc/fail2ban/jail.d/sshd.local`
 
 The SSH jail was enabled with the following configuration:
 
@@ -108,15 +112,15 @@ This implementation helps achieve the Learning Outcome LO3 by implementing an in
 ### III.	Verify fail2ban Status
 Command(Server):
 
-sudo systemctl enable --now fail2ban
+`sudo systemctl enable --now fail2ban`
 
-sudo systemctl status fail2ban --no-pager
+`sudo systemctl status fail2ban --no-pager`
 
-sudo fail2ban-client status
+`sudo fail2ban-client status`
 
-sudo fail2ban-client status sshd
+`sudo fail2ban-client status sshd`
 
-sudo fail2ban-client get sshd maxretr
+`sudo fail2ban-client get sshd maxretr`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/dbdf1017552dfa4a3e467a689d2385eafab13b9d/images/week5/sudo%20systemctl%20enable%20--now%20fail2ban.png)
 
@@ -177,17 +181,18 @@ echo "=== Verification Complete ==="
 
 ### III.	Execute Script
 Command (Server):
-chmod +x security-baseline.sh
-./security-baseline.sh
+`chmod +x security-baseline.sh
+./security-baseline.sh`
 
 	Screenshot
 
+---
 
 ## 6.	Remote Monitoring Script (Workstation)
 To gather performance measurements from the server via SSH, a remote monitoring script was written on the workstation.
 
 ### I.	Create Script
-Command(Workstation): nano monitor-server.sh
+Command(Workstation): `nano monitor-server.sh`
 
 ### II.	Script Content
 #!/usr/bin/env bash
@@ -236,6 +241,7 @@ chmod +x monitor-server.sh
 
 	Screenshot
 
+---
 
 ## 7.	Evidence Summary
 Evidence collected during Week 5 includes:
@@ -246,5 +252,9 @@ Evidence collected during Week 5 includes:
 -	All evidence captured via SSH with visible CLI prompts
 -	AppArmor enforcement status
 
+---
+
 ## 8.	Conclusion
 The headless Linux server's security and monitoring features were greatly improved in week five. Intrusion protection, automated patch management, and mandatory access control were all successfully put into place. The system was ready for security auditing and performance evaluation in later coursework rounds thanks to automation scripts that made repeatable verification and remote performance monitoring possible.
+
+---

@@ -122,11 +122,13 @@ Command(Server):
 
 `sudo fail2ban-client get sshd maxretr`
 
-![image]()
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/f27f97cdb3f913e92e047a2ef16052274e9585c0/images/week5/sudo%20systemctl%20enable%20--now%20fail2ban1%2C2%2C3%2C4.png)
  
-Fail2Ban was successfully installed and enabled on the headless Linux server using command-line tools only. The service is confirmed as active and running, and configured to start automatically at boot, ensuring continuous protection without manual intervention. Fail2Ban monitors SSH authentication logs and dynamically blocks IP addresses that exhibit repeated failed login attempts, mitigating brute-force attacks against remote access services.
+The headless Linux server was configured and tested to have Fail2Ban to offer active protection to the SSH service. The service is verified as being enabled at boot and in active operation, which means that intrusion prevention will be done continuously without any human intervention. Through the Fail2Ban client, the SSH jail was confirmed to be working and the authentication logs were being recorded and being viewed accordingly.
 
-The verification output demonstrates correct service deployment, controlled intrusion-prevention configuration, and effective use of CLI-based system management. This satisfies secure system hardening requirements (LO3) and evidences professional command-line administration practices in a no-GUI environment (LO4), while contributing to a resilient security baseline for later trade-off analysis (LO5).
+The setup of the system limits the number of failed SSH login attempts to three and blocks the IP temporarily to minimize the possibility of brute force entry. There were no unsuccessful or prohibited attempts at the moment of verification, which means that there were no problems with stable and safe conditions of access.
+
+The verification shows that intrusion prevention mechanism with CLI-only administration (LO4) is deployed effectively, and it supports the hardening of secure remote access (LO3) and makes a contribution to a sound security base when performing an informed analysis of security-performance trade-off in the subsequent phases of the coursework (LO5).
 
 ---
 

@@ -28,7 +28,8 @@ It is essential to comprehend these stages to identify misbehaving programs and 
 
 Standard Linux command-line tools run remotely on the server via SSH were used to monitor system processes and resource utilisation. There was no usage of graphical tools or a direct server terminal, guaranteeing adherence to the coursework administrative constraint.
 
-### I.	Remote Administration Evidence (Workstation → Server): ssh usha@192.168.56.4 "ps aux " 
+### I.	Remote Administration Evidence (Workstation → Server)
+Command: `ssh usha@192.168.56.4 "ps aux " `
 
 To confirm that process monitoring was performed remotely in accordance with the coursework administrative constraint, process observation commands were executed from the workstation using SSH to run commands on the server. This confirms that all monitoring was performed without direct server console access or graphical tools.
 
@@ -36,7 +37,7 @@ To confirm that process monitoring was performed remotely in accordance with the
  
 
 ### II.	Viewing Active Processes
-Command(Server): ps aux
+Command(Server): `ps aux`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/ps%20aux.png)
  
@@ -45,7 +46,7 @@ To get a comprehensive list of all active processes, the server's command-line i
 
 
 ### III.	Real-Time Process Monitoring
-Command(Server): top
+Command(Server): `top`
  
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/top.png)
 
@@ -58,7 +59,7 @@ Real-time resource usage and system processes were tracked using the top command
 The efficiency with which the processor is being used is shown in CPU utilization. System load averages, which show the typical number of processes awaiting CPU time, are reported by Linux.
 
 ### I.	System Load and Uptime
-Command (SERVER): uptime
+Command (SERVER): `uptime`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/uptime.png)
 
@@ -71,7 +72,7 @@ The system's running time, active user count, and load averages were shown using
 Linux uses memory aggressively for caching to improve performance. Monitoring memory usage helps distinguish between genuine memory pressure and normal cache utilisation.
 
 ### I.	Memory Usage Overview
-Command (SERVER): free -h
+Command (SERVER): `free -h`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/free%20-h.png)
  
@@ -84,7 +85,7 @@ The server's current memory use is shown with the free -h command. The output in
 System responsiveness can be greatly impacted by disk consumption and I/O performance. Potential bottlenecks can be found by monitoring disk activity.
 
 ### I.	Disk Space Utilisation
-Command (SERVER): df -h
+Command (SERVER): `df -h`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/df-h.png)
 
@@ -92,7 +93,7 @@ Command (SERVER): df -h
 Disk space consumption is shown in a human-readable style with the df -h tool. The response indicates that there are no urgent storage limitations and that the root filesystem is utilizing a modest percentage of the available storage. Prior to performance testing, this creates a baseline for disk utilization.
 
 ### II.	Disk I/O Statistics
-Command (SERVER): iostat
+Command (SERVER): `iostat`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/iostat.png)
  
@@ -106,7 +107,7 @@ The server's disk input/output activity was examined using the iostat command. T
 Linux gives administrators the ability to manage system responsiveness by controlling process priority.
 
 ### I.	Process Priority (Nice Values)
-Command (SERVER): ps -o pid, ni , cmd
+Command (SERVER): `ps -o pid, ni , cmd`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/ps%20-o%20pid%2C%20ni%20%2C%20cmd.png)
 

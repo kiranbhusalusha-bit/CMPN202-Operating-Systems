@@ -54,6 +54,7 @@ The system architecture consists of:
 
 ![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/4a74bf4bfaac52b3487d8db92fc9653d28e85e3d/images/week1/systemarchiteture.png)
 
+Each administrative traffic is unidirectional only at the workstation to the server on the isolated host-only virtual network (SSH over TCP port 22).
 
 ---
 
@@ -130,7 +131,7 @@ This is a trade-off between Host-Only and NAT.
 
 ### Trade-off:Ubuntu Server vs Debian 
 
-The trade-off lies in the variety of products within the marketplace.<|human|>Ubuntu Server vs Debian Trade-off: Trade-off is the diversity in the products in the market.
+The trade-off lies in the variety of products within the marketplace.Headless Ubuntu Server vs Debian Trade-off: Trade-off is the diversity in the products in the market.
 - **Stability vs Currency**:Debian has the greatest stability, but outdated packages.
 - **Security Tooling**: Ubuntu offers improved integration with AppArmor, Lynis and fail2ban.
 - **Rationale of the decision**: Ubuntu has been chosen to be used in the subsequent security audit and monitoring stages.
@@ -252,10 +253,10 @@ Screenshot Include:
 -	Visibility of output
 -	Prompt for the server terminal
 
-Transparency is guaranteed by this methodical evidence approach, which also facilitates future performance and security assessments. Timestamps and visible command prompts are included in every screenshot to guarantee auditability and repeatability of outcomes. Unless otherwise noted, every command included in this section was run on a fresh Ubuntu Server 22.04 LTS installation with the default system settings. This guarantees that the outcomes can be repeated in similar settings. To enable independent verification of results, command outputs, timestamps, and visible shell prompts (username@hostname) are given.
+Transparency is guaranteed by this methodical evidence approach, which also facilitates future performance and security assessments.The chosen commands are the first core CLI skills that the Week 1 evaluates and form a foundation that will be developed over the course of Weeks to the process management of advanced log analysis, scripting, and network diagnostics. Timestamps and visible command prompts are included in every screenshot to guarantee auditability and repeatability of outcomes. Unless otherwise noted, every command included in this section was run on a fresh Ubuntu Server 22.04 LTS installation with the default system settings. This guarantees that the outcomes can be repeated in similar settings. To enable independent verification of results, command outputs, timestamps, and visible shell prompts (username@hostname) are given.
 
 ---
 ## 9.	Conclusion
-A safe, effective, and expertly designed Linux server environment is established in the first week. A solid basis has been established for the implementation of sophisticated security measures, performance monitoring, and optimization in the next weeks thanks to meticulous planning, well-reasoned technical choices, and CLI-based system verification. By reducing needless resource use, the deployment of a headless server design also supports sustainability goals. By creating a safe, inspectable server baseline, this foundational design and verification phase supports Learning Outcomes LO3 and LO4. It also gets ready for LO5 by allowing subsequent assessment of security-performance trade-offs using measured data.
+A safe, effective, and expertly designed Linux server environment is established in the first week. A solid basis has been established for the implementation of sophisticated security measures, performance monitoring, and optimization in the next weeks thanks to meticulous planning, well-reasoned technical choices, and CLI-based system verification. By reducing needless resource use, the deployment of a headless server design also supports sustainability goals.Eliminating graphical services will save around 300-600 MB of background memory on average Linux systems and increase the amount of resources available to server workloads, and reduce idle power consumption. By creating a safe, inspectable server baseline, this foundational design and verification phase supports Learning Outcomes LO3 and LO4. It also gets ready for LO5 by allowing subsequent assessment of security-performance trade-offs using measured data.
 
 ---

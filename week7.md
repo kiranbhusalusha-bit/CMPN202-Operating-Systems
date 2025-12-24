@@ -1,4 +1,4 @@
-## Week 7 - Security Audit and System Evaluation
+# Week 7 - Security Audit and System Evaluation
 
 ## 1.	Introduction
 Conducting a thorough security audit and final system review of the headless Linux server set up throughout this training is the goal of Week 7. Using industry-standard auditing tools, this phase evaluates the system's overall security posture and verifies the efficacy of all previously deployed security controls (Weeks 4 and 5).
@@ -22,16 +22,15 @@ The structured audit methodology employed was as follows:
 Strict adherence to the SSH-only administration criterion was maintained by executing all commands remotely via SSH from the workstation.
 
 ## 3.	Infrastructure Security Assessment with Lynis
-## I.	Lynis Installation
+### I.	Lynis Installation
 Command (Server via SSH):
 sudo apt update
 sudo apt install lynis -y
 	 
 	 
-There were brief DNS resolution issues during the Lynis installation and package upgrade. According to the ethical and security requirements of the coursework, this behavior is expected since the server runs inside an isolated VirtualBox host-only network without direct internet access. Despite this, Lynis was successfully installed thanks to previously cached repositories, and entire security auditing was accomplished without the need for external network connectivity.
-	
+There were brief DNS resolution issues during the Lynis installation and package upgrade. According to the ethical and security requirements of the coursework, this behavior is expected since the server runs inside an isolated VirtualBox host-only network without direct internet access. Despite this, Lynis was successfully installed thanks to previously cached repositories, and entire security auditing was accomplished without the need for external network connectivity.	
 
-## II.	Initial Security Scan
+### II.	Initial Security Scan
 Command(Server via SSH): sudo lynis audit system
 
 
@@ -44,7 +43,7 @@ The audit generated a comprehensive report that identified:
 -	Compliance checks
 -	Overall system hardening index
 
-## III.	Lynis Score and Findings
+### III.	Lynis Score and Findings
 A good security posture is indicated by the Lynis audit, which produced a hardening index above 80.
 Among the important verified controls were:
 -	SSH hardening (root login disabled, key-based authentication)
@@ -58,7 +57,7 @@ Among the important verified controls were:
 
 	This fulfills the curriculum prerequisite for a Lynis score higher than 80.
 
-## IV.	Lynis Remediation Actions and Verification
+### IV.	Lynis Remediation Actions and Verification
 
 After the Lynis audit, the hardening recommendations and warnings found were examined and, if necessary, addressed. Previous security settings in Weeks 4 and 5 has addressed a number of recommendations.
 Examples of corrective measures consist of:
@@ -77,7 +76,8 @@ These steps demonstrate that Lynis' findings were thoroughly examined and addres
 
 
 ## 4.	Network Security Assessment with Nmap
-## I.	Network Scan from Workstation
+
+### I.	Network Scan from Workstation
 In accordance with ethical standards, a controlled network scan was limited to the isolated VirtualBox host-only network.
 Command(Workstation): nmap -sS 192.168.56.4
  
@@ -86,7 +86,7 @@ Command(Workstation): nmap -sS 192.168.56.4
 
 	Screenshot
 
-## II.	Nmap Scan Results Analysis
+### II.	Nmap Scan Results Analysis
 The scan confirmed:
 -	Only port 22 (SSH) is open
 -	All other ports are filtered or closed
@@ -94,14 +94,15 @@ The scan confirmed:
 
 	This proves that the default-deny firewall policy put in place in Week 4 was successful in minimizing network exposure.
 
-## III.	Additional verification was performed to confirm active listening services:
+### III.	Additional verification was performed to confirm active listening services:
 Command (Server via SSH):
 ss -tulnp
 
 The output confirmed that only the SSH service is actively listening for inbound connections, reinforcing firewall enforcement and minimal exposure.
 
 ## 5.	SSH Security Verification
-## I.	SSH Configuration Validation
+
+### I.	SSH Configuration Validation
 Command(Server via SSH) : 
 sshd -T | grep -E "passwordauthentication|permitrootlogin|pubkeyauthentication"
 
@@ -119,7 +120,8 @@ Screenshot
 
 
 ## 6.	Access Control Verification (AppArmor)
-## I.	AppArmor Status Check
+
+### I.	AppArmor Status Check
 Command(Server via SSH): sudo aa-status
 
 	Screenshot
@@ -133,14 +135,15 @@ Command(Server via SSH): sudo aa-status
 
 
 ## 7.	Service Audit and Justification
-## I.	Running Services Inventory
+
+### I.	Running Services Inventory
 Command (Server via SSH): systemctl list-units --type=service --state=running
 
 
 	Screenshot
 
 
-## II.	Service Justification
+### II.	Service Justification
 Service	Purpose	Justification
 ssh	Remote administration	Mandatory for SSH-only management
 system-journald	Logging	Required for auditing and troubleshooting
@@ -152,7 +155,8 @@ fail2ban	Intrusion prevention	Protects against brute-force attacks
 
 
 ## 8.	System Configuration Review
-## I.	Security Controls Summary
+
+### I.	Security Controls Summary
 
 Control	Status
 SSH key-based authentication	Implemented
@@ -190,7 +194,7 @@ These risks are manageable and acceptable, in line with server administration pr
 
 These trade-offs demonstrate how security, performance, and system reliability must be balanced in real-world operating system administration.
 
-10.	Evidence and Documentation
+*** 10.	Evidence and Documentation ***
 Evidence collected during Week 7 includes:
 -	Lynis audit outputs and hardening score
 -	Nmap network scan results

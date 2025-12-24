@@ -128,7 +128,7 @@ Command(Server):
 ## 5.	Security Baseline Verification Script (Server)
 
 ### I.	Create Script
-Command (Server via SSH): nano security-baseline.sh
+Command (Server via SSH): `nano security-baseline.sh`
 
 ### II.	Script Content
 
@@ -239,7 +239,7 @@ chmod +x monitor-server.sh
 
 
 
-	Screenshot
+Screenshot
 
 ---
 

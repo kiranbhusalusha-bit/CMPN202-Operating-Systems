@@ -5,7 +5,7 @@
 ## 1.	Introduction
 The second week's goal is to create a performance testing methodology and an organized security baseline for the Linux server system before making any configuration modifications. As it guarantees that controls are justified, risks are recognised, and outcomes can be measured methodically, planning security and performance evaluation in advance is an essential professional practice.
 
-Instead of implementation, this week's focus is on design and rationale. The foundation for successful security hardening, auditing, and optimisation in later curriculum phases is laid by defining security policies, identifying plausible threats, and describing a remote performance testing methodology. By creating justifiable security rules and threat mitigations and by assessing security and performance factors before implementation, this step directly supports Learning Outcomes LO3 and LO5.
+This phase prioritises design, justification, and risk-informed planning over implementation, reflecting professional pre-deployment security and performance practices. The foundation for successful security hardening, auditing, and optimisation in later curriculum phases is laid by defining security policies, identifying plausible threats, and describing a remote performance testing methodology. By creating justifiable security rules and threat mitigations and by assessing security and performance factors before implementation, this step directly supports Learning Outcomes LO3 and LO5.
 
 ---
 
@@ -22,6 +22,7 @@ The following will be involved in remote monitoring:
 -	 Logging of outputs for later analysis
   
 This process guarantees correctness, reproducibility, and little disruption to server operations. To guarantee lightweight and non-intrusive performance monitoring on the headless server, command-line monitoring tools will be employed. SSH will be used to remotely run tools like uptime, top, ps aux, free -h, df -h, iostat, and ip addr. These tools were picked because they are readily available by default, use few resources, and are appropriate for expert remote server management. In order to guarantee repeatability, every monitoring command will be carried out using the same SSH technique, under uniform circumstances (idle baseline vs. controlled workload), and outputs will be recorded with timestamps so that outcomes can be replicated and fairly compared over several weeks. All of the monitoring tools and commands mentioned here are scheduled for subsequent implementation and evidence collecting in Weeks 3–6; no commands are run during this phase. In order to verify remote access capability, a simple SSH connection was made between the workstation and the server. At this point, no configuration or monitoring commands were run.
+
 
 
 ### ii.	Performance Testing Approach
@@ -48,7 +49,8 @@ In order to appropriately attribute any subsequent performance changes to worklo
 -  Re-test system performance
 -  Compare results quantitatively with baseline measurements
   
-Meaningful performance evaluation is made possible by this methodical methodology, which also supports optimization choices supported by quantifiable data. Metrics including CPU load averages, memory availability, disk utilization, and I/O activity recorded before and after optimization will be quantitatively compared to validate performance gains. To ensure consistency, every test will be run several times and averaged when necessary, using the same monitoring window and tools. This will allow performance variations to be ascribed to workload or configuration changes rather than chance. By allowing for the quantitative assessment of operating system performance under controlled circumstances, this structured methodology directly supports Learning Outcome LO5.
+Meaningful performance evaluation is made possible by this methodical methodology, which also supports optimization choices supported by quantifiable data. Metrics including CPU load averages, memory availability, disk utilization, and I/O activity recorded before and after optimization will be quantitatively compared to validate performance gains. To ensure consistency, every test will be run several times and averaged when necessary, using the same monitoring window and tools. This will allow performance variations to be ascribed to workload or configuration changes rather than chance. By allowing for the quantitative assessment of operating system performance under controlled circumstances, this structured methodology directly supports Learning Outcome LO5.Key quantitative metrics will include CPU load averages, percentage memory utilisation, disk throughput (MB/s), and network latency (ms), enabling objective comparison of system behaviour before and after optimisation.
+
 
 ---
 
@@ -57,7 +59,27 @@ A defense-in-depth approach, which applies several levels of security measures t
 
 The security controls that will be put into place and verified in the next weeks are listed in the checklist that follows.
 
-### i.	SSH Hardening
+### i. Anticipated Security–Performance Trade-offs
+
+The planned security controls introduce deliberate trade-offs between system security, performance efficiency, and administrative overhead. These trade-offs were evaluated during the design phase to ensure that controls are justified rather than applied arbitrarily.
+
+#### Trade-off 1: SSH Key-Based Authentication vs Administrative Convenience
+- Security Benefit: Eliminates password-based brute-force attacks.
+- Performance Impact: Negligible runtime overhead.
+- Operational Cost: Increased initial setup complexity and key management requirements.
+
+#### Trade-off 2: Firewall Default-Deny Policy vs Network Flexibility
+- Security Benefit: Minimises exposed attack surface by blocking all non-essential traffic.
+- Performance Impact: Minimal packet-filtering overhead.
+- Operational Cost: Requires explicit rule maintenance and careful service planning.
+
+#### Trade-off 3: Mandatory Access Control (AppArmor) vs Application Flexibility
+- Security Benefit: Restricts application access to system resources, limiting damage from compromised services.
+- Performance Impact: Minor syscall overhead.
+- Operational Cost: Potential false positives requiring profile tuning.
+
+
+### ii.	SSH Hardening
 -	Disable password-based authentication
 - Enforce SSH key-based authentication
 -	Disable direct root login
@@ -117,6 +139,9 @@ Potential Impact:
 -	Unauthorised server access
 -	Data compromise
 -	Service disruption
+-	Likelihood: Medium  
+-Severity: High
+
 Mitigation Strategy:
 -	Disable password authentication
 -	Use SSH key-based authentication
@@ -128,6 +153,9 @@ Description: Elevated system rights may be sought for by a compromised user acco
 Potential Impact:
 -	Full system compromise
 -	Modification of security configurations
+-	Likelihood: Medium  
+-Severity: Critical
+
 Mitigation Strategy:
 -	Use non-root administrative accounts
 -	Restrict sudo permissions
@@ -139,6 +167,8 @@ Description: Misconfigured or superfluous services could leave the system vulner
 Potential Impact:
 -	Increased attack surface
 -	Data leakage or denial of service
+-	Likelihood: Low to Medium  
+-Severity: Medium
   
 Mitigation Strategy:
 -	Minimal service installation

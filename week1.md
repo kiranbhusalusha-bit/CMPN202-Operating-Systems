@@ -110,6 +110,30 @@ This configuration demonstrates professional system administration practices and
 
 VirtualBox networking is used to deploy the server as a virtual machine.
 
+### I. Operating System Design Trade-offs (Early Evaluation)
+
+This step is the design evaluation and analysis of the environment and system characteristics aimed at determining the best solution to the given problem.
+
+These are some of the technical trade-offs that were taken into account when planning the initial systems:
+
+### Trade-off: does Headless Server or Graphical Server give us the best alternative?
+- **Security**: By eliminating a GUI, the attack surface is minimized (graphical services and dependencies are eliminated).
+- **Performance**: Liberates CPU cycles and memory that would otherwise have been expended by display managers.
+- **Usability Cost**: Makes it more dependent on CLI proficiency and distance communication expertise.
+
+### Trade off 2: Host-Only Networking vs NAT
+
+This is a trade-off between Host-Only and NAT.
+- **Security Advantage**: Host-only networking does not expose the server to any external networks.
+- **Testing Limitation**: Package updates should be configured temporarily with NAT.
+- **Rationale**: Convenience was put behind security and controlled experimentation.
+
+### Trade-off:Ubuntu Server vs Debian 
+
+The trade-off lies in the variety of products within the marketplace.<|human|>Ubuntu Server vs Debian Trade-off: Trade-off is the diversity in the products in the market.
+- **Stability vs Currency**:Debian has the greatest stability, but outdated packages.
+- **Security Tooling**: Ubuntu offers improved integration with AppArmor, Lynis and fail2ban.
+- **Rationale of the decision**: Ubuntu has been chosen to be used in the subsequent security audit and monitoring stages.
 
 ### Network Design
 

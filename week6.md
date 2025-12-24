@@ -1,9 +1,13 @@
 # Week 6 - Performance Evaluation and Analysis
 
+---
+
 ## 1.	Introduction
 In-depth performance testing and an analysis of the Linux operating system's behavior under various workloads are the main objectives of week six. This phase assesses CPU, memory, disk, and network performance under both idle and stressed settings, building on the performance testing methodology developed in Week 2 and the secure system configuration put into place in Weeks 4 and 5.
 
 In order to strictly stick to the coursework administration constraint, all performance testing was carried out remotely via SSH from the workstation. Finding system bottlenecks, quantifying performance, implementing optimizations, and assessing the trade-offs between security, performance, and resource utilization are the objectives.
+
+---
 
 ## 2.	Performance Testing Approach
 A structured four-stage process was used for performance evaluation:
@@ -22,6 +26,7 @@ Implement configuration changes and compare outcomes quantitatively.
 
 Reproducibility and meaningful performance comparison are guaranteed by this methodology.
 
+---
 
 ## 3.	Baseline Performance Testing (Idle State)
 Prior to applying any stress, baseline measurements set reference values.
@@ -56,6 +61,8 @@ When taken as a whole, these findings provide the server with a stable baseline 
 
 These figures serve as the benchmark for subsequent comparisons.
 
+---
+
 ## 4.	Application Load Testing
 ## Controlled stress testing was done to mimic real-world workloads
 ## CPU Stress Test
@@ -87,11 +94,14 @@ One virtual memory stressor (vm 1) was started with the allocation of 512 MB of 
 Command(Server):
 
 `sudo apt install sysstat -y`
+
 `iostat -dx 2 5`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/sudo%20apt%20install%20sysstat%20-y.png)
 
 The performance of disk input/output was analysed and potential storage bottlenecks were determined using iostat -dx 2 5 command. This control is used to report long disk statistics at frequent intervals, so that the disk behaviour at varying levels of activity can be observed. It is indicated in the output that the main disk (sda) has limited and moderate read/write access, average wait times are low, and the disk utilisation is below the percentages. The I/O activity of most intervals is near-zero, which shows that the system storage is not being subjected to constant load. The loop device (loop0) has little activity which is expected. In general, these findings prove that disk I/O is not a test performance bottleneck. The low utilisation and low wait times indicate effective disk performance, and this will give a stable baseline which can be used to analyse the system behaviour with higher workload and after optimisation
+
+---
 
 ## 5.	Network Performance Analysis
 
@@ -111,6 +121,7 @@ Network latency and reliability of transmitting packets between the workstation 
 Command:
 
 `sudo apt install iperf3 -y`
+
 `iperf3 -s`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/sudo%20apt%20install%20iperf3%20-y.png)
@@ -131,7 +142,7 @@ The findings indicate that the data transfer rates are consistently high, and th
 
 This output shows that the network is not constraint of performance in the existing configuration of the system. The throughput is high, which proves effective SSH-based distant administration and trusted information transmission, which forms a solid foundation on which additional performance and security analysis can be made.
 
-
+---
 
 ## 6.	Performance Data Table
 The observed performance metrics are summarized in the following table.
@@ -143,6 +154,8 @@ The observed performance metrics are summarized in the following table.
 | Disk Read/Write     | Minimal  | High      | Reduced           |
 | Network Latency     | ~0.4 ms  | ~0.9 ms   | ~0.6 ms           |
 | SSH Responsiveness  | Instant  | Slight Delay | Improved        |
+
+---
 
 ## 7.	Optimisation Techniques Applied
 Two optimisation measures were implemented:
@@ -163,6 +176,7 @@ cat /proc/sys/vm/swappiness
 This command (cat /proc/sys/vm/swappiness) shows the value of swappiness currently set by Linux which determines the aggressiveness at which the inactive memory pages are transferred by the kernel between RAM and swap space. A balance which means both the RAM usage and swapping is determined by the default value of 60.
 This command (sudo sysctl vm.swappiness=10) reduces the swappiness value from 60 to 10, instructing the kernel to prefer using physical RAM over swap space. Lowering swappiness improves system responsiveness under load by minimizing unnecessary disk I/O, which is especially beneficial for performance-sensitive server workloads.	
 
+---
 
 ## 8.	Optimisation Results and Analysis
 Post-optimisation testing showed:
@@ -172,6 +186,8 @@ Post-optimisation testing showed:
 -	Lower disk I/O spikes under load
 
 Measurable performance improvement while upholding security rules is confirmed by quantitative comparison.
+
+---
 
 ## 9.	Performance Visualisations
 To enable quantitative analysis and Learning Outcome LO5 (performance–security trade-offs), performance data gathered during baseline testing, stress testing, and post-optimization testing was visualized.
@@ -195,6 +211,7 @@ Memory utilization under various workloads is displayed in this graph. Because o
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/66d252e3218ce6bfa67ef096e08f7064e1140442/images/week6/Networklatency.drawio.png)	 
 When the system is under load, there is more resource contention, which causes a modest increase in network latency. Latency decreases after optimization, demonstrating that system tuning enhances network performance and SSH responsiveness.
 
+---
 
 ## 10.	Trade-off Analysis (LO5)
 Performance optimization brought about a number of significant trade-offs that demonstrate how operating systems, as an integrated system, balance security, performance, and dependability.
@@ -206,7 +223,7 @@ Performance optimization brought about a number of significant trade-offs that d
 These compromises show that operating system setup necessitates striking a balance between conflicting demands. Optimal performance is attained by carefully controlling the interplay between security restrictions, resource utilization, and system responsiveness rather than by optimizing a single parameter.
 
 
-## Evidence and Documentation
+### Evidence and Documentation
 Evidence collected during Week 6 includes:
 -	Baseline and load testing screenshots
 -	Network latency and throughput outputs
@@ -216,7 +233,11 @@ Evidence collected during Week 6 includes:
 -	Structured performance data tables
 All evidence was captured remotely via SSH from the workstation, with visible username@hostname prompts to ensure authenticity, auditability, and compliance with the coursework administration constrain.
 
+---
+
 ## 11.	Conclusion
 A thorough assessment of Linux operating system performance under various workloads was given in week six. Measurable performance gains were made without sacrificing system security by focused optimization, bottleneck identification, and structured testing.
 
 This stage strengthened a practical comprehension of how operating systems respond to stress and how configuration modifications affect performance results. The outcomes show efficient trade-off management between security, resource use, and responsiveness. The system is also ready for the final security audit and system assessment that will take place in Week 7 thanks to this performance rating.
+
+---

@@ -35,7 +35,7 @@ Commands Executed (Server via SSH):
 
 `uptime`
 
-`free -h
+`free -h`
 
 `df -h`
 

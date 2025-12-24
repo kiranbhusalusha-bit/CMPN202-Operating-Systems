@@ -184,7 +184,7 @@ Command (Server):
 `chmod +x security-baseline.sh
 ./security-baseline.sh`
 
-	Screenshot
+Screenshot
 
 ---
 

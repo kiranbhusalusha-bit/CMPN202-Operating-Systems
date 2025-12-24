@@ -15,7 +15,7 @@ The workstation served as the only access point in order to guarantee that the s
 
 ### I.	Confirming Successful SSH Connection
 
-Command (Workstation): ssh usha@192.168.56.4
+Command (Workstation): `ssh usha@192.168.56.4`
 
 ![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/ssh%20usha%40192.168.56.4%20..png)
  

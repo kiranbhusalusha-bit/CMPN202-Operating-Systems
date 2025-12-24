@@ -161,13 +161,15 @@ The observed performance metrics are summarized in the following table.
 Two optimisation measures were implemented:
 ## Optimisation 1: Disable Unnecessary Services:
 
-systemctl list-unit-files --type=service --state=enabled
-sudo systemctl disable apport.service
+`systemctl list-unit-files --type=service --state=enabled`
+
+`sudo systemctl disable apport.service`
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c1b1739b472bbe4f471932e9a3c38e09741ae2e5/images/week6/Screenshot%202025-12-22%20124117.png)
 
 ## Optimisation 2: Reduce Swappiness:
 
-cat /proc/sys/vm/swappiness
+`cat /proc/sys/vm/swappiness`
+
 `sudo sysctl vm.swappiness=10`
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/cat%20procsysvmswappiness.png)
@@ -190,6 +192,7 @@ Measurable performance improvement while upholding security rules is confirmed b
 ---
 
 ## 9.	Performance Visualisations
+
 To enable quantitative analysis and Learning Outcome LO5 (performance–security trade-offs), performance data gathered during baseline testing, stress testing, and post-optimization testing was visualized.
 
 Measured system metrics were used to construct the following charts.
@@ -214,6 +217,7 @@ When the system is under load, there is more resource contention, which causes a
 ---
 
 ## 10.	Trade-off Analysis (LO5)
+
 Performance optimization brought about a number of significant trade-offs that demonstrate how operating systems, as an integrated system, balance security, performance, and dependability.
 
 -	Decreased swappiness: Swap use is decreased and dependence on physical RAM is increased when the swappiness number is lowered. This increases system responsiveness and lowers disk I/O under stress, but if RAM becomes limited, it might put more strain on memory. Performance is prioritized above cautious memory management in this trade-off.

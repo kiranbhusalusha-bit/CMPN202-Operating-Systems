@@ -166,6 +166,14 @@ Two optimisation measures were implemented:
 `sudo systemctl disable apport.service`
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c1b1739b472bbe4f471932e9a3c38e09741ae2e5/images/week6/Screenshot%202025-12-22%20124117.png)
 
+Listing all of the services that are set to start automatically on boot was done by command systemctl list-unit-files type=service state=enabled. This enables unwanted background services to be identified and considered to have any effect on the performance.
+
+Apport.service, the main purpose of which is automatic crash reporting and diagnostics, was found to be not necessary in a headless production-like server setup. This server is not managed automatically, hence monitored by logs, thus the crash reporting is not necessary.
+
+Through sudo systemctl disable apport.service the service did not start on boot, minimized the background CPU, memory, disk I/O used in crash monitoring. This optimisation also helps in increasing the system responsiveness and quick recovery under load with preservation of system stability and security.
+
+Such a change indicates a good change in managing its services with command-line tools (LO4) and shows a deliberate performance functionality trade-off, in which diagnostic convenience is compromised in favour of a better performance efficiency (LO5).
+
 ## Optimisation 2: Reduce Swappiness:
 
 `cat /proc/sys/vm/swappiness`
@@ -175,6 +183,7 @@ Two optimisation measures were implemented:
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/cat%20procsysvmswappiness.png)
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/66d252e3218ce6bfa67ef096e08f7064e1140442/images/week6/sudo%20sysctl%20vm%20swapiness.png)
+
 This command (cat /proc/sys/vm/swappiness) shows the value of swappiness currently set by Linux which determines the aggressiveness at which the inactive memory pages are transferred by the kernel between RAM and swap space. A balance which means both the RAM usage and swapping is determined by the default value of 60.
 This command (sudo sysctl vm.swappiness=10) reduces the swappiness value from 60 to 10, instructing the kernel to prefer using physical RAM over swap space. Lowering swappiness improves system responsiveness under load by minimizing unnecessary disk I/O, which is especially beneficial for performance-sensitive server workloads.	
 
@@ -211,7 +220,8 @@ Memory utilization under various workloads is displayed in this graph. Because o
 
 -	Network latency comparison chart
   
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/66d252e3218ce6bfa67ef096e08f7064e1140442/images/week6/Networklatency.drawio.png)	 
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/66d252e3218ce6bfa67ef096e08f7064e1140442/images/week6/Networklatency.drawio.png)	
+
 When the system is under load, there is more resource contention, which causes a modest increase in network latency. Latency decreases after optimization, demonstrating that system tuning enhances network performance and SSH responsiveness.
 
 ---

@@ -140,7 +140,7 @@ Potential Impact:
 -	Data compromise
 -	Service disruption
 -	Likelihood: Medium  
--Severity: High
+- Severity: High
 
 Mitigation Strategy:
 -	Disable password authentication
@@ -154,7 +154,7 @@ Potential Impact:
 -	Full system compromise
 -	Modification of security configurations
 -	Likelihood: Medium  
--Severity: Critical
+- Severity: Critical
 
 Mitigation Strategy:
 -	Use non-root administrative accounts
@@ -168,7 +168,7 @@ Potential Impact:
 -	Increased attack surface
 -	Data leakage or denial of service
 -	Likelihood: Low to Medium  
--Severity: Medium
+- Severity: Medium
   
 Mitigation Strategy:
 -	Minimal service installation

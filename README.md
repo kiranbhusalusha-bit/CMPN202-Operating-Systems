@@ -1,5 +1,3 @@
-# CMPN202 – CMPN202 Operating Systems coursework
-
 # Week 1 – System Planning, Architecture and Initial Configuration
 
 ---
@@ -54,7 +52,7 @@ The system architecture consists of:
 - A headless Linux server virtual machine  
 - A virtual network enabling SSH communication  
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/4a74bf4bfaac52b3487d8db92fc9653d28e85e3d/images/week1/systemarchiteture.png)
+![systemarchiteture.png](images/week1/systemarchiteture.png)
 
 Each administrative traffic is unidirectional only at the workstation to the server on the isolated host-only virtual network (SSH over TCP port 22).
 
@@ -185,7 +183,7 @@ Command(Server):
 
 `systemctl get-default`
 
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/echo%20%24DISPLAY.png)
+ ![image](images/week1/echoDISPLAY.png)
 
 There is no active graphical display session, as confirmed by the echo $DISPLAY command, which produced no result. The system boots into a non-graphical, command-line-only operating mode, as confirmed by the return of multi-user.target from the systemctl get-default command. This verifies that the server is functioning as a real headless Linux system, providing safe, resource-efficient remote administration over SSH and conforming to professional server deployment guidelines.
 
@@ -194,7 +192,7 @@ There is no active graphical display session, as confirmed by the echo $DISPLAY 
 ### II. Kernel and Architecture
 Command (SERVER): `uname -a`
 
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/4b8f503f344d75517afd3310bf6141479e661c30/images/week1/uname.png)
+ ![image](images/week1/uname.png)
 
 
 The Linux kernel version, system architecture, and operating system information of the server were confirmed using the uname -a command. This attests to the server's 64-bit Linux kernel, which is appropriate for safe and effective server operation.
@@ -203,14 +201,14 @@ The Linux kernel version, system architecture, and operating system information 
 ### III.	Memory Information
 Command (Server): `free -h`
 
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/free.png)
+ ![image](images/week1/free.png)
  
 Memory utilization was shown in a human-readable format using the free -h command. This establishes a baseline for upcoming performance monitoring and optimization by verifying the server's swap configuration, total system memory, and memory use.
 
 ### IV.	Disk Usage
 Command(Server): `df -h`
 
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/df.png)
+ ![image](images/week1/df.png)
 
 Disk space utilization was shown in a human-readable way using the df -h tool. The output verifies the server filesystem's total storage capacity, used space, and available space. In later stages of performance testing and optimization, this creates a baseline for tracking disk consumption and spotting possible storage limitations.
 
@@ -219,26 +217,28 @@ Disk space utilization was shown in a human-readable way using the df -h tool. T
 ### V.	Network Interfaces and IP Addressing
 Command(Server): `ip addr`
 
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/ip%20addr.png)
+ ![image](images/week1/ipaddr.png)
 
 The server's given IP addresses for each network interface were shown using the ip addr command. The output verifies that VirtualBox networking has given the primary network interface (enp0s3) a private IPv4 address and that it is operational. This confirms that the server can perform safe remote administration using SSH and is properly linked to the virtual network.
 
 ### VI.	Distribution and Version Confirmation
 Command(Server): `lsb_release -a`
  
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/lsb_release-a.png)
+![image](images/week1/lsbreleasea.png)
 
+The lsb_release -a command was used to verify the operating system distribution and version by executing it on the headless Linux server. The service confirms that the server is a Ubuntu Server 24.04 LTS (Noble). This proves that it is on a long-term support (LTS) version, suited to server systems by the virtue of long security patches, stability, and reliability.
+Checking the version and the distribution will guarantee that it is compatible with the security tools, auditing tools, and services of the system that will be utilized during the coursework. This is also a step in determining a proper baseline on reproducibility and professional system documentation to reinforce secure and consistent operating system administration.
 
 ### VII.	System Identification(Hostname Verification)
 Command(Server): `hostname`
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/hostname.png)
+ ![image](images/week1/hostname.png)
 
 The hostname of the system was found using the hostname command. In order to assist uniquely identify the system for remote administration, monitoring, and log analysis, the output verifies that the server is named usha. In multi-system situations, assigning and confirming a hostname is crucial to preventing confusion while using SSH to remotely manage servers.
 
 
 ### VIII.	Routing Table and Default Network Path Verification
 Command(Server): `ip route`
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/ip%20route.png)
+ ![image](images/week1/iproute.png)
  
 The ip route command specifies how network traffic is forwarded and shows the system's routing table. The output verifies that the server communicates within the 192.168.56.0/24 private network using the enp0s3 network interface. This confirms that the server has an active connection to the virtual network used for SSH-based remote administration, a legitimate network route, and an appropriately assigned source IP address. In order to preserve network isolation, which is necessary for secure system management and subsequent firewall configuration, this routing configuration guarantees dependable internal connectivity between the workstation and the headless server.
 
@@ -262,6 +262,7 @@ Transparency is guaranteed by this methodical evidence approach, which also faci
 A safe, effective, and expertly designed Linux server environment is established in the first week. A solid basis has been established for the implementation of sophisticated security measures, performance monitoring, and optimization in the next weeks thanks to meticulous planning, well-reasoned technical choices, and CLI-based system verification. By reducing needless resource use, the deployment of a headless server design also supports sustainability goals.Eliminating graphical services will save around 300-600 MB of background memory on average Linux systems and increase the amount of resources available to server workloads, and reduce idle power consumption. By creating a safe, inspectable server baseline, this foundational design and verification phase supports Learning Outcomes LO3 and LO4. It also gets ready for LO5 by allowing subsequent assessment of security-performance trade-offs using measured data.
 
 ---
+
 # Week 2- Security Baseline Design and Performance Testing Methodology
 
 ---
@@ -507,13 +508,13 @@ Command: `ssh usha@192.168.56.4 "ps aux " `
 
 To confirm that process monitoring was performed remotely in accordance with the coursework administrative constraint, process observation commands were executed from the workstation using SSH to run commands on the server. This confirms that all monitoring was performed without direct server console access or graphical tools.
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/ssh%20usha%40192.168.56.4%20ps%20aux.png)
+![image](images/week3/sshusha192168564psaux.png)
  
 
 ### II.	Viewing Active Processes
 Command(Server): `ps aux`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/ps%20aux.png)
+![image](images/week3/psaux.png)
  
 
 To get a comprehensive list of all active processes, the server's command-line interface was used to run the ps aux command. The owning user, process ID (PID), CPU and memory consumption, process state, and the command that initiated the process are all included in this report.Core system services like systemd, sshd, and kernel worker threads (kworker) are visible in the output, indicating that the system is operating normally. According to the curriculum requirement for remote administration, the existence of sshd processes verifies that the server is being accessed remotely using SSH.The server is now running under idle or low-load conditions, as evidenced by the comparatively low CPU and memory use numbers. As a result, this output creates a baseline perspective of process activity and resource usage that will be compared in subsequent rounds of performance testing and optimization.
@@ -522,7 +523,7 @@ To get a comprehensive list of all active processes, the server's command-line i
 ### III.	Real-Time Process Monitoring
 Command(Server): `top`
  
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/top.png)
+![image](images/week3/top.png)
 
 Real-time resource usage and system processes were tracked using the top command. The result shows the average system load, memory utilization, CPU usage, and running programs. The server is running in idle mode, as evidenced by the low load averages and low CPU use. As is typical for Linux systems, memory usage is still effective, with the majority of available memory being used for caching. Although top offers continuous real-time monitoring, it has a small overhead, hence it was employed for short-term observation rather than long-term monitoring.This observation offers a baseline of typical system behavior that will be compared in subsequent phases of performance testing and optimization.
 
@@ -535,7 +536,7 @@ The efficiency with which the processor is being used is shown in CPU utilizatio
 ### I.	System Load and Uptime
 Command (SERVER): `uptime`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/uptime.png)
+![image](images/week3/uptime.png)
 
 The system's running time, active user count, and load averages were shown using the uptime command. With two users registered in and load averages of 0.00, the report demonstrates that the server has been operating for a brief period of time and that there is no discernible CPU demand. The average number of processes waiting for CPU execution for the previous one, five, and fifteen minutes is represented by load averages. The constantly low results verify that there is no scheduling demand and the server is running in idle mode. Before implementing controlled workloads in subsequent performance testing stages, this output offers a reliable baseline for analyzing system behavior.
 
@@ -548,7 +549,7 @@ Linux uses memory aggressively for caching to improve performance. Monitoring me
 ### I.	Memory Usage Overview
 Command (SERVER): `free -h`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/free%20-h.png)
+![image](images/week3/freeh.png)
  
 The server's current memory use is shown with the free -h command. The output indicates low memory utilization during idle times since the majority of system memory is available. The system is functioning effectively because swap space is specified but not in use. For memory analysis in subsequent performance testing, this offers a baseline.
 
@@ -561,7 +562,7 @@ System responsiveness can be greatly impacted by disk consumption and I/O perfor
 ### I.	Disk Space Utilisation
 Command (SERVER): `df -h`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/df-h.png)
+![image](images/week3/dfh.png)
 
 
 Disk space consumption is shown in a human-readable style with the df -h tool. The response indicates that there are no urgent storage limitations and that the root filesystem is utilizing a modest percentage of the available storage. Prior to performance testing, this creates a baseline for disk utilization.
@@ -569,7 +570,7 @@ Disk space consumption is shown in a human-readable style with the df -h tool. T
 ### II.	Disk I/O Statistics
 Command (SERVER): `iostat`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/iostat.png)
+![image](images/week3/iostat.png)
  
 
 Note: The iostat tool, provided by the sysstat package, is identified here as a suitable disk I/O monitoring utility. Installation and execution will be formally performed and evidenced during the performance evaluation phase.
@@ -584,7 +585,7 @@ Linux gives administrators the ability to manage system responsiveness by contro
 ### I.	Process Priority (Nice Values)
 Command (SERVER): `ps -o pid, ni , cmd`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/1af295555cb2674063f6c8023999c7fd8f9c96f5/images/week3/ps%20-o%20pid%2C%20ni%20%2C%20cmd.png)
+![image](images/week3/psopidnicmd.png)
 
 Process identifiers and their matching nice values were shown on the server using the ps -o pid,ni,cmd command. The report indicates that the default scheduling priority of 0 is being used by the active processes. This shows that there are no manually changed process priorities and the system is running under typical load levels. This ensures that following performance testing results are not impacted by manual scheduling bias by confirming that no artificial prioritization has been used at this point.Confirming default scheduling priorities at this stage ensures that later performance measurements are not influenced by unintended manual prioritisation.
 
@@ -616,7 +617,6 @@ In order to ensure CLI-only administration and adherence to the coursework requi
 Using command-line tools, Week 3 offers useful insights into Linux process management and system performance behavior. A baseline understanding of system behavior is developed through the observation of ongoing programs, CPU load, memory consumption, and disk activity. Trade-off Reflection (LO5): While snapshot tools like ps and uptime are lighter but offer less continuous insight, real-time monitoring tools like top offer instantaneous observation of CPU and memory activity but may somewhat raise system overhead. In order to balance accuracy with little performance impact, a combination of both approaches was selected for this baseline stage.
 By allowing for the intelligent interpretation of system metrics, this knowledge facilitates subsequent performance testing, optimization, and security analysis. By enabling the evaluation of security and performance trade-offs using quantitative data rather than conjecture, this baseline analysis supports LO5 and permits meaningful performance comparison in subsequent weeks.Trade-off Reflection (LO5): Snapshot tools such as ps and uptime provide low-overhead visibility into system state but lack temporal depth, whereas real-time tools like top offer continuous insight at the cost of minor monitoring overhead. Selecting an appropriate balance between these tools is essential to minimise observer effect while maintaining analytical accuracy.
 
-
 ---
 
 # Week 4 – Initial System Configuration & Security Implementation (SSH Hardening, Firewall, User Privilege)
@@ -638,7 +638,7 @@ The workstation served as the only access point in order to guarantee that the s
 
 Command (Workstation): `ssh usha@192.168.56.4`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/ssh%20usha%40192.168.56.4%20..png)
+![image alt](images/week4/sshusha192168564.png)
  
 A successful Secure Shell (SSH) connection between the workstation virtual machine and the headless Linux server is shown in the screenshot. The command ssh usha@192.168.56.4 was used to establish the connection, demonstrating that the server can be accessed remotely without local input.
 The coursework requirement that all server administration be done remotely over SSH is satisfied by the welcome message and system information output, which confirm that the user is logged into the server environment. Additionally, this verifies that the server's SSH service is operational and that the network configuration is correct.
@@ -652,7 +652,7 @@ Brute-force attacks can be used against password-based authentication. As a resu
 ### I.	Generate SSH Key Pair on Workstation
 Command (Workstation): `ssh-keygen -t ed25519 -C "cmpn202-workstation"`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/ssh-keygen%20-t%20ed25519%20-C%20cmpn202-workstation.png)
+![image alt](images/week4/sshkeygented25519Ccmpn202workstation.png)
  
 
 The screenshot displays the creation of an SSH key pair on the workstation using the ED25519 cryptographic algorithm and the ssh-keygen program. While the matching public key was generated for server authentication, the private key was safely kept in the user's home directory. By removing the need for password-based login techniques, this key pair provides safe, passwordless SSH authentication and serves as the foundation for protecting remote access to the headless server.
@@ -660,14 +660,14 @@ The screenshot displays the creation of an SSH key pair on the workstation using
 ### II.	Copy Public Key to Server
 Command (Workstation): `ssh-copy-id usha@192.168.56.4`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/ssh-copy-id%20usha%40192.168.56.4.png)
+![image alt](images/week4/sshcopyidusha192168564.png)
 
 The public SSH key was safely installed into the server's ~/.ssh/authorized_keys file by running the ssh-copy-id command on the workstation. Cryptographic, passwordless authentication between the workstation and the headless server is made possible by this procedure.A successful key installation establishes the groundwork for turning off password-based authentication in further hardening stages by confirming that the server now trusts the workstation for SSH access.
 
 ### III.	Verify Password less SSH Login
 Command (Workstation): `ssh usha@192.168.56.4`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/ssh%20usha%40192.168.56.4.png)
+![image alt](images/week4/sshusha19268564workstation.png)
 
 SSH key-based authentication was used to successfully validate passwordless SSH access from the workstation to the headless server. The server's confidence in the workstation's public key is confirmed by the lack of a password question. As part of SSH hardening, this shows secure remote administration and verifies that password-based SSH authentication is ready to be disabled.
 
@@ -679,7 +679,7 @@ In order to prevent direct privileged access and lower the possibility of creden
 ### I.	Backup SSH Configuration File (Server via SSH)
 Command(Server): `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20cp%20etc%20ssh%20sshd_config%20etc%20ssh%20sshd_configbackup.png)
+![image alt](images/week4/sudocpetcsshsshdconfigetcsshsshdconfigbackup.png)
 
 The SSH daemon configuration file was backed up before SSH hardening settings were applied. This demonstrates safe and expert system administration practice by guaranteeing that the original configuration may be restored in the event of a misconfiguration.
 
@@ -687,7 +687,7 @@ The SSH daemon configuration file was backed up before SSH hardening settings we
 ### II.	Edit SSH Configuration (Server via SSH)
 Command(Server): `sudo nano /etc/ssh/sshd_config`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20nano%20etc%20ssh%20sshd_config.png)
+![image alt](images/week4/sudonanoetcsssshdconfig.png)
 
 The following security settings were applied:
 -	Disable root login:
@@ -705,7 +705,7 @@ Command (Server):
 
 `sudo systemctl status ssh --no-pager`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20systemctl%20restart%20ssh.png)
+![image alt](images/week4/sudosystemctlrestartssh.png)
  
 To implement the modified security configuration settings specified in the sshd_config file, the SSH service was restarted. The SSH daemon is active (running) and set to launch automatically upon system boot, as confirmed by the systemctl status ssh command.
 The output demonstrates that after the configuration changes, the sshd process is successfully listening on port 22 and running without any issues. To make sure that SSH hardening hasn't resulted in an administrative lockout or service failure, this verification step is essential.
@@ -718,7 +718,7 @@ While key access is functional, password login should be denied (or not given) f
 Command (Workstation):
 `ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no usha@192.168.56.4`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/ssh%20-o%20PreferredAuthentications%3Dpassword%20-o%20PubkeyAuthentication%3Dno%20usha%40192.168.56.4.png) 
+![image alt](images/week4/passwordpubkey) 
 
 The message "Permission denied (publickey)" was displayed when the connection attempt was blocked, indicating that the server only supports key-based authentication and that password authentication is no longer allowed.This outcome shows that SSH hardening is effective in thwarting brute-force and credential-based login attempts. Additionally, it verifies adherence to both the curriculum requirement that secure, key-based SSH authentication be enforced and professional security best practices. Learning Outcomes LO3 (security measures and protection) and LO4 (command-line skills and remote administration) are directly supported by this.
 
@@ -734,7 +734,7 @@ Command (Server):
 
 `sudo apt install ufw -y`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20apt%20update.png)
+![image alt](images/week4/sudoaptupdate.png)
  
 The output verifies that the firewall package (UFW) is current and already installed on the server. The server running within a VirtualBox Host-Only network, which by design limits external DNS access, is the reason for the warning messages displayed during apt update. This is intended in an isolated testing environment and has no bearing on firewall enforcement or internal security setup.
 
@@ -745,7 +745,7 @@ Command (Server):
 
 `sudo ufw default allow outgoing`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20ufw%20default%20deny%20incoming.png)
+![image alt](images/week4/sudoufwdefaultdenyincoming.png)
 
  
 These instructions set up the server's default-deny firewall policy. By default, outgoing traffic is permitted but all incoming connections are banned. By reducing the exposed attack surface and making sure that only services that are expressly allowed (like SSH) can accept incoming connections, this method adheres to the concept of least privilege.
@@ -754,14 +754,14 @@ These instructions set up the server's default-deny firewall policy. By default,
 First, the workstation IP was identified.
 Command (Workstation): `ip addr`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/ip%20addr%20workstation.png)  
+![image alt](images/week4/ipaddrworkstation.png)  
 
 To find the workstation's IPv4 address within the host-only, isolated VirtualBox network, the ip addr command was run. The output verifies that the address 192.168.56.4/24 was dynamically assigned to the workstation interface (enp0s3), which was then used to establish restrictive firewall rules on the server. This phase directly supports LO3 by enabling accurate firewall access management that lowers the server's attack surface and LO4 by showcasing proficient use of command-line networking tools for system inspection. The principle of least privilege is upheld and hazards like unauthorized network access and lateral movement within the virtual environment are reduced by limiting SSH access to a single recognized IP.
 
 ### IV.	Firewall Rule Enforcement
 Command (Server): `sudo ufw allow from 192.168.56.4 to any port 22 proto tcp`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20ufw%20allow%20from%20192.168.56.4%20to%20any%20port%2022%20proto%20tcp.png)
+![image alt](images/week4/192168564toanyport22prototcp.png)
 
 This firewall rule specifically limits SSH (TCP port 22) access to the authorized workstation IP address (192.168.56.4). The server's exposure to unauthorized network connections is greatly decreased by limiting SSH access to a single trusted source, which strengthens overall access control and is consistent with best-practice firewall hardening.
 
@@ -775,7 +775,7 @@ Command (Server):
 `sudo ufw status numbered`
 
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20ufw%20enable.png) 
+![image alt](images/week4/sudoufwenable.png) 
 
 The output verifies that the Uncomplicated Firewall (UFW), which has a default-deny policy for incoming traffic, is operational and implemented at system startup. In order to limit remote administration to a single reliable source, SSH access on port 22 is specifically only allowed from the authorized workstation IP address (192.168.56.4). By default, all other incoming connections are banned, thus decreasing the server's attack surface. Effective network access control in line with the least privilege principle and expert server hardening techniques is demonstrated by this configuration.
 
@@ -787,7 +787,7 @@ The root account shouldn't be used for administrative duties in order to lower r
 ### I.	Create Non-root Administrative User (Server via SSH)
 Command (Server): `sudo adduser adminuser`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20adduser%20adminuser.png)
+![image alt](images/week4/sudoadduseradminuser.png)
 
 This script creates a firewall rule that only permits SSH connections from the authorized workstation (192.168.56.4) on TCP port 22. The firewall implements a least-privilege network policy by restricting SSH access to a single trusted IP address. This greatly reduces the attack surface and stops unauthorized remote access.
 
@@ -800,7 +800,7 @@ Command (Server):
 
 `id adminuser`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20usermod%20-aG%20sudo%20adminuser.png)
+![image alt](images/week4/sudousermodaGsudoadminuser.png)
 
 Because the necessary group option (-G sudo) was not supplied, the original usermod command produced a usage notice, highlighting the significance of proper command syntax in access management. The adminuser account was successfully added to the sudo group after this was fixed. By confirming that the user is now a member of the sudo group, the groups and id commands prevent direct root usage while granting controlled administrative privileges. This implementation offers safe system management techniques and adheres to the least privilege concept.
 
@@ -811,14 +811,14 @@ Configuration modifications were documented with before-and-after documentation 
 Command (Server):
 `grep -E ‘PermitRootLogin|PasswordAuthentication|PubkeyAuthentication’ /etc/ssh/sshd_config`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/grep%20E%20PermitRootLoginPasswordAuthenticationPubkeyAuthentication%20etc%20ssh%20sshd%20config.png)
+![image alt](images/week4/grepEPermitR.png)
 	 
 Because the necessary group option (-G sudo) was not supplied, the original usermod command produced a usage notice, highlighting the significance of proper command syntax in access management. The adminuser account was successfully added to the sudo group after this was fixed. By confirming that the user is now a member of the sudo group, the groups and id commands prevent direct root usage while granting controlled administrative privileges. This implementation offers safe system management techniques and adheres to the least privilege concept.
 
 ### II.	Show Firewall Rules (After Change)
 Command (Server): `sudo ufw status verbose`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/sudo%20ufw%20status%20verbose.png) 
+![image alt](images/week4/sudoufwstatusverbose.png) 
 
 To confirm that the firewall is operational and implementing the defined security policy, the ufw status verbose command was utilized. In accordance with the least privilege principle, the output verifies that UFW is enabled with a default deny policy for incoming traffic and an allow policy for outgoing traffic. While all other unwanted inbound connections are still denied, SSH communication on port 22 is specifically allowed, enabling remote administration. This shows that the firewall is configured effectively and that secure remote administration regulations are being followed.
 
@@ -840,9 +840,9 @@ Command:
 
 `ssh usha@192.168.56.4 "sudo ufw status verbose"`
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/ssh%20usha%40192.168.56.4%20uname%20-a.png)
+![image alt](images/week4/sshusha192168564unamea.png)
 
-![image alt](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c84bf8948375aa0930b891e97c2e6887c7158cb0/images/week4/ssh%20usha%40192.168.56.4%20uname%20-a1.png)
+![image alt](images/week4/sshusha192168564unamea1.png)
 
 The aforementioned screenshots show how basic security controls are implemented on the headless Linux server in accordance with the coursework administrative constraint. This is done completely via secure SSH-based remote administration from the workstation.
 
@@ -875,6 +875,7 @@ To guarantee clarity and auditability, every screenshot displays the output and 
 The fundamental security measures needed for secure remote management of a headless Linux server were put into place in week four. SSH key-based authentication was set up, root login and password authentication were turned off, and firewall rules were implemented using a default-deny architecture that only allowed SSH access from authorized workstations. Least privilege was supported by the creation of a non-root administrative user. In addition to lowering the system's attack surface, these measures offer a safe foundation for performance testing, automation scripts, and enhanced security monitoring in subsequent weeks.
 
 ---
+
 # Week 5 – Advanced Security Controls and Monitoring Infrastructure
 ---
 
@@ -895,9 +896,9 @@ Command(server via SSH):
  
  `sudo aa-status --verbose` 
   
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20aa-status.png)
+![image](images/week5/sudoaastatus.png)
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20aa-status1.png)
+![image](images/week5/sudoaastatus1.png)
 
 To confirm that AppArmor is activated and actively enforcing security regulations on the server, the aa-status and aa-status --verbose tools were utilized. The output verifies that AppArmor is operating in enforce mode and that an active profile is protecting the rsyslogd service. Enforce mode stops processes from carrying out unauthorized operations by ensuring that specified access control rules are applied in real time. This shows that obligatory access control is set up appropriately, enhancing system security and bolstering the defense-in-depth tenets.
 
@@ -913,9 +914,9 @@ Command(Server via SSH):
 
 `sudo apt install unattended-upgrades -y`
  
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20apt%20install%20unattended-upgrades%20-y1.png)
+![image](images/week5/sudoaptunattendedupgradesy1.png)
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20apt%20install%20unattended-upgrades%20-y2.png)
+![image](images/week5/sudoaptinstallunattendedupgradesy2.png)
 
 To check for available security updates from the Ubuntu repository and refresh the local package index, the apt update command was run. The system successfully read existing package lists, enabling package management to proceed safely even though temporary DNS resolution warnings were seen for some archive mirrors because of the isolated VirtualBox host-only network.
 
@@ -923,9 +924,9 @@ After that, the unattended-upgrades package was set up to allow important securi
 
 ### II.	Enable Automatic Security Updates
 Command(Server):
-` dpkg-reconfigure --priority=low unattended-upgrades`
+` sudo dpkg-reconfigure --priority=low unattended-upgrades`
 
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20dpkg-reconfigure.png)
+ ![image](images/week5/sudodpkgreconfigure.png)
 
 This prompt shows up when the unattended-upgrades package is being configured. When you choose "Yes," the system can download and install critical security updates automatically without your help. This reduces the window of exposure to known vulnerabilities and ensures the server remains up to date with critical patches, which is a best practice for maintaining a secure Linux server in a production-like environment.
 
@@ -933,7 +934,7 @@ This prompt shows up when the unattended-upgrades package is being configured. W
 Command (Server):
 `cat /etc/apt/apt.conf.d/20auto-upgrades`
  
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/cat%20etc%20apt%20apt.conf.d%2020auto-upgrades.png)
+![image](images/week5/catetcaptaptconfd20autoupgrades.png)
 
 This configuration file verifies that the server is set up for automatic security updates. While APT::Periodic::Unattended-Upgrade "1"; permits the automatic installation of security updates, APT::Periodic::Update-Package-Lists "1"; guarantees that package lists are updated every day. This supports secure system administration best practices by lowering the amount of manual maintenance required and keeping the system safe from recently found vulnerabilities.
 
@@ -941,7 +942,7 @@ This configuration file verifies that the server is set up for automatic securit
 Command (Server):
 `systemctl status unattended-upgrades --no-pager`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/systemctl%20status%20unattended-upgrades%20--no-pager.png)
+![image](images/week5/systemctlstatusunattendedupgradesnopager.png)
 
 This output verifies that the server's unattended-upgrades service is turned on and operating. The service status shows that automatic security updates are properly set up to operate automatically in the background without human interaction. This approach lowers exposure to known vulnerabilities and ensures safe, low-maintenance system operation in compliance with best practices by guaranteeing the timely installation of critical fixes.
 
@@ -952,7 +953,7 @@ To defend the SSH service against brute-force attacks, fail2ban was implemented.
 ### I.	Install fail2ban
 Command (Server via SSH): `sudo apt install fail2ban -y`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20apt%20install%20fail2ban%20-y.png)
+![image](images/week5/sudoaptinstallfail2bany.png)
 
 This screenshot displays an attempt to install fail2ban, an intrusion detection and prevention program that guards against brute-force attacks on services like SSH. The installation experienced brief network resolution issues when attempting to reach Ubuntu repositories, despite the package manager's successful identification of the necessary dependencies. Despite this, the command execution shows how to utilize package management tools correctly and records a configuration issue that was encountered. These issues are common in real-world system administration and are resolved in later stages if network access is reliable.
 
@@ -971,7 +972,7 @@ findtime = 10m
 
 bantime = 10m
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20nano%20etc%20fail2ban%20jail.d%20sshd.local.png)
+![image](images/week5/sudonanoetcfail2banjaildsshdlocal.png)
 
 The setup presented allows the fail2ban SSH jail, which detects intrusions and automatically blocks brute force attacks directed to the SSH service.	
 -  enabled = true
@@ -999,7 +1000,7 @@ Command(Server):
 
 `sudo fail2ban-client get sshd maxretr`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/f27f97cdb3f913e92e047a2ef16052274e9585c0/images/week5/sudo%20systemctl%20enable%20--now%20fail2ban1%2C2%2C3%2C4.png)
+![image](images/week5/sudosystemctlenablenowfail2ban1234.png)
  
 The headless Linux server was configured and tested to have Fail2Ban to offer active protection to the SSH service. The service is verified as being enabled at boot and in active operation, which means that intrusion prevention will be done continuously without any human intervention. Through the Fail2Ban client, the SSH jail was confirmed to be working and the authentication logs were being recorded and being viewed accordingly.
 
@@ -1068,9 +1069,9 @@ Command (Server):
 `chmod +x security-baseline.sh
 ./security-baseline.sh`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20security-baseline.sh.png)
+![image](images/week5/nanosecuritybaselinesh.png)
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20security-baseline.sh1.png)
+![image](images/week5/nanosecuritybaselinesh1.png)
 
 This is a script that is run on the headless server, through the command-line interface, and does not require any graphical environment. It methodically checks the security position of the system by gathering the facts of the actual implemented controls such as SSH hardening, firewall enforcement, mandatory access control, automated patching, intrusion prevention, and privilege management.
 
@@ -1129,9 +1130,9 @@ Command (Workstation):
 chmod +x monitor-server.sh
 ./monitor-server.sh
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20monitor-server.sh.png)
+![image](images/week5/nanomonitorserversh.png)
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20monitor-server.sh1.png)
+![image](images/week5/nanomonitorserver1.sh1.png)
 
 Remote Monitoring Script (monitor-server.sh) -Explanation.
 This script is executed on the workstation, and it gathers key performance metrics of the headless server via SSH, which does not violate the SSH-only factor of administration. It logs uptime/load averages, a snapshot of CPU/process, the memory consumption, disk consumption, the network interfaces status, and the active listening services. The output offers a consistent baseline of performance analysis in Week 6 and illustrates professional remote monitoring practice with the help of CLI tools (LO4) and assists in future trade-off analysis (LO5).
@@ -1153,6 +1154,7 @@ Evidence collected during Week 5 includes:
 The headless Linux server's security and monitoring features were greatly improved in week five. Intrusion protection, automated patch management, and mandatory access control were all successfully put into place. The system was ready for security auditing and performance evaluation in later coursework rounds thanks to automation scripts that made repeatable verification and remote performance monitoring possible.
 
 ---
+
 # Week 6 - Performance Evaluation and Analysis
 
 ---
@@ -1200,8 +1202,9 @@ Commands Executed (Server via SSH):
 
 `ip addr`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/uptime7.png)
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/uptime.png )
+![image](images/week6/uptime7.png
+)
+![image](images/week6/uptime.png )
 
 When combined, the results from uptime, free -h, df -h, iostat, ip addr, and top offer a thorough picture of the server's performance condition during baseline testing. The uptime command confirms that the system is running with little CPU stress by displaying extremely low load averages. Memory data from free -h show effective memory management during idle situations with low RAM utilization and no swap consumption. There is no noticeable read or write demand on storage devices, as seen by the low disk utilization and I/O activity seen with df -h and iostat. With over 99% idle time and only critical system processes operating, the 'top' command further verifies that the CPU is mostly idle. This shows that no superfluous background services are using up system resources. Network readiness for remote administration and performance testing is confirmed by network information from ip addr, which confirms that the primary network interface is operational and appropriately allocated a private IP address.
 
@@ -1229,9 +1232,9 @@ Command(Server):
 
 `stress-ng --cpu 2 --timeout 60s`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/sudo%20apt%20install%20stress-ng%20-y1.png)
+![image](images/week6/sudoaptinstallstressngy1.png)
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/sudo%20apt%20install%20stress-ng%20-y.png)
+![image](images/week6/sudoaptinstallstressngy.png)
 				 
 The command stress-ng gave an error since the parameter of the time out was not specified properly. The value assigned to -timeout has to be numerical and to add an additional -timeout flag was put in which made the tool to read it as non-numeric value. This mistake reminds about the fact that when conducting performance testing, close attention should be paid to the syntax of a command. Once the problem with the syntax had been identified it was formalized that the command syntax was fixed so that correct CPU stress testing could be performed in future runs.
 
@@ -1241,7 +1244,7 @@ Command(Server):
 
 `stress-ng --vm 1 --vm-bytes 512M --timeout 60s`
 
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/stress-ng%20--vm%201%20--vm-bytes%20512M%20--timeout%2060s.png)
+ ![image](images/week6/stressngvm1vmbytes512Mtimeout60s.png)
  
 One virtual memory stressor (vm 1) was started with the allocation of 512 MB of RAM. The duration of the stress test was 60 seconds. The system was able to handle the workload error free (failed: 0). None of the unreliable metrics were reported (metrics unreliable: 0). The test was successfully finished, thus proving that the server has the ability to withstand moderate memory load and still be stable. This finding shows that the memory management in the system is effective when it is loaded. The server was also stable and responsive throughout the stress period, which is appropriate to be optimised in further performance and security testing.
 
@@ -1252,7 +1255,7 @@ Command(Server):
 
 `iostat -dx 2 5`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/sudo%20apt%20install%20sysstat%20-y.png)
+![image](images/week6/sudoaptinstallsysstat-y.png)
 
 The performance of disk input/output was analysed and potential storage bottlenecks were determined using iostat -dx 2 5 command. This control is used to report long disk statistics at frequent intervals, so that the disk behaviour at varying levels of activity can be observed. It is indicated in the output that the main disk (sda) has limited and moderate read/write access, average wait times are low, and the disk utilisation is below the percentages. The I/O activity of most intervals is near-zero, which shows that the system storage is not being subjected to constant load. The loop device (loop0) has little activity which is expected. In general, these findings prove that disk I/O is not a test performance bottleneck. The low utilisation and low wait times indicate effective disk performance, and this will give a stable baseline which can be used to analyse the system behaviour with higher workload and after optimisation
 
@@ -1267,7 +1270,7 @@ Command(Workstation):
 
 `ping -c 10 192.168.56.4`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/ping%20-c%2010%20192.168.56.4.png)
+![image](images/week6/pingc10192168564.png)
 
 Network latency and reliability of transmitting packets between the workstation and the headless server through the Host-Only VirtualBox were measured using the ping command. To measure the round trip response time and connectivity stability, ten ICMP echo requests were posted to the server. The findings indicate that there are no losses of packets and this indicates that there is a stable network communication. The round-trip times are very low (less than milliseconds on average) which implies low latency and high-performing internal network. This proves that there are no delays that are introduced by network connection when performing SSH-based remote administration or performance testing. Generally, the output indicates that it provides a consistent, low-latency virtual network that can be used to construct controlled performance testing and security testing.
 	
@@ -1279,7 +1282,7 @@ Command:
 
 `iperf3 -s`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/sudo%20apt%20install%20iperf3%20-y.png)
+![image](images/week6/sudoaptinstalliperf3y.png)
  
 The iperf3 was installed to measure network throughput between the workstation and the headless server. The output helps in confirming that the server already had iperf3 installed and bang up to date. To start the server in the default port 5201 in listening mode, run the following command iperf3 -s. It is the message of the server listening at port 5201 which proves that the server is ready to receive the performance test connection by the workstation. This will be necessary in the controlled network throughput testing, so that data transfer rate and network performance can be measured accurately in the isolated VirtualBox host-only network.
 
@@ -1289,7 +1292,7 @@ Command:
 
 `iperf3 -c 192.168.56.4`
  
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/iperf3%20-c%20192.168.56.4.png)
+![image](images/week6/iperf3c192168564.png)
 
 Network throughput between the workstation and the headless server was measured using the Host-Only VirtualBox network with the help of the iperf3 tool. The test was able to connect within the default TCP port 5201 showing that the network had been configured correctly and firewall permitted.
 
@@ -1319,7 +1322,7 @@ Two optimisation measures were implemented:
 `systemctl list-unit-files --type=service --state=enabled`
 
 `sudo systemctl disable apport.service`
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c1b1739b472bbe4f471932e9a3c38e09741ae2e5/images/week6/Screenshot%202025-12-22%20124117.png)
+![image](images/week6/filestypesevicestateenable)
 
 Listing all of the services that are set to start automatically on boot was done by command systemctl list-unit-files type=service state=enabled. This enables unwanted background services to be identified and considered to have any effect on the performance.
 
@@ -1335,9 +1338,9 @@ Such a change indicates a good change in managing its services with command-line
 
 `sudo sysctl vm.swappiness=10`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/53232208b0a88002cf811cdd3af7519ebf5dfd98/images/week6/cat%20procsysvmswappiness.png)
+![image](images/week6/catprocsysvmswappiness.png)
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/66d252e3218ce6bfa67ef096e08f7064e1140442/images/week6/sudo%20sysctl%20vm%20swapiness.png)
+![image](images/week6/sudosysctlvmswapiness.png)
 
 This command (cat /proc/sys/vm/swappiness) shows the value of swappiness currently set by Linux which determines the aggressiveness at which the inactive memory pages are transferred by the kernel between RAM and swap space. A balance which means both the RAM usage and swapping is determined by the default value of 60.
 This command (sudo sysctl vm.swappiness=10) reduces the swappiness value from 60 to 10, instructing the kernel to prefer using physical RAM over swap space. Lowering swappiness improves system responsiveness under load by minimizing unnecessary disk I/O, which is especially beneficial for performance-sensitive server workloads.	
@@ -1363,19 +1366,19 @@ Measured system metrics were used to construct the following charts.
 
 -	CPU load comparison chart (baseline vs load vs optimised)
   
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/66d252e3218ce6bfa67ef096e08f7064e1140442/images/week6/cpuloadcomparison.drawio%20(1).png)
+![image](images/week6/cpuloadcomparison.png)
  
 The CPU load averages for three different system states are contrasted in this graph. CPU utilization is kept to a minimum during baseline operation. Because of CPU stresses, load increases dramatically during stress testing. CPU load drops during optimization (service reduction and swappiness adjustment), indicating increased efficiency and quicker load recovery.
 
 -	Memory utilisation bar graph
   
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/66d252e3218ce6bfa67ef096e08f7064e1140442/images/week6/Memory%20Utilisation.drawio.png)
+![image](images/week6/MemoryUtilisation.png)
 
 Memory utilization under various workloads is displayed in this graph. Because of the intentional pressure during stress testing, memory usage significantly increases. Memory utilization decreases following optimization, suggesting better memory management and less swapping behavior.
 
 -	Network latency comparison chart
   
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/66d252e3218ce6bfa67ef096e08f7064e1140442/images/week6/Networklatency.drawio.png)	
+![image](images/week6/Networklatency.drawio.png)	
 
 When the system is under load, there is more resource contention, which causes a modest increase in network latency. Latency decreases after optimization, demonstrating that system tuning enhances network performance and SSH responsiveness.
 
@@ -1410,6 +1413,7 @@ A thorough assessment of Linux operating system performance under various worklo
 This stage strengthened a practical comprehension of how operating systems respond to stress and how configuration modifications affect performance results. The outcomes show efficient trade-off management between security, resource use, and responsiveness. The system is also ready for the final security audit and system assessment that will take place in Week 7 thanks to this performance rating.
 
 ---
+
 # Week 7 - Security Audit and System Evaluation
 
 --- 
@@ -1448,13 +1452,14 @@ Command (Server via SSH):
 
 `sudo apt install lynis -y`
 	 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/ad524238f50b4a13b1b8018651497569a8bae5b9/images/week7/sudo%20apt%20update7.png)
+![image](images/week7/sudoaptupdate7.png)
+
 There were brief DNS resolution issues during the Lynis installation and package upgrade. According to the ethical and security requirements of the coursework, this behavior is expected since the server runs inside an isolated VirtualBox host-only network without direct internet access. Despite this, Lynis was successfully installed thanks to previously cached repositories, and entire security auditing was accomplished without the need for external network connectivity.	
 
 ### II.	Initial Security Scan
 Command(Server via SSH): `sudo lynis audit system`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/ad524238f50b4a13b1b8018651497569a8bae5b9/images/week7/sudo%20lynis%20audit%20system.png)
+![image](images/week7/sudolynisauditsystem.png)
 	
 The audit generated a comprehensive report that identified:
 
@@ -1465,7 +1470,7 @@ The audit generated a comprehensive report that identified:
 
 ### III.	Lynis Score and Findings
 
-A good security posture is indicated by the Lynis audit, which produced a hardening index above 80.
+A good security posture is indicated by the Lynis audit, which produced a hardening index less than 80.
 
 Among the important verified controls were:
 
@@ -1475,7 +1480,7 @@ Among the important verified controls were:
 -	AppArmor enabled and enforcing profiles
 -	Automatic security updates enabled
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/ad524238f50b4a13b1b8018651497569a8bae5b9/images/week7/sudo%20lynis%20audit%20system.png)
+![image](images/week7/sudolynisauditsystem.png)
 
 This fulfills the curriculum prerequisite for a Lynis score less than 80.
 
@@ -1490,7 +1495,7 @@ Examples of corrective measures consist of:
 Fix: In sshd_config, root login was turned off (PermitRootLogin no). 
 Command for verification: sshd -T | grep permitrootlogin 
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e98ca500270469a473113f47c45f1bd8274514d6/images/week7/sshd%20T%20%20grep%20permitrootlogin.png)
+![image](images/week7/sshdTgreppermitrootlogin.png)
 
 -	Lynis's suggestion: Make sure SSH authentication is robust.
   
@@ -1498,14 +1503,14 @@ Remediation: Key-based authentication was implemented and password authenticatio
 
 SSHd -T | grep passwordauthentication is the verification command
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e98ca500270469a473113f47c45f1bd8274514d6/images/week7/sshd%20T%20%20grep%20passwordauthentication.png)
+![image](images/week7/sshdTgreppasswordauthentication.png)
 
 -	Lynis suggests that firewall enforcement be implemented.
   
 Remediation: Restricted SSH access was enabled on the UFW default-deny firewall. 
-Command for verification: `sudo ufw status verbose` 
+Command for verification: sudo ufw status verbose 
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/414d2fbed7f3fcccb947edbf81e05dd501c6fb2e/images/week7/sudo%20ufw%20status%20verbose%207.png)
+![image](images/week7/sudoufwstatusverbose7.png)
 
 These steps demonstrate that Lynis' findings were thoroughly examined and addressed, strengthening the system setup. After the final verification, a follow-up Lynis scan was carried out to make sure the system security posture had not regressed. Following remediation, the hardening index stayed less 80, indicating configuration stability and consistency.
 
@@ -1519,7 +1524,8 @@ Command(Workstation): `nmap -sS 192.168.56.4`
  
 
 
-Screenshot
+
+	Screenshot
 
 ### II.	Nmap Scan Results Analysis
 The scan confirmed:
@@ -1533,7 +1539,7 @@ This proves that the default-deny firewall policy put in place in Week 4 was suc
 Command (Server via SSH):
 `ss -tulnp`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/414d2fbed7f3fcccb947edbf81e05dd501c6fb2e/images/week7/ss%20-tulnp.png)
+![image](images/week7/sstulnp.png)
 
 The output confirmed that only the SSH service is actively listening for inbound connections, reinforcing firewall enforcement and minimal exposure.
 
@@ -1545,7 +1551,7 @@ The output confirmed that only the SSH service is actively listening for inbound
 Command(Server via SSH) : 
 `sshd -T | grep -E "passwordauthentication|permitrootlogin|pubkeyauthentication"`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/414d2fbed7f3fcccb947edbf81e05dd501c6fb2e/images/week7/sshd%20-T%20%20grep%20-E%20passwordauthentication%20permitrootloginpubkeyauthentication.png)
+![image](images/week7/sshdTgrepEpppubkey.png)
 
 Verified Settings:
 
@@ -1562,7 +1568,7 @@ Strong SSH hardening against credential-based and brute-force assaults is confir
 ### I.	AppArmor Status Check
 Command(Server via SSH): `sudo aa-status`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/414d2fbed7f3fcccb947edbf81e05dd501c6fb2e/images/week7/sudo%20aa-status.png)
+![image](images/week7/sudoaastatus.png)
 
 AppArmor profiles were confirmed to be:
 -	Loaded
@@ -1577,7 +1583,7 @@ This restricts lateral mobility inside the system and guarantees the containment
 ### I.	Running Services Inventory
 Command (Server via SSH): `systemctl list-units --type=service --state=running`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/f620151ce538e84edf9ab65b80b560c46ac907a0/images/week7/systemctl%20list-units%20--type%3Dservice%20--state%3Drunning.png)
+![image](images/week7/systemctlistunitstypeservicestaterunning.png)
 
 ### II.	Service Justification
 
@@ -1625,6 +1631,7 @@ Even with robust security measures, there are still certain lingering risks:
 | Misconfiguration drift | Automated security baseline scripts          |
 
 These risks are manageable and acceptable, in line with server administration procedures used in the real world. Minor performance overheads are introduced by a number of security procedures, which were assessed and deemed necessary trade-offs:
+
 - Firewall (UFW):
   Trade-off: Slight packet filtering overhead.
   Justification: Significantly reduces attack surface and unauthorized access.

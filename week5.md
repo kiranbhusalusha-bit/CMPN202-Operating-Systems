@@ -254,7 +254,7 @@ chmod +x monitor-server.sh
 
 ![image](images/week5/nanomonitorserversh.png)
 
-![image](images/week5/nanomonitorserversh.png)
+![image](images/week5/nanomonitorserver1.sh1.png)
 
 Remote Monitoring Script (monitor-server.sh) -Explanation.
 This script is executed on the workstation, and it gathers key performance metrics of the headless server via SSH, which does not violate the SSH-only factor of administration. It logs uptime/load averages, a snapshot of CPU/process, the memory consumption, disk consumption, the network interfaces status, and the active listening services. The output offers a consistent baseline of performance analysis in Week 6 and illustrates professional remote monitoring practice with the help of CLI tools (LO4) and assists in future trade-off analysis (LO5).

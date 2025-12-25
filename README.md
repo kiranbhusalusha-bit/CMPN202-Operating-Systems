@@ -1477,7 +1477,7 @@ Among the important verified controls were:
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/ad524238f50b4a13b1b8018651497569a8bae5b9/images/week7/sudo%20lynis%20audit%20system.png)
 
-This fulfills the curriculum prerequisite for a Lynis score higher than 80.
+This fulfills the curriculum prerequisite for a Lynis score less than 80.
 
 ### IV.	Lynis Remediation Actions and Verification
 

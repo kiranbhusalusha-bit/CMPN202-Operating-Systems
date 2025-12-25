@@ -36,15 +36,13 @@ Command (Server via SSH):
 
 `sudo apt install lynis -y`
 	 
-	 
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/ad524238f50b4a13b1b8018651497569a8bae5b9/images/week7/sudo%20apt%20update7.png)
 There were brief DNS resolution issues during the Lynis installation and package upgrade. According to the ethical and security requirements of the coursework, this behavior is expected since the server runs inside an isolated VirtualBox host-only network without direct internet access. Despite this, Lynis was successfully installed thanks to previously cached repositories, and entire security auditing was accomplished without the need for external network connectivity.	
 
 ### II.	Initial Security Scan
 Command(Server via SSH): `sudo lynis audit system`
 
-
-	
-
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/ad524238f50b4a13b1b8018651497569a8bae5b9/images/week7/sudo%20lynis%20audit%20system.png)
 	
 The audit generated a comprehensive report that identified:
 
@@ -65,8 +63,7 @@ Among the important verified controls were:
 -	AppArmor enabled and enforcing profiles
 -	Automatic security updates enabled
 
-
-	Screenshot
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/ad524238f50b4a13b1b8018651497569a8bae5b9/images/week7/sudo%20lynis%20audit%20system.png)
 
 This fulfills the curriculum prerequisite for a Lynis score higher than 80.
 
@@ -80,16 +77,23 @@ Examples of corrective measures consist of:
   
 Fix: In sshd_config, root login was turned off (PermitRootLogin no). 
 Command for verification: sshd -T | grep permitrootlogin 
+
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e98ca500270469a473113f47c45f1bd8274514d6/images/week7/sshd%20T%20%20grep%20permitrootlogin.png)
+
 -	Lynis's suggestion: Make sure SSH authentication is robust.
   
 Remediation: Key-based authentication was implemented and password authentication was turned off.
 
 SSHd -T | grep passwordauthentication is the verification command
 
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e98ca500270469a473113f47c45f1bd8274514d6/images/week7/sshd%20T%20%20grep%20passwordauthentication.png)
+
 -	Lynis suggests that firewall enforcement be implemented.
   
 Remediation: Restricted SSH access was enabled on the UFW default-deny firewall. 
 Command for verification: sudo ufw status verbose 
+
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/414d2fbed7f3fcccb947edbf81e05dd501c6fb2e/images/week7/sudo%20ufw%20status%20verbose%207.png)
 
 These steps demonstrate that Lynis' findings were thoroughly examined and addressed, strengthening the system setup. After the final verification, a follow-up Lynis scan was carried out to make sure the system security posture had not regressed. Following remediation, the hardening index stayed over 80, indicating configuration stability and consistency.
 
@@ -118,6 +122,8 @@ This proves that the default-deny firewall policy put in place in Week 4 was suc
 Command (Server via SSH):
 `ss -tulnp`
 
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/414d2fbed7f3fcccb947edbf81e05dd501c6fb2e/images/week7/ss%20-tulnp.png)
+
 The output confirmed that only the SSH service is actively listening for inbound connections, reinforcing firewall enforcement and minimal exposure.
 
 ---
@@ -128,11 +134,9 @@ The output confirmed that only the SSH service is actively listening for inbound
 Command(Server via SSH) : 
 `sshd -T | grep -E "passwordauthentication|permitrootlogin|pubkeyauthentication"`
 
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/414d2fbed7f3fcccb947edbf81e05dd501c6fb2e/images/week7/sshd%20-T%20%20grep%20-E%20passwordauthentication%20permitrootloginpubkeyauthentication.png)
 
-
-Screenshot
-
-	Verified Settings:
+Verified Settings:
 
 -	PasswordAuthentication no
 -	PermitRootLogin no
@@ -147,9 +151,9 @@ Strong SSH hardening against credential-based and brute-force assaults is confir
 ### I.	AppArmor Status Check
 Command(Server via SSH): `sudo aa-status`
 
-	Screenshot
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/414d2fbed7f3fcccb947edbf81e05dd501c6fb2e/images/week7/sudo%20aa-status.png)
 
-	AppArmor profiles were confirmed to be:
+AppArmor profiles were confirmed to be:
 -	Loaded
 -	Actively restricting application behaviour
 -	Enforced
@@ -162,9 +166,7 @@ This restricts lateral mobility inside the system and guarantees the containment
 ### I.	Running Services Inventory
 Command (Server via SSH): `systemctl list-units --type=service --state=running`
 
-
-	Screenshot
-
+![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/f620151ce538e84edf9ab65b80b560c46ac907a0/images/week7/systemctl%20list-units%20--type%3Dservice%20--state%3Drunning.png)
 
 ### II.	Service Justification
 
@@ -195,7 +197,6 @@ The attack surface is decreased by the minimal, essential, and justifiable natur
 | Automatic updates              | Enabled     |
 | Intrusion detection (fail2ban) | Active      |
 | Security auditing (Lynis)      | Completed   |
-
 
 This attests to complete adherence to all security regulations.
 

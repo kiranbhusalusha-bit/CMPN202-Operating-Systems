@@ -183,8 +183,7 @@ Command(Server):
 
 `systemctl get-default`
 
- ![image](images/week1/echo$DISPLAY.png)
-
+![image](images/week1/echo$DISPLAY.png)
 There is no active graphical display session, as confirmed by the echo $DISPLAY command, which produced no result. The system boots into a non-graphical, command-line-only operating mode, as confirmed by the return of multi-user.target from the systemctl get-default command. This verifies that the server is functioning as a real headless Linux system, providing safe, resource-efficient remote administration over SSH and conforming to professional server deployment guidelines.
 
 

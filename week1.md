@@ -52,7 +52,7 @@ The system architecture consists of:
 - A headless Linux server virtual machine  
 - A virtual network enabling SSH communication  
 
-![systemarchiteture.png](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/4a74bf4bfaac52b3487d8db92fc9653d28e85e3d/images/week1/systemarchiteture.png)
+![systemarchiteture.png](images/week1/systemarchiteture.png)
 
 Each administrative traffic is unidirectional only at the workstation to the server on the isolated host-only virtual network (SSH over TCP port 22).
 

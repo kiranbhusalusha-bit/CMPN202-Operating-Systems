@@ -213,7 +213,6 @@ Even with robust security measures, there are still certain lingering risks:
 | Insider misuse         | Least-privilege user management              |
 | Misconfiguration drift | Automated security baseline scripts          |
 
-
 These risks are manageable and acceptable, in line with server administration procedures used in the real world. Minor performance overheads are introduced by a number of security procedures, which were assessed and deemed necessary trade-offs:
 - Firewall (UFW):
   Trade-off: Slight packet filtering overhead.

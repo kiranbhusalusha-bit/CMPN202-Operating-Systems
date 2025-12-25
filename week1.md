@@ -183,7 +183,7 @@ Command(Server):
 
 `systemctl get-default`
 
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/54b97ffd722c9e1ce5702b7d526228fd89b9d98f/images/week1/echo%20%24DISPLAY.png)
+ ![echo $DISPLAY.png](images/week1/echo $DISPLAY.png)
 
 There is no active graphical display session, as confirmed by the echo $DISPLAY command, which produced no result. The system boots into a non-graphical, command-line-only operating mode, as confirmed by the return of multi-user.target from the systemctl get-default command. This verifies that the server is functioning as a real headless Linux system, providing safe, resource-efficient remote administration over SSH and conforming to professional server deployment guidelines.
 
@@ -192,7 +192,7 @@ There is no active graphical display session, as confirmed by the echo $DISPLAY 
 ### II. Kernel and Architecture
 Command (SERVER): `uname -a`
 
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/4b8f503f344d75517afd3310bf6141479e661c30/images/week1/uname.png)
+ ![image](images/week1/uname.png)
 
 
 The Linux kernel version, system architecture, and operating system information of the server were confirmed using the uname -a command. This attests to the server's 64-bit Linux kernel, which is appropriate for safe and effective server operation.

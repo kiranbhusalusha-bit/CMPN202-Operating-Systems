@@ -217,15 +217,17 @@ Disk space utilization was shown in a human-readable way using the df -h tool. T
 ### V.	Network Interfaces and IP Addressing
 Command(Server): `ip addr`
 
- ![image](images/week1/ip%20addr.png)
+ ![image](images/week1/ipaddr.png)
 
 The server's given IP addresses for each network interface were shown using the ip addr command. The output verifies that VirtualBox networking has given the primary network interface (enp0s3) a private IPv4 address and that it is operational. This confirms that the server can perform safe remote administration using SSH and is properly linked to the virtual network.
 
 ### VI.	Distribution and Version Confirmation
 Command(Server): `lsb_release -a`
  
-![image](images/week1/lsb_release-a.png)
+![image](images/week1/lsbreleasea.png)
 
+The lsb_release -a command was used to verify the operating system distribution and version by executing it on the headless Linux server. The service confirms that the server is a Ubuntu Server 24.04 LTS (Noble). This proves that it is on a long-term support (LTS) version, suited to server systems by the virtue of long security patches, stability, and reliability.
+Checking the version and the distribution will guarantee that it is compatible with the security tools, auditing tools, and services of the system that will be utilized during the coursework. This is also a step in determining a proper baseline on reproducibility and professional system documentation to reinforce secure and consistent operating system administration.
 
 ### VII.	System Identification(Hostname Verification)
 Command(Server): `hostname`
@@ -236,7 +238,7 @@ The hostname of the system was found using the hostname command. In order to ass
 
 ### VIII.	Routing Table and Default Network Path Verification
 Command(Server): `ip route`
- ![image](images/week1/ip%20route.png)
+ ![image](images/week1/iproute.png)
  
 The ip route command specifies how network traffic is forwarded and shows the system's routing table. The output verifies that the server communicates within the 192.168.56.0/24 private network using the enp0s3 network interface. This confirms that the server has an active connection to the virtual network used for SSH-based remote administration, a legitimate network route, and an appropriately assigned source IP address. In order to preserve network isolation, which is necessary for secure system management and subsequent firewall configuration, this routing configuration guarantees dependable internal connectivity between the workstation and the headless server.
 

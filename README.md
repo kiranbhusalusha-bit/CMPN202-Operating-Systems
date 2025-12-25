@@ -1519,8 +1519,7 @@ Command(Workstation): `nmap -sS 192.168.56.4`
  
 
 
-
-	Screenshot
+Screenshot
 
 ### II.	Nmap Scan Results Analysis
 The scan confirmed:

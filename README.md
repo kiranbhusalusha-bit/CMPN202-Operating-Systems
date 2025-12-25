@@ -1,4 +1,4 @@
-# CMPN202 – Operating Systems
+# CMPN202 – CMPN202 Operating Systems coursework
 
 # Week 1 – System Planning, Architecture and Initial Configuration
 

@@ -18,9 +18,9 @@ Command(server via SSH):
  
  `sudo aa-status --verbose` 
   
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20aa-status.png)
+![image](images/week5/sudoaastatus.png)
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20aa-status1.png)
+![image](images/week5/sudoaastatus1.png)
 
 To confirm that AppArmor is activated and actively enforcing security regulations on the server, the aa-status and aa-status --verbose tools were utilized. The output verifies that AppArmor is operating in enforce mode and that an active profile is protecting the rsyslogd service. Enforce mode stops processes from carrying out unauthorized operations by ensuring that specified access control rules are applied in real time. This shows that obligatory access control is set up appropriately, enhancing system security and bolstering the defense-in-depth tenets.
 
@@ -36,9 +36,9 @@ Command(Server via SSH):
 
 `sudo apt install unattended-upgrades -y`
  
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20apt%20install%20unattended-upgrades%20-y1.png)
+![image](images/week5/sudoaptunattendedupgradesy1.png)
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20apt%20install%20unattended-upgrades%20-y2.png)
+![image](images/week5/sudoaptinstallunattendedupgradesy2.png)
 
 To check for available security updates from the Ubuntu repository and refresh the local package index, the apt update command was run. The system successfully read existing package lists, enabling package management to proceed safely even though temporary DNS resolution warnings were seen for some archive mirrors because of the isolated VirtualBox host-only network.
 
@@ -46,9 +46,9 @@ After that, the unattended-upgrades package was set up to allow important securi
 
 ### II.	Enable Automatic Security Updates
 Command(Server):
-` dpkg-reconfigure --priority=low unattended-upgrades`
+` sudo dpkg-reconfigure --priority=low unattended-upgrades`
 
- ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20dpkg-reconfigure.png)
+ ![image](images/week5/sudodpkgreconfigure.png)
 
 This prompt shows up when the unattended-upgrades package is being configured. When you choose "Yes," the system can download and install critical security updates automatically without your help. This reduces the window of exposure to known vulnerabilities and ensures the server remains up to date with critical patches, which is a best practice for maintaining a secure Linux server in a production-like environment.
 
@@ -56,7 +56,7 @@ This prompt shows up when the unattended-upgrades package is being configured. W
 Command (Server):
 `cat /etc/apt/apt.conf.d/20auto-upgrades`
  
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/cat%20etc%20apt%20apt.conf.d%2020auto-upgrades.png)
+![image](images/week5/catetcaptaptconfd20autoupgrades.png)
 
 This configuration file verifies that the server is set up for automatic security updates. While APT::Periodic::Unattended-Upgrade "1"; permits the automatic installation of security updates, APT::Periodic::Update-Package-Lists "1"; guarantees that package lists are updated every day. This supports secure system administration best practices by lowering the amount of manual maintenance required and keeping the system safe from recently found vulnerabilities.
 
@@ -64,7 +64,7 @@ This configuration file verifies that the server is set up for automatic securit
 Command (Server):
 `systemctl status unattended-upgrades --no-pager`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/systemctl%20status%20unattended-upgrades%20--no-pager.png)
+![image](images/week5/systemctlstatusunattendedupgradesnopager.png)
 
 This output verifies that the server's unattended-upgrades service is turned on and operating. The service status shows that automatic security updates are properly set up to operate automatically in the background without human interaction. This approach lowers exposure to known vulnerabilities and ensures safe, low-maintenance system operation in compliance with best practices by guaranteeing the timely installation of critical fixes.
 
@@ -75,7 +75,7 @@ To defend the SSH service against brute-force attacks, fail2ban was implemented.
 ### I.	Install fail2ban
 Command (Server via SSH): `sudo apt install fail2ban -y`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20apt%20install%20fail2ban%20-y.png)
+![image](images/week5/sudoaptinstallfail2bany.png)
 
 This screenshot displays an attempt to install fail2ban, an intrusion detection and prevention program that guards against brute-force attacks on services like SSH. The installation experienced brief network resolution issues when attempting to reach Ubuntu repositories, despite the package manager's successful identification of the necessary dependencies. Despite this, the command execution shows how to utilize package management tools correctly and records a configuration issue that was encountered. These issues are common in real-world system administration and are resolved in later stages if network access is reliable.
 
@@ -94,7 +94,7 @@ findtime = 10m
 
 bantime = 10m
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/c9c6bcec2210a030d49cf515ae0a2f6869d273b4/images/week5/sudo%20nano%20etc%20fail2ban%20jail.d%20sshd.local.png)
+![image](images/week5/sudonanoetcfail2banjaildsshdlocal.png)
 
 The setup presented allows the fail2ban SSH jail, which detects intrusions and automatically blocks brute force attacks directed to the SSH service.	
 -  enabled = true
@@ -122,7 +122,7 @@ Command(Server):
 
 `sudo fail2ban-client get sshd maxretr`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/f27f97cdb3f913e92e047a2ef16052274e9585c0/images/week5/sudo%20systemctl%20enable%20--now%20fail2ban1%2C2%2C3%2C4.png)
+![image](images/week5/sudosystemctlenablenowfail2ban1234.png)
  
 The headless Linux server was configured and tested to have Fail2Ban to offer active protection to the SSH service. The service is verified as being enabled at boot and in active operation, which means that intrusion prevention will be done continuously without any human intervention. Through the Fail2Ban client, the SSH jail was confirmed to be working and the authentication logs were being recorded and being viewed accordingly.
 
@@ -191,9 +191,9 @@ Command (Server):
 `chmod +x security-baseline.sh
 ./security-baseline.sh`
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20security-baseline.sh.png)
+![image](images/week5/nanosecuritybaselinesh.png)
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20security-baseline.sh1.png)
+![image](images/week5/nanosecuritybaselinesh1.png)
 
 This is a script that is run on the headless server, through the command-line interface, and does not require any graphical environment. It methodically checks the security position of the system by gathering the facts of the actual implemented controls such as SSH hardening, firewall enforcement, mandatory access control, automated patching, intrusion prevention, and privilege management.
 
@@ -252,9 +252,9 @@ Command (Workstation):
 chmod +x monitor-server.sh
 ./monitor-server.sh
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20monitor-server.sh.png)
+![image](images/week5/nanomonitorserversh.png)
 
-![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/e6d9dc3171b152784c08dc45953201c69d86363e/images/week5/nano%20monitor-server.sh1.png)
+![image](images/week5/nanomonitorserversh.png)
 
 Remote Monitoring Script (monitor-server.sh) -Explanation.
 This script is executed on the workstation, and it gathers key performance metrics of the headless server via SSH, which does not violate the SSH-only factor of administration. It logs uptime/load averages, a snapshot of CPU/process, the memory consumption, disk consumption, the network interfaces status, and the active listening services. The output offers a consistent baseline of performance analysis in Week 6 and illustrates professional remote monitoring practice with the help of CLI tools (LO4) and assists in future trade-off analysis (LO5).

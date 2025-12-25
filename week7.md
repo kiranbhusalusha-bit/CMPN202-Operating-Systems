@@ -95,7 +95,7 @@ Command for verification: sudo ufw status verbose
 
 ![image](https://github.com/kiranbhusalusha-bit/CMPN202-Operating-Systems/blob/414d2fbed7f3fcccb947edbf81e05dd501c6fb2e/images/week7/sudo%20ufw%20status%20verbose%207.png)
 
-These steps demonstrate that Lynis' findings were thoroughly examined and addressed, strengthening the system setup. After the final verification, a follow-up Lynis scan was carried out to make sure the system security posture had not regressed. Following remediation, the hardening index stayed over 80, indicating configuration stability and consistency.
+These steps demonstrate that Lynis' findings were thoroughly examined and addressed, strengthening the system setup. After the final verification, a follow-up Lynis scan was carried out to make sure the system security posture had not regressed. Following remediation, the hardening index stayed less 80, indicating configuration stability and consistency.
 
 ---
 
